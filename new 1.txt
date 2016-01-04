@@ -1,0 +1,8379 @@
+{
+success: true,
+data: {
+version: 1,
+menu: [
+{
+category: "Make Your own pizza",
+id: 0,
+items: [
+{
+size: [
+{
+id: 0,
+price: 165,
+name: "slice"
+},
+{
+id: 1,
+price: 295,
+name: "9.5”"
+},
+{
+id: 2,
+price: 535,
+name: "13.5”"
+},
+{
+id: 3,
+price: 895,
+name: "17.5”"
+}
+],
+simple: false,
+name: "Create Your own pizza",
+id: 0,
+custom: [
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 0,
+name: "Whole Wheat"
+},
+{
+id: 1,
+price: 0,
+name: "Garlic Infused"
+},
+{
+id: 2,
+price: 0,
+name: "Regular"
+}
+],
+min: 1,
+max: 1,
+name: "Crust"
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 0,
+name: "Tomato Basil"
+},
+{
+id: 1,
+price: 0,
+name: "BBQ"
+},
+{
+id: 2,
+price: 0,
+name: "Pesto"
+},
+{
+id: 3,
+price: 0,
+name: "Hot"
+}
+],
+min: 1,
+max: 1,
+name: "Sauce"
+},
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 1,
+name: "Signature toppings",
+soft: 3,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 1,
+name: "Gourmet toppings",
+soft: 1,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+]
+}
+]
+},
+{
+category: "Signature Pizzas",
+id: 1,
+items: [
+{
+size: [
+{
+id: 0,
+price: 110,
+name: "slice"
+},
+{
+id: 1,
+price: 255,
+name: "9.5”"
+},
+{
+id: 2,
+price: 425,
+name: "13.5”"
+},
+{
+id: 3,
+price: 675,
+name: "17.5”"
+}
+],
+id: 0,
+tags: [
+"veg"
+],
+name: "Tijuana",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Sauteed red onions, jalapinos, cherry tomato, olives topped with mozz in our house BBQ sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 110,
+name: "slice"
+},
+{
+id: 1,
+price: 255,
+name: "9.5”"
+},
+{
+id: 2,
+price: 425,
+name: "13.5”"
+},
+{
+id: 3,
+price: 675,
+name: "17.5”"
+}
+],
+id: 1,
+tags: [
+"veg"
+],
+name: "Classic Margherita",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Cherry tomato, fresh basil topped with baby mozz in our house pizza sauce"
+},
+{
+size: [
+{
+id: 0,
+price: 110,
+name: "slice"
+},
+{
+id: 1,
+price: 255,
+name: "9.5”"
+},
+{
+id: 2,
+price: 425,
+name: "13.5”"
+},
+{
+id: 3,
+price: 675,
+name: "17.5”"
+}
+],
+id: 2,
+tags: [
+"veg"
+],
+name: "Four Cheese",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Mozz, cheddar, blue and permesan cheeze"
+},
+{
+size: [
+{
+id: 0,
+price: 110,
+name: "slice"
+},
+{
+id: 1,
+price: 255,
+name: "9.5”"
+},
+{
+id: 2,
+price: 425,
+name: "13.5”"
+},
+{
+id: 3,
+price: 675,
+name: "17.5”"
+}
+],
+id: 3,
+tags: [
+"veg"
+],
+name: "Falafel",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Crumbled falafel, sauteed red and caramelised onions and black olives topped with baby mozz in our in house pizza sauce"
+},
+{
+size: [
+{
+id: 0,
+price: 110,
+name: "slice"
+},
+{
+id: 1,
+price: 255,
+name: "9.5”"
+},
+{
+id: 2,
+price: 425,
+name: "13.5”"
+},
+{
+id: 3,
+price: 675,
+name: "17.5”"
+}
+],
+id: 4,
+tags: [
+"veg"
+],
+name: "Hot Spot",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Button mushrooms, jalapinos, pimentao peppers, roasted garlic and fried basil, topped with permesan cheese and ricota cheese blend in our in house hot pizza sauce"
+},
+{
+size: [
+{
+id: 0,
+price: 110,
+name: "slice"
+},
+{
+id: 1,
+price: 255,
+name: "9.5”"
+},
+{
+id: 2,
+price: 425,
+name: "13.5”"
+},
+{
+id: 3,
+price: 675,
+name: "17.5”"
+}
+],
+id: 5,
+tags: [
+"veg"
+],
+name: "Skinny Pete",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Available in spinach or beetroot crust, sauteed spinach, caramelised onions, sauteed red onions topped with feta and mozz blend in our in house pizza sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 150,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 795,
+name: "17.5”"
+}
+],
+id: 6,
+tags: [
+"nveg"
+],
+name: "The Rustic",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "BBQ chicken, roasted garlic topped with mozz in our in house BBQ chilli sauce garnished with fried leek."
+},
+{
+size: [
+{
+id: 0,
+price: 150,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 795,
+name: "17.5”"
+}
+],
+id: 7,
+tags: [
+"nveg"
+],
+name: "Hot Spot",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Spicy chicken, button mushroom, jalapinos, pimentopeppers, roasted garlic and fried basil topped with parmesan and ricota cheese blend in our in house hot sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 150,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 795,
+name: "17.5”"
+}
+],
+id: 8,
+tags: [
+"nveg"
+],
+name: "The Roast of Chicken",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Char-grilled chicken, jalapinos and sauteed red onions topped with mozz in our in house pizza sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 150,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 795,
+name: "17.5”"
+}
+],
+id: 9,
+tags: [
+"nveg"
+],
+name: "Beef Me Up",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Seasoned tenderlion chunks, sauteed red onions, spinach and roasted garlic topped with blue cheese in our in house sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 150,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 795,
+name: "17.5”"
+}
+],
+id: 10,
+tags: [
+"nveg"
+],
+name: "Hamlet",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Smoked ham and pineapple topped with ricotta in our in house BBQ chilli sauce garnished with fresh cilantro."
+}
+]
+},
+{
+category: "Gourmet Pizzas",
+id: 2,
+items: [
+{
+size: [
+{
+id: 0,
+price: 155,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 827,
+name: "17.5”"
+}
+],
+id: 0,
+tags: [
+"veg"
+],
+name: "The Acropolis",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Red onions, green and black olives, jalepenos and arugula with feta in our in house pizza sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 155,
+name: "slice"
+},
+{
+id: 1,
+price: 285,
+name: "9.5”"
+},
+{
+id: 2,
+price: 495,
+name: "13.5”"
+},
+{
+id: 3,
+price: 827,
+name: "17.5”"
+}
+],
+id: 1,
+tags: [
+"veg"
+],
+name: "Bandit Green",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Cherry tomatoes and basil with baby mozz in our in house pesto sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 2,
+tags: [
+"nveg"
+],
+name: "Into the Blue",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Spiced calamari, shrimps and basa with peppers topped with mozz in our in house pizza sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 3,
+tags: [
+"nveg"
+],
+name: "Prosciutto Di Parma",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Parma ham and buffalo mozz in our in house marinara sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 4,
+tags: [
+"vnveg"
+],
+name: "Honey! It's Bacon",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Honey-glazed bacon, peppers, button mushrooms topped with mozz in our in house pizza sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 5,
+tags: [
+"nveg"
+],
+name: "The Boss",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Loads of smoked pepperoni, sundried tomatoes, drizzled with pesto in our in house pizza sauce."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 6,
+tags: [
+"nveg"
+],
+name: "Smoking Room",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Smoked chikcken and sundried tomato."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 7,
+tags: [
+"nveg"
+],
+name: "Piggy Bank",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Juicy pulled pork, jalapinos and arugula topped with mozz in our in house pizza sauce, garnished with in house bacon jam."
+},
+{
+size: [
+{
+id: 0,
+price: 175,
+name: "slice"
+},
+{
+id: 1,
+price: 305,
+name: "9.5”"
+},
+{
+id: 2,
+price: 575,
+name: "13.5”"
+},
+{
+id: 3,
+price: 965,
+name: "17.5”"
+}
+],
+id: 8,
+tags: [
+"nveg"
+],
+name: "Something Fishy",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Smoked salmon with caramelised onions and capers."
+},
+{
+size: [
+{
+id: 0,
+price: 185,
+name: "slice"
+},
+{
+id: 1,
+price: 315,
+name: "9.5”"
+},
+{
+id: 2,
+price: 595,
+name: "13.5”"
+},
+{
+id: 3,
+price: 1001,
+name: "17.5”"
+}
+],
+id: 9,
+tags: [
+"nveg",
+"rec"
+],
+name: "Heisenberg",
+simple: false,
+custom: [
+{
+options: [
+{
+id: 0,
+price: 50,
+tags: [
+"veg"
+],
+name: "Caramelised Onions"
+},
+{
+id: 1,
+price: 50,
+tags: [
+"veg"
+],
+name: "Red Onions"
+},
+{
+id: 2,
+price: 50,
+tags: [
+"veg"
+],
+name: "Bell Peppers"
+},
+{
+id: 3,
+price: 50,
+tags: [
+"veg"
+],
+name: "Jalapenos"
+},
+{
+id: 4,
+price: 50,
+tags: [
+"veg"
+],
+name: "Pineapple"
+},
+{
+id: 5,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black and Green Grapes"
+},
+{
+id: 6,
+price: 50,
+tags: [
+"veg"
+],
+name: "Button Mushrooms"
+},
+{
+id: 7,
+price: 50,
+tags: [
+"veg"
+],
+name: "Black Olives"
+},
+{
+id: 8,
+price: 50,
+tags: [
+"veg"
+],
+name: "Green Olives"
+},
+{
+id: 9,
+price: 50,
+tags: [
+"veg"
+],
+name: "Spinach"
+},
+{
+id: 10,
+price: 50,
+tags: [
+"veg"
+],
+name: "Zucchini"
+},
+{
+id: 11,
+price: 50,
+tags: [
+"veg"
+],
+name: "Corn"
+},
+{
+id: 12,
+price: 50,
+tags: [
+"veg"
+],
+name: "Baked Potato"
+},
+{
+id: 13,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Smoked Ham"
+},
+{
+id: 14,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Chicken Sausage"
+},
+{
+id: 15,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Roast Chicken Breast"
+},
+{
+id: 16,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Spicy Chicken"
+},
+{
+id: 17,
+price: 50,
+tags: [
+"nveg"
+],
+name: "BBQ Chicken"
+},
+{
+id: 18,
+price: 50,
+tags: [
+"nveg"
+],
+name: "Crumbled Smoked Meatballs"
+}
+],
+min: 0,
+name: "Signature toppings",
+soft: 0,
+max: 0
+},
+{
+options: [
+{
+id: 0,
+price: 65,
+tags: [
+"veg"
+],
+name: "Arugula"
+},
+{
+id: 1,
+price: 65,
+tags: [
+"veg"
+],
+name: "Cherry Tomatoes"
+},
+{
+id: 2,
+price: 65,
+tags: [
+"veg"
+],
+name: "Sun Dried Tomatoes"
+},
+{
+id: 3,
+price: 65,
+tags: [
+"veg"
+],
+name: "Gherkins"
+},
+{
+id: 4,
+price: 65,
+tags: [
+"veg"
+],
+name: "Artichokes"
+},
+{
+id: 5,
+price: 65,
+tags: [
+"veg"
+],
+name: "Aparagus"
+},
+{
+id: 6,
+price: 65,
+tags: [
+"veg"
+],
+name: "Tofu"
+},
+{
+id: 7,
+price: 65,
+tags: [
+"veg"
+],
+name: "Capers"
+},
+{
+id: 8,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Pepperoni"
+},
+{
+id: 9,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salami"
+},
+{
+id: 10,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Crispy Bacon"
+},
+{
+id: 11,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Honey Glazed Bacon"
+},
+{
+id: 12,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Seasoned Tenderloin Chunks"
+},
+{
+id: 13,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Pulled Pork"
+},
+{
+id: 14,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Shrimp"
+},
+{
+id: 15,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Gcalamari"
+},
+{
+id: 16,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Chicken"
+},
+{
+id: 17,
+price: 65,
+tags: [
+"nveg"
+],
+name: "Smoked Salmon"
+}
+],
+min: 0,
+name: "Gourmet toppings",
+soft: 0,
+max: 0
+},
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 50,
+name: "Cheese"
+}
+],
+min: 0,
+max: 0,
+name: "Extra"
+}
+],
+desc: "Smoked salami, pepperoni, smoked chicken, bacon bits, green chilli and fresh basil topped with mozz in our in house marinara sauce."
+}
+]
+},
+{
+category: "Sliders and dips",
+id: 3,
+items: [
+{
+simple: false,
+name: "Slider",
+id: 0,
+price: 375,
+desc: "Box of 4, Pick 2 of a kind",
+custom: [
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 0,
+tags: [
+"veg"
+],
+desc: "Kidney beans, sauteed onion rings, gherkins, peri peri and salsa rossa",
+name: "Mexiteer"
+},
+{
+id: 1,
+price: 0,
+tags: [
+"veg"
+],
+desc: "Lebanese falafel, tzatziki, hummus, salsa rossa, brie",
+name: "Falafel"
+},
+{
+id: 2,
+price: 0,
+tags: [
+"veg"
+],
+desc: "Grilled tofu",
+name: "Jamaican Jerk"
+},
+{
+id: 3,
+price: 0,
+tags: [
+"veg"
+],
+desc: "Spinach and corn",
+name: "Spin-A-Corn"
+},
+{
+id: 4,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Tangy sausage, garlic aioli, caramelized onions and brie",
+name: "Hot guy"
+},
+{
+id: 5,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Thai-spiced pulled duck in our in house sauce with cheddar",
+name: "Ducktale"
+},
+{
+id: 6,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Spicy pulled pork with our in house bacon jam and gherkins, apple slice, arugula and mozz",
+name: "Pork me"
+},
+{
+id: 7,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Buffalo chicken in peri peri with caramelized onions and blue",
+name: "Crockpot"
+},
+{
+id: 8,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Pulled BBQ chicken, gherkins, cherry tomatoes, mozz",
+name: "Pullverine"
+},
+{
+id: 9,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Spicy chicken, garlic aioli with onion rings, tomatoes and cheddar",
+name: "Hot chick"
+},
+{
+id: 10,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Grilled steak, bacon aioli, pickled onions, peppers, pineapple and blue",
+name: "Philly cheese steak"
+},
+{
+id: 11,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Smoked meatballs in our in house BBQ sauce, jalepenos, onions and cheddar",
+name: "Smokey BBQ"
+},
+{
+id: 12,
+price: 0,
+tags: [
+"nveg"
+],
+desc: "Juicy kababs, jalepeno, english dip, onion rings, cheddar, dash of sriracha",
+name: "Arabian horse"
+}
+],
+min: 1,
+max: 2,
+name: "Sliders"
+}
+]
+},
+{
+id: 1,
+price: 35,
+simple: true,
+name: "Garlic Aioli (dip)"
+},
+{
+id: 2,
+price: 35,
+simple: true,
+name: "Bacon Jam (dip)"
+},
+{
+id: 3,
+price: 35,
+simple: true,
+name: "Tartar (dip)"
+},
+{
+id: 4,
+price: 35,
+simple: true,
+name: "Lime Sriracha (dip)"
+},
+{
+id: 5,
+price: 35,
+simple: true,
+name: "Hummus (dip)"
+},
+{
+id: 6,
+price: 35,
+simple: true,
+name: "Cheesy Jalapeno (dip)"
+},
+{
+id: 7,
+price: 35,
+simple: true,
+name: "Pesto (dip)"
+}
+]
+},
+{
+category: "Small Plates",
+id: 4,
+items: [
+{
+simple: true,
+price: 155,
+tags: [
+"nveg"
+],
+id: 0,
+name: "Ginger Chicken Strips"
+},
+{
+simple: true,
+price: 255,
+tags: [
+"nveg"
+],
+id: 1,
+name: "Calamari Prawns"
+},
+{
+simple: true,
+price: 255,
+tags: [
+"nveg"
+],
+id: 2,
+name: "Chicken Wings"
+},
+{
+simple: true,
+price: 165,
+tags: [
+"nveg"
+],
+id: 3,
+name: "Bacon Tart"
+},
+{
+simple: true,
+price: 125,
+tags: [
+"veg"
+],
+id: 4,
+name: "Garlic Bread"
+},
+{
+simple: true,
+price: 150,
+tags: [
+"veg"
+],
+id: 5,
+name: "Garlic Bread with Cheese"
+},
+{
+simple: true,
+price: 210,
+tags: [
+"veg"
+],
+id: 6,
+name: "Lasagne – Veg"
+},
+{
+simple: true,
+price: 210,
+tags: [
+"nveg"
+],
+id: 7,
+name: "Lasagne – Non-Veg"
+},
+{
+simple: true,
+price: 135,
+tags: [
+"veg"
+],
+id: 8,
+name: "Hummus & Pita"
+},
+{
+id: 9,
+simple: false,
+name: "Pasta – Veg",
+tags: [
+"veg"
+],
+price: 185,
+custom: [
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 0,
+name: "Alfredo Sauce"
+},
+{
+id: 1,
+price: 0,
+name: "Marinara Sauce"
+}
+],
+min: 1,
+max: 1,
+name: "Pasta Sauce"
+},
+null
+]
+},
+{
+id: 10,
+simple: false,
+name: "Pasta – Non-Veg",
+tags: [
+"nveg"
+],
+price: 185,
+custom: [
+{
+soft: 0,
+options: [
+{
+id: 0,
+price: 0,
+name: "Alfredo Sauce"
+},
+{
+id: 1,
+price: 0,
+name: "Marinara Sauce"
+}
+],
+min: 1,
+max: 1,
+name: "Pasta Sauce"
+},
+null
+]
+}
+]
+},
+{
+category: "Icebox",
+id: 5,
+items: [
+{
+id: 0,
+price: 155,
+simple: true,
+name: "Mocha shake"
+},
+{
+id: 1,
+price: 155,
+simple: true,
+name: "Rich Oreo shake"
+},
+{
+id: 2,
+price: 155,
+simple: true,
+name: "Bronie Nutella shake"
+},
+{
+id: 3,
+price: 155,
+simple: true,
+name: "Halloween shake"
+},
+{
+id: 4,
+price: 155,
+simple: true,
+name: "Coconut Mint shake"
+},
+{
+id: 5,
+price: 95,
+simple: true,
+name: "Ginger Fizz"
+},
+{
+simple: true,
+price: 95,
+tags: [
+"rec"
+],
+id: 6,
+name: "Meth Soda"
+},
+{
+id: 7,
+price: 155,
+simple: true,
+name: "Raspberry smoothie"
+},
+{
+id: 8,
+price: 155,
+simple: true,
+name: "Mango smoothie"
+}
+]
+},
+{
+category: "Desserts",
+id: 6,
+items: [
+{
+id: 0,
+price: 225,
+simple: true,
+name: "Baked New York Cheese Cake"
+},
+{
+id: 1,
+price: 155,
+simple: true,
+name: "Rich Chocolate Cake"
+},
+{
+id: 2,
+price: 125,
+simple: true,
+name: "Dark Chocolate Tart"
+},
+{
+id: 3,
+price: 125,
+simple: true,
+name: "Fudge Brownie"
+},
+{
+id: 4,
+price: 125,
+simple: true,
+name: "Apple Crumble"
+}
+]
+}
+],
+vendor_id: 1
+}
+}
