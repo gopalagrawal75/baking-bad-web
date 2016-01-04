@@ -11,7 +11,7 @@ curl_setopt($ch, CURLOPT_URL,$url);
 $result=curl_exec($ch);
 // Closing
 curl_close($ch);
-
+//get
 // Will dump a beauty json :3
 $array = json_decode($result, true);
 
