@@ -353,6 +353,8 @@ $array=$_SESSION['menu'];
 									<h5>Daily Menu</h5>
 									<?php 
 										for($i=0;$i<count($array['data']['menu'][$_GET['cat']]['items']) ; $i++){
+											$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
+											$item=$array['data']['menu'][$_GET['cat']]['items'][$i]
 									?>
 									<div class="item-list right-checkout">
 										<div class="list-image">
@@ -387,7 +389,7 @@ $array=$_SESSION['menu'];
 												</div>
 
 												<div class="price-option fl">
-													<h4>$ 9.95</h4>
+													<h4>&#8377;<?php echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price'];?> </h4>
 													<?php if(!($array['data']['menu'][$_GET['cat']]['items'][$i]['simple'])){?>
 													<button class="toggle">Option</button>
 													<?php }?>
@@ -407,6 +409,25 @@ $array=$_SESSION['menu'];
 											<div class="dropdown-option clearfix">
 												<div class="dropdown-details">
 													<form class="default-form">
+														<?php
+														if ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'])
+														{	?>
+															<h5> Size</h5>
+															<?php
+															foreach ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'] as &$size)
+															{	
+																?>
+																<span class="radio-input">
+																<table>
+																<tr>
+																<td width="350">
+															<input type="radio" id="<?php echo $itemName.$size['name'];?>" name="<?php echo $itemName;?>">
+															<label for ="<?php echo $itemName.$size['name'];?>" style="font-weight: normal;"><?php echo $size['name'];?><br></label>
+															</td>
+															<td >
+															<i class="fa fa-plus" style="top: 0;  left: 220px; color: #e00000;display: inline;"><?php echo $size['price']?></i></td></tr></table></span><?php
+															}
+														}?>
 														<h5>Please Select Your Option</h5>
 														<?php
 														for($j=0;$j<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom']) ; $j++){
@@ -417,21 +438,25 @@ $array=$_SESSION['menu'];
 															</h6>
 														
 																<?php
+																//setting variables to be used as keys for radio/check controls
 																$maxOption=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['max'];
+																$customName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['name'];
+																$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
 																for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
+																$optionName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																if ($maxOption==1){?>
 																	<span class="radio-input">
 																	<table>
 																	<tr><td width="350">
-																	<input type="radio" id="<?php echo $k;?>" name="choose" >
-																	<label for="<?php echo $k;?>" display: block; width: 100px;>
+																	<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose" >
+																	<label for="<?php echo $itemName.$customName.$optionName.$k;?>" style="Display: block; width: 100px;">
 																	<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																	?>
 																	</label>
 																	</td>
 																	<td>
 																	<?php if ($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price']!=0){?>
-																	<i class="fa fa-plus"style="top: 0;  left: 220px; color: #e00000;display: inline;">
+																	<i class="fa fa-plus" style="top: 0;  left: 220px; color: #e00000;display: inline;">
 																	<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];
 																	}?>
 																	</i>
@@ -446,8 +471,8 @@ $array=$_SESSION['menu'];
 																	<span class ="checkbox-input">
 																	<table>
 																	<tr><td width="350">
-																	<input type ="checkbox" id="<?php echo $k;?>" name="choose">
-																	<label for ="<?php echo $k;?>"  display: block; width: 100px;>
+																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose">
+																	<label for ="<?php echo $itemName.$customName.$optionName.$k;?>"  display: block; width: 100px;>
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
 																	</label>
 																	</td>
@@ -462,7 +487,7 @@ $array=$_SESSION['menu'];
 																	<?php } ?>
 
 																
-																<?php }}?>														
+																<?php }}?>		<!-- for loops closed for item and customisation-->												
 														
 														<!--<span class="radio-input">
 															<input type="radio" id="noodles-1" name="choose">
