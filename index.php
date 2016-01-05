@@ -153,7 +153,7 @@ $_SESSION['menu']=$array;
 			<div class="small-menu">
 				<div class="container">
 					<ul class="list-unstyled list-inline">
-						<li><a href="#">Home</a>
+						<li><a href="index.php">Home</a>
 						</li>
 						<li><i class="fa fa-chevron-right"></i>
 						</li>

@@ -1,4 +1,5 @@
 <?php 
+error_reporting(E_ALL);
 session_start();
 $array=$_SESSION['menu'];
 ?>
@@ -148,7 +149,7 @@ $array=$_SESSION['menu'];
 					</div>
 					<!-- end .choose-option-->
 					<ul class="list-unstyled list-inline">
-						<li><a href="index.html">Home</a>
+						<li><a href="index.php">Home</a>
 						</li>
 						<li><i class="fa fa-chevron-right"></i>
 						</li>
@@ -407,13 +408,63 @@ $array=$_SESSION['menu'];
 												<div class="dropdown-details">
 													<form class="default-form">
 														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-1" name="choose">
-															<label for="rice-1">Rice</label>
-														</span>
+														<?php
+														for($j=0;$j<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom']) ; $j++){
+															?>
+															<h6><?php
+																echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['name']
+																?>
+															</h6>
 														
-														<span class="radio-input">
+																<?php
+																$maxOption=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['max'];
+																for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
+																if ($maxOption==1){?>
+																	<span class="radio-input">
+																	<table>
+																	<tr><td width="350">
+																	<input type="radio" id="<?php echo $k;?>" name="choose" >
+																	<label for="<?php echo $k;?>" display: block; width: 100px;>
+																	<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
+																	?>
+																	</label>
+																	</td>
+																	<td>
+																	<?php if ($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price']!=0){?>
+																	<i class="fa fa-plus"style="top: 0;  left: 220px; color: #e00000;display: inline;">
+																	<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];
+																	}?>
+																	</i>
+																	</td>
+																	</tr>
+																	</table>
+
+																
+																</span>
+																<?php }
+																else{?>
+																	<span class ="checkbox-input">
+																	<table>
+																	<tr><td width="350">
+																	<input type ="checkbox" id="<?php echo $k;?>" name="choose">
+																	<label for ="<?php echo $k;?>"  display: block; width: 100px;>
+																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
+																	</label>
+																	</td>
+																	<td>
+																		<i class="fa fa-plus" style="top: 0;  left: 220px; color: #e00000;display: inline;"><?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>
+																		</i>
+																		</td>
+																	</tr>
+																	</table>
+																	
+																	</span>
+																	<?php } ?>
+
+																
+																<?php }}?>														
+														
+														<!--<span class="radio-input">
 															<input type="radio" id="noodles-1" name="choose">
 															<label for="noodles-1">Noodles</label>
 														</span>
@@ -440,13 +491,13 @@ $array=$_SESSION['menu'];
 															<input type="checkbox" id="additional-butter-1">
 															<label for="additional-butter-1">Additional Butter <i class="fa fa-plus price">$3.00</i>
 															</label>
-														</span>
+														</span>-->
 
-														<h6>Additional Notes</h6>
+														<!--<h6>Additional Notes</h6>
 														<textarea placeholder="Write here"></textarea>
 														
 														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
+														<a class="btn btn-default-black">Cancle</a>-->
 													</form>
 												</div>
 												<!--end .dropdown-details-->
@@ -464,818 +515,10 @@ $array=$_SESSION['menu'];
 								</div>
 								<!--end all-menu-details-->
 
-								<div class="all-menu-details">
-									<h5>Starters</h5>
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="dish.html">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-5" name="choose">
-															<label for="rice-5">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-5" name="choose">
-															<label for="noodles-5">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-5" name="choose">
-															<label for="bread-5">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-5">
-															<label for="shrimps-5">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-5">
-															<label for="extra-veggies-5">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-5">
-															<label for="additional-butter-5">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="#">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-6" name="choose">
-															<label for="rice-6">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-6" name="choose">
-															<label for="noodles-6">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-6" name="choose">
-															<label for="bread-6">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-6">
-															<label for="shrimps-6">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-6">
-															<label for="extra-veggies-6">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-6">
-															<label for="additional-butter-6">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="#">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-7" name="choose">
-															<label for="rice-7">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-7" name="choose">
-															<label for="noodles-7">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-7" name="choose">
-															<label for="bread-7">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-7">
-															<label for="shrimps-7">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-7">
-															<label for="extra-veggies-7">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-7">
-															<label for="additional-butter-7">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="#">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-8" name="choose">
-															<label for="rice-8">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-8" name="choose">
-															<label for="noodles-8">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-8" name="choose">
-															<label for="bread-8">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-8">
-															<label for="shrimps-8">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-8">
-															<label for="extra-veggies-8">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-8">
-															<label for="additional-butter-8">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-								</div> <!-- end .all-menu-details -->
-
+								
 								<div class="all-menu-details">
 									<h5>Main Course</h5>
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="dish.html">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-9" name="choose">
-															<label for="rice-9">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-9" name="choose">
-															<label for="noodles-9">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-9" name="choose">
-															<label for="bread-9">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-9">
-															<label for="shrimps-9">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-9">
-															<label for="extra-veggies-9">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-9">
-															<label for="additional-butter-9">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="#">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-10" name="choose">
-															<label for="rice-10">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-10" name="choose">
-															<label for="noodles-10">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-10" name="choose">
-															<label for="bread-10">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-10">
-															<label for="shrimps-10">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-10">
-															<label for="extra-veggies-10">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-10">
-															<label for="additional-butter-10">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="#">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-11" name="choose">
-															<label for="rice-11">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-11" name="choose">
-															<label for="noodles-11">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-11" name="choose">
-															<label for="bread-11">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-11">
-															<label for="shrimps-11">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-11">
-															<label for="extra-veggies-11">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-11">
-															<label for="additional-butter-11">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
-
-									<div class="item-list right-checkout">
-										<div class="list-image">
-											<img src="img/content/menu-list-img.jpg" alt="">
-										</div>
-										<div class="all-details">
-											<div class="visible-option">
-												<div class="details">
-													<h6><a href="#">01. Shrimps</a>
-													</h6>
-													<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic</p>
-												</div>
-
-												<div class="price-option fl">
-													<h4>$ 9.95</h4>
-													<button class="toggle">Option</button>
-												</div>
-												<!-- end .price-option-->
-												<div class="qty-cart text-center clearfix">
-													<h6>Qty</h6>
-													<form class="">
-														<input type="text" placeholder="1">
-														<br>
-														<button><i class="fa fa-shopping-cart"></i>
-														</button>
-													</form>
-												</div> <!-- end .qty-cart -->
-											</div> <!-- end .visible-option -->	
-
-											<div class="dropdown-option clearfix">
-												<div class="dropdown-details">
-													<form class="default-form">
-														<h5>Please Select Your Option</h5>
-														<h6>Option</h6>
-														<span class="radio-input">
-															<input type="radio" id="rice-12" name="choose">
-															<label for="rice-12">Rice</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="noodles-12" name="choose">
-															<label for="noodles-12">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-12" name="choose">
-															<label for="bread-12">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-12">
-															<label for="shrimps-12">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-12">
-															<label for="extra-veggies-12">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-														
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-12">
-															<label for="additional-butter-12">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-
-														<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>
-													</form>
-												</div>
-												<!--end .dropdown-details-->
-											</div>
-											<!--end .dropdown-option-->
-										</div>
-										<!-- end .all-details -->
-									</div>
-									<!-- end .item-list -->
+									
 								</div> <!-- end .all menu details -->
 
 							</div> <!-- end .tab-pane -->
