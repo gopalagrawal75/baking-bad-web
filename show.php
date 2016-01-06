@@ -413,20 +413,22 @@ $array=$_SESSION['menu'];
 														if ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'])
 														{	?>
 															<h5> Size</h5>
+															<table>
 															<?php
 															foreach ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'] as &$size)
 															{	
 																?>
-																<span class="radio-input">
-																<table>
+																
+																
 																<tr>
 																<td width="350">
+															<span class="radio-input">
 															<input type="radio" id="<?php echo $itemName.$size['name'];?>" name="<?php echo $itemName;?>">
-															<label for ="<?php echo $itemName.$size['name'];?>" style="font-weight: normal;"><?php echo $size['name'];?><br></label>
+															<label for ="<?php echo $itemName.$size['name'];?>" style="font-weight: normal;"><?php echo $size['name'];?><br></label></span>
 															</td>
 															<td >
-															<i class="fa fa-plus" style="top: 0;  left: 220px; color: #e00000;display: inline;"><?php echo $size['price']?></i></td></tr></table></span><?php
-															}
+															<i class="fa fa-plus" style="top: 0;  left: 220px; color: #e00000;display: inline;"><?php echo $size['price']?></i></td></tr><?php
+															}?></table><?php
 														}?>
 														<h5>Please Select Your Option</h5>
 														<?php
