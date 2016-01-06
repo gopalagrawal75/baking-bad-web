@@ -20,6 +20,7 @@ $array=$_SESSION['menu'];
 	<link rel="stylesheet" href="css/thumb-slide.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
 
+
 	<!--[if IE 9]>
 	<script src="js/media.match.min.js"></script>
 	<![endif]-->
@@ -389,7 +390,7 @@ $array=$_SESSION['menu'];
 												</div>
 
 												<div class="price-option fl">
-													<h4>&#8377;<?php echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price'];?> </h4>
+													<h4 id= "<?php echo $itemName;?>">&#8377;<?php echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price'];?> </h4>
 													<?php if(!($array['data']['menu'][$_GET['cat']]['items'][$i]['simple'])){?>
 													<button class="toggle">Option</button>
 													<?php }?>
@@ -423,7 +424,7 @@ $array=$_SESSION['menu'];
 																<tr>
 																<td width="350">
 															<span class="radio-input">
-															<input type="radio" id="<?php echo $itemName.$size['name'];?>" name="<?php echo $itemName;?>">
+															<input type="radio" id="<?php echo $itemName.$size['name'];?>" name="<?php echo $itemName;?>" onclick="priceUpdateBySize('<?php echo $itemName.":".$size['price'];?>')">
 															<label for ="<?php echo $itemName.$size['name'];?>" style="font-weight: normal;"><?php echo $size['name'];?><br></label></span>
 															</td>
 															<td >
@@ -444,17 +445,20 @@ $array=$_SESSION['menu'];
 																$maxOption=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['max'];
 																$customName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['name'];
 																$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
-																for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
-																$optionName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																if ($maxOption==1){?>
-																	<span class="radio-input">
 																	<table>
-																	<tr><td width="350">
-																	<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose" >
-																	<label for="<?php echo $itemName.$customName.$optionName.$k;?>" style="Display: block; width: 100px;">
-																	<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
+																	<?php
+																		for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
+																			$optionName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																	?>
-																	</label>
+																	<tr><td width="350">
+																	<span class="radio-input">
+																		<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose" >
+																		<label for="<?php echo $itemName.$customName.$optionName.$k;?>" style="Display: block; width: 100px;">
+																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
+																		?>
+																		</label>
+																	</span>
 																	</td>
 																	<td>
 																	<?php if ($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price']!=0){?>
@@ -464,16 +468,18 @@ $array=$_SESSION['menu'];
 																	</i>
 																	</td>
 																	</tr>
+																	<?php }?>
 																	</table>
-
-																
-																</span>
 																<?php }
-																else{?>
+																else{
+																	for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
+																			$optionName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
+																	?>
+																	
 																	<span class ="checkbox-input">
 																	<table>
 																	<tr><td width="350">
-																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose">
+																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>)">
 																	<label for ="<?php echo $itemName.$customName.$optionName.$k;?>"  display: block; width: 100px;>
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
 																	</label>
@@ -486,10 +492,10 @@ $array=$_SESSION['menu'];
 																	</table>
 																	
 																	</span>
-																	<?php } ?>
+																	<?php }} ?>
 
 																
-																<?php }}?>		<!-- for loops closed for item and customisation-->												
+																<?php }?>		<!-- for loops closed for item and customisation-->												
 														
 														<!--<span class="radio-input">
 															<input type="radio" id="noodles-1" name="choose">
@@ -1435,9 +1441,55 @@ $array=$_SESSION['menu'];
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<script type="text/javascript" src="js/jquery.ui.map.js"></script>
 		<script src="js/scripts.js"></script>
-
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		<script>
-		
+		var finalPrice;
+		var  price;
+		//function to update price on cart when different size options are checked.
+		function priceUpdateBySize(v){
+
+			var itemprice=v.split(":");
+			var item=itemprice[0];
+			if(!price){
+			price=itemprice[1];
+			finalPrice=parseInt(price);
+			
+			}
+			
+			else{
+				var num=document.getElementById(item).innerHTML.split(" ");
+				num[1]=parseInt((parseInt(num[1])-price));
+				num[1]=num[1]+parseInt(itemprice[1]);
+				price=parseInt(itemprice[1]);
+				finalPrice=parseInt(num[1]);
+				}
+			var temp=document.getElementById(item).innerHTML;
+			temp=temp.split(" ");
+			document.getElementById(item).innerHTML=temp[0]+" "+finalPrice;
+
+		}
+		//function to add customisation
+		function priceAddByOption(id,price,item)
+		{
+			price=parseInt(price);
+			var initPrice=document.getElementById(item).innerHTML.split(" ");
+			var rupee=initPrice[0];
+			initPrice=parseInt(initPrice[1]);
+			
+			if (document.getElementById(id).checked)
+			{	
+				finalPrice=parseInt(price+initPrice);
+				}
+				
+			else
+			{
+				finalPrice=finalPrice-price;
+			
+			}
+
+			document.getElementById(item).innerHTML=rupee+" "+finalPrice;
+						
+		}
 		</script>
 
 </body>
