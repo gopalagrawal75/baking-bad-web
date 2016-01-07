@@ -399,9 +399,9 @@ $array=$_SESSION['menu'];
 												<div class="qty-cart text-center clearfix">
 													<h6>Qty</h6>
 													<form class="">
-														<input type="text" placeholder="1">
+														<input type="text" placeholder="1"id="<?php echo $itemName.' quantity';?>">
 														<br>
-														<button><i class="fa fa-shopping-cart"></i>
+														<button id="<?php echo $itemName.' :cart';?>" onclick="addToCart('<?php echo  $itemName;?>' )"><i class="fa fa-shopping-cart"></i>
 														</button>
 													</form>
 												</div> <!-- end .qty-cart -->
@@ -1297,7 +1297,7 @@ $array=$_SESSION['menu'];
 					<div class="col-md-2">
 						<div class="my-check-right">
 							<h5 class="toggle-title">My Check</h5>
-								<ul class="list-unstyled">
+								<ul id="cartlist" class="list-unstyled">
 									<li>
 										<p>2x Shrimps
 											<span class="icon-link"><i class="fa fa-pencil"></i><i class="fa fa-times"></i>
@@ -1443,52 +1443,110 @@ $array=$_SESSION['menu'];
 		<script src="js/scripts.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		<script>
-		var finalPrice;
-		var  price;
+		
+	var  price;
+	var items = new Array();
+	var cartClass;
+	var cartRef;
 		//function to update price on cart when different size options are checked.
 		function priceUpdateBySize(v){
 
-			var itemprice=v.split(":");
-			var item=itemprice[0];
-			if(!price){
-			price=itemprice[1];
-			finalPrice=parseInt(price);
-			
+			//check if the item is already present in items object
+			for (i = 0; i < items.length; i++)
+			{
+				if(items[i].name==v.split(":")[0])
+				{
+					items[i].sizeprice=v.split(":")[1];
+					
+					calculatePrice(items[i]);	
+					return;		
+					}
 			}
+			//push if item doesnt exist
+			items.push({name:v.split(":")[0],sizeprice:v.split(":")[1],customprices:0});
+			calculatePrice(items[i]);
 			
-			else{
-				var num=document.getElementById(item).innerHTML.split(" ");
-				num[1]=parseInt((parseInt(num[1])-price));
-				num[1]=num[1]+parseInt(itemprice[1]);
-				price=parseInt(itemprice[1]);
-				finalPrice=parseInt(num[1]);
-				}
-			var temp=document.getElementById(item).innerHTML;
-			temp=temp.split(" ");
-			document.getElementById(item).innerHTML=temp[0]+" "+finalPrice;
+			
+		}
 
+		function calculatePrice(i)
+		{
+			var finalprice=parseInt(i.sizePrice)+parseInt(i.customprices);
+			document.getElementById(i.name).innerHTML=parseInt(i.customprices)+parseInt(i.sizeprice);
 		}
 		//function to add customisation
 		function priceAddByOption(id,price,item)
-		{
-			price=parseInt(price);
-			var initPrice=document.getElementById(item).innerHTML.split(" ");
-			var rupee=initPrice[0];
-			initPrice=parseInt(initPrice[1]);
-			
-			if (document.getElementById(id).checked)
-			{	
-				finalPrice=parseInt(price+initPrice);
-				}
-				
-			else
+		{	
+
+			if(document.getElementById(id).checked)
 			{
-				finalPrice=finalPrice-price;
+				//add custom option to the item object
+
+			for (i = 0; i < items.length; i++)
+			{
+				if(items[i].name==item){
+					//add custom prices 
+					items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+					calculatePrice(items[i]);
+					
+			}
+			}
+			}
+			else{
+			for (i = 0; i < items.length; i++)
+			{
+				if(items[i].name==item){
+					//subtract prices of unchecked items
+					items[i].customprices=parseInt(items[i].customprices)-parseInt(price);
+					calculatePrice(items[i]);
+			}	
+			}
+
 			
 			}
 
-			document.getElementById(item).innerHTML=rupee+" "+finalPrice;
-						
+
+
+		}
+
+		function addToCart(item)
+		{	
+			var ref=item+" :cart";
+			if(cartRef!=ref){
+				cartClass=undefined;
+			}
+			//alert("function call");
+			if (!cartClass){
+				cartRef=ref;
+				var qty=document.getElementById(item + " quantity").value;
+				var li=document.createElement('LI');
+				var p =document.createElement('P');
+				var span=document.createElement('SPAN');
+				var pencil =document.createElement('I');
+				var cancel=document.createElement('I');
+				span.className='icon-link';
+				pencil.className='fa fa-pencil';
+				cancel.className='fa fa-times';
+				span.appendChild(pencil);
+				span.appendChild(cancel);
+				p.innerHTML=qty+"x"+ item;
+				p.className="checkitem";
+				p.appendChild(span);
+				li.appendChild(p);
+				li.id=item + "cartitem";
+				document.getElementById('cartlist').appendChild(li);
+				cartClass="test class";
+			}
+
+			else{
+				//alert ("active class");
+				document.getElementById('cartlist').removeChild(document.getElementById(item+"cartitem"));
+				cartClass=undefined;
+			}
+			
+
+			$('.checkitem').css('line-height','20px');
+
 		}
 		</script>
 
