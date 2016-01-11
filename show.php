@@ -356,35 +356,18 @@ $array=$_SESSION['menu'];
 										for($i=0;$i<count($array['data']['menu'][$_GET['cat']]['items']) ; $i++){
 											$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
 											$item=$array['data']['menu'][$_GET['cat']]['items'][$i]
-									?>
+
+									?>	
 									<div class="item-list right-checkout">
 										<div class="list-image">
 											<img src="img/content/menu-list-img.jpg" alt="">
 										</div>
-										<div class="all-details">
+										<div class="all-details" id="<?php echo $itemName.":".'details';?>">
 											<div class="visible-option">
 												<div class="details">
 													<h6><a href="#"><?php echo strtoupper($array['data']['menu'][$_GET['cat']]['items'][$i]['name']); ?></a>
 													</h6>
-													<!--<ul class="share-this list-inline text-right">
-														<li><a href="#">Share</a>
-															<ul class="list-inline">
-																<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-																</li>
-																<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-																</li>
-															</ul>
-														</li>
-													</ul>
-													<p class="m-with-details"><strong>Description:</strong><br>Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor.</p>
-
-													<p class="m-with-details"><strong>Ingredients:</strong><br>5 tiger shrimps, , butter, lemon, herbs, 5 tiger shrimps, garlic, butter, lemon, herbs</p>
-
-													<p class="for-list">5 tiger shrimps, garlic, butter, lemon, herbs, 5 tiger shrimps, garlic,</p>-->
+													
 													<?php if(isset($array['data']['menu'][$_GET['cat']]['items'][$i]['desc']))
 																echo ($array['data']['menu'][$_GET['cat']]['items'][$i]['desc']); ?>
 												</div>
@@ -401,15 +384,16 @@ $array=$_SESSION['menu'];
 													<form class="">
 														<input type="text" placeholder="1"id="<?php echo $itemName.' quantity';?>">
 														<br>
-														<button id="<?php echo $itemName.' :cart';?>" onclick="addToCart('<?php echo  $itemName;?>' )"><i class="fa fa-shopping-cart"></i>
+														<button id="<?php echo $itemName.' :cart';?>" onclick="addCartItem('<?php echo  $item['id'];?>', <?php echo count($item['custom']); ?> )"><i class="fa fa-cart-plus"></i>
 														</button>
 													</form>
 												</div> <!-- end .qty-cart -->
 											</div> <!-- end .visible-option -->	
-										
+											
 											<div class="dropdown-option clearfix">
 												<div class="dropdown-details">
-													<form class="default-form">
+													<!--<form id="<?php echo $itemName.":".'options';?>"class="default-form">-->
+													<form id='<?php echo $item['id'];?>' class='default-form'>
 														<?php
 														if ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'])
 														{	?>
@@ -424,7 +408,7 @@ $array=$_SESSION['menu'];
 																<tr>
 																<td width="350">
 															<span class="radio-input">
-															<input type="radio" id="<?php echo $itemName.$size['name'];?>" name="<?php echo $itemName;?>" onclick="priceUpdateBySize('<?php echo $itemName.":".$size['price'];?>')">
+															<input type="radio" id="<?php echo $itemName.$size['name'];?>" name="<?php echo $item['id']."-size";?>" value="<?php echo $size['id'];?>"onclick="priceUpdateBySize('<?php echo $itemName.":".$size['price'].":".$size['name'];?>')">
 															<label for ="<?php echo $itemName.$size['name'];?>" style="font-weight: normal;"><?php echo $size['name'];?><br></label></span>
 															</td>
 															<td >
@@ -453,7 +437,7 @@ $array=$_SESSION['menu'];
 																	?>
 																	<tr><td width="350">
 																	<span class="radio-input">
-																		<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose" >
+																		<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" >
 																		<label for="<?php echo $itemName.$customName.$optionName.$k;?>" style="Display: block; width: 100px;">
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																		?>
@@ -479,7 +463,7 @@ $array=$_SESSION['menu'];
 																	<span class ="checkbox-input">
 																	<table>
 																	<tr><td width="350">
-																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="choose" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>)">
+																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>)">
 																	<label for ="<?php echo $itemName.$customName.$optionName.$k;?>"  display: block; width: 100px;>
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
 																	</label>
@@ -495,42 +479,7 @@ $array=$_SESSION['menu'];
 																	<?php }} ?>
 
 																
-																<?php }?>		<!-- for loops closed for item and customisation-->												
-														
-														<!--<span class="radio-input">
-															<input type="radio" id="noodles-1" name="choose">
-															<label for="noodles-1">Noodles</label>
-														</span>
-														
-														<span class="radio-input">
-															<input type="radio" id="bread-1" name="choose">
-															<label for="bread-1">Bread</label>
-														</span>
-
-														<h6>Extras</h6>
-														<span class="checkbox-input">
-															<input type="checkbox" id="shrimps-1">
-															<label for="shrimps-1">Double Shrimps<i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-												
-														<span class="checkbox-input">
-															<input type="checkbox" id="extra-veggies-1">
-															<label for="extra-veggies-1">Extra Veggies <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>
-													
-														<span class="checkbox-input">
-															<input type="checkbox" id="additional-butter-1">
-															<label for="additional-butter-1">Additional Butter <i class="fa fa-plus price">$3.00</i>
-															</label>
-														</span>-->
-
-														<!--<h6>Additional Notes</h6>
-														<textarea placeholder="Write here"></textarea>
-														
-														<a class="btn btn-default-red">Confirm</a>
-														<a class="btn btn-default-black">Cancle</a>-->
+																<?php }?>		<!-- for loops closed for item and customisation-->								
 													</form>
 												</div>
 												<!--end .dropdown-details-->
@@ -1295,34 +1244,16 @@ $array=$_SESSION['menu'];
 					</div>
 					<!--end .col-md-3 -->
 					<div class="col-md-2">
-						<div class="my-check-right">
+						<div class="my-check-right" id="">
 							<h5 class="toggle-title">My Check</h5>
 								<ul id="cartlist" class="list-unstyled">
-									<li>
-										<p>2x Shrimps
-											<span class="icon-link"><i class="fa fa-pencil"></i><i class="fa fa-times"></i>
-											</span>
-										</p>
-										
-										<p class="price">$ 19.95</p>
-									</li>
-									<li>
-										<p>1x Coca cola
-											<span class="icon-link"><i class="fa fa-pencil"></i><i class="fa fa-times"></i>
-											</span>
-										</p>
-										
-										<p class="price">$ 1.95</p>
-									</li>
-									<li>
-										<p>1x Sake
-											<span class="icon-link"><i class="fa fa-pencil"></i><i class="fa fa-times"></i>
-											</span>
-										</p>
-										
-										<p class="price">$ 15.95</p>
-									</li>
+									<li><?php echo $array['data']['menu'][0]['items'][0]['name']; ?>
+										<ol><li><?php echo $array['data']['menu'][0]['items'][0]['custom'][0]['options'][1]['name']; ?></li><li><?php echo $array['data']['menu'][0]['items'][0]['custom'][1]['options'][1]['name']; ?></li></ol></li>
 
+									<li>item 1
+										<ol><li>cust1</li><li>cust2</li></ol></li>
+										</ul>
+										<ul class="list-unstyled">
 									<li>
 										<!-- list for total price-->
 										<p>Total</p>
@@ -1331,7 +1262,7 @@ $array=$_SESSION['menu'];
 								</ul>
 
 								<div class="checkout">
-									<a class="btn btn-default-red" href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
+									<a class="btn btn-default-red" href="cart.php" onClick="createItemList()"><i class="fa fa-shopping-cart"></i>Checkout</a>
 								</div>
 					
 						</div>
@@ -1442,12 +1373,31 @@ $array=$_SESSION['menu'];
 		<script type="text/javascript" src="js/jquery.ui.map.js"></script>
 		<script src="js/scripts.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		
+		<script>
+		function serializeJSON(id) {
+			var jsonData = {};
+			var formData = $("#"+id).serializeArray();
+			$.each(formData, function(){
+				if (jsonData[this.name]) {
+					if (!jsonData[this.name].push) {
+						jsonData[this.name] = [jsonData[this.name]];
+					}
+					jsonData[this.name].push(this.value || '');
+				} else {
+					jsonData[this.name] = this.value || '';
+				}
+			});
+			return jsonData;
+		}
+		</script>
 		<script>
 		
 	var  price;
 	var items = new Array();
-	var cartClass;
-	var cartRef;
+	var cartitems=new Array();
+	var array=<?php echo json_encode($array); ?>;
+	
 		//function to update price on cart when different size options are checked.
 		function priceUpdateBySize(v){
 
@@ -1465,6 +1415,7 @@ $array=$_SESSION['menu'];
 			//push if item doesnt exist
 			items.push({name:v.split(":")[0],sizeprice:v.split(":")[1],customprices:0});
 			calculatePrice(items[i]);
+			
 			
 			
 		}
@@ -1509,46 +1460,77 @@ $array=$_SESSION['menu'];
 
 		}
 
-		function addToCart(item)
+		final_order_list = []
+		function addCartItem(item, cust_count)
 		{	
-			var ref=item+" :cart";
-			if(cartRef!=ref){
-				cartClass=undefined;
-			}
-			//alert("function call");
-			if (!cartClass){
-				cartRef=ref;
-				var qty=document.getElementById(item + " quantity").value;
-				var li=document.createElement('LI');
-				var p =document.createElement('P');
-				var span=document.createElement('SPAN');
-				var pencil =document.createElement('I');
-				var cancel=document.createElement('I');
-				span.className='icon-link';
-				pencil.className='fa fa-pencil';
-				cancel.className='fa fa-times';
-				span.appendChild(pencil);
-				span.appendChild(cancel);
-				p.innerHTML=qty+"x"+ item;
-				p.className="checkitem";
-				p.appendChild(span);
-				li.appendChild(p);
-				li.id=item + "cartitem";
-				document.getElementById('cartlist').appendChild(li);
-				cartClass="test class";
-			}
-
-			else{
-				//alert ("active class");
-				document.getElementById('cartlist').removeChild(document.getElementById(item+"cartitem"));
-				cartClass=undefined;
-			}
+			var formData=serializeJSON(item);
+			order = {}
 			
+			/*order['size']=parseInt(formData['key'])
+				alert(key)
+			}
+			else{
+				order['size']="";
+			}
+			order['size']*/
+			order.category=parseInt(<?php echo $_GET['cat'];?>);
+			order.item=item;
+			custom_obj = []
+			console.log("custom_count"+cust_count)
+			for (i=0; i < cust_count; i++) {
+				key = item + '-custom-' + i
+				if (formData.hasOwnProperty(key)) {
+					if (typeof formData[key] === "string") {
+						custom_obj.push([parseInt(formData[key])])
+					} else {
+						sub_array = []
+						formData[key].forEach(function(item){
+							sub_array.push(parseInt(item))
+						})
+						custom_obj.push(sub_array)
+					}
+				} else {
+					custom_obj.push([])
+				}
+			}
+			// todo, add qty, size
+			order['custom'] = custom_obj
+			final_order_list.push(order)
+			console.log(final_order_list);
 
-			$('.checkitem').css('line-height','20px');
+				alert(array['data']['menu'][<?php echo $_GET['cat'];?>]['items'][item]['name']);
+				//document.getElementById(cartlist)
+				
+			}
 
-		}
+			function removeFromCart(item)
+			{
+				alert(item);
+			}
+
+			function createItemList()
+			{
+				var options;
+				for (i=0;i<cartitems.length;i++)
+				{
+					options=document.getElementById(cartitems[i].name+":"+"options").getElementsByTag('input');
+					for(j=0;j<options.length;j++)
+					{
+						if(options[j].checked){
+							alert(options[j].id);
+						}
+					}
+
+				}
+			}
+			function stuff() {
+				console.log("hi");
+			}
+		
 		</script>
+
+		
+		
 
 </body>
 
