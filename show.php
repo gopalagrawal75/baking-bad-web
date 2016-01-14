@@ -19,6 +19,7 @@ $array=$_SESSION['menu'];
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/thumb-slide.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/cartstyle.css">
 
 
 	<!--[if IE 9]>
@@ -355,7 +356,7 @@ $array=$_SESSION['menu'];
 									<?php 
 										for($i=0;$i<count($array['data']['menu'][$_GET['cat']]['items']) ; $i++){
 											$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
-											$item=$array['data']['menu'][$_GET['cat']]['items'][$i]
+											$item=$array['data']['menu'][$_GET['cat']]['items'][$i];
 
 									?>	
 									<div class="item-list right-checkout">
@@ -398,7 +399,7 @@ $array=$_SESSION['menu'];
 														if ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'])
 														{	?>
 															<h5> Size</h5>
-															<table>
+															<table id="<?php echo 'sizeof'.$i;?>">
 															<?php
 															foreach ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'] as &$size)
 															{	
@@ -428,16 +429,22 @@ $array=$_SESSION['menu'];
 																//setting variables to be used as keys for radio/check controls
 																$maxOption=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['max'];
 																$customName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['name'];
+																$minOption=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['max'];
+																if(isset($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['soft'])){
+																	$soft=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['soft'];}
+																else{
+																	$soft=0;
+																}
 																$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
 																if ($maxOption==1){?>
-																	<table>
+																	<table id="">
 																	<?php
 																		for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
 																			$optionName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																	?>
 																	<tr><td width="350">
 																	<span class="radio-input">
-																		<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" >
+																		<input type="radio" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" minselection="<?php echo $minOption;?>" maxselection="<?php echo $maxOption;?>" >
 																		<label for="<?php echo $itemName.$customName.$optionName.$k;?>" style="Display: block; width: 100px;">
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																		?>
@@ -456,30 +463,34 @@ $array=$_SESSION['menu'];
 																	</table>
 																<?php }
 																else{
+																	?>
+																	<table>
+																	<?php
 																	for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
 																			$optionName=$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];
 																	?>
-																	
-																	<span class ="checkbox-input">
-																	<table>
 																	<tr><td width="350">
-																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>)">
+																	<span class ="checkbox-input">
+																	<input type ="checkbox" id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>,<?php echo $soft;?>)">
 																	<label for ="<?php echo $itemName.$customName.$optionName.$k;?>"  display: block; width: 100px;>
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
 																	</label>
+																	</span>
 																	</td>
 																	<td>
 																		<i class="fa fa-plus" style="top: 0;  left: 220px; color: #e00000;display: inline;"><?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>
 																		</i>
 																		</td>
 																	</tr>
+																	<?php } ?>
 																	</table>
 																	
-																	</span>
-																	<?php }} ?>
+																	
+																	<?php } ?>
 
 																
-																<?php }?>		<!-- for loops closed for item and customisation-->								
+																<?php }
+																?>		<!-- for loops closed for item and customisation-->								
 													</form>
 												</div>
 												<!--end .dropdown-details-->
@@ -1247,12 +1258,8 @@ $array=$_SESSION['menu'];
 						<div class="my-check-right" id="">
 							<h5 class="toggle-title">My Check</h5>
 								<ul id="cartlist" class="list-unstyled">
-									<li><?php echo $array['data']['menu'][0]['items'][0]['name']; ?>
-										<ol><li><?php echo $array['data']['menu'][0]['items'][0]['custom'][0]['options'][1]['name']; ?></li><li><?php echo $array['data']['menu'][0]['items'][0]['custom'][1]['options'][1]['name']; ?></li></ol></li>
-
-									<li>item 1
-										<ol><li>cust1</li><li>cust2</li></ol></li>
-										</ul>
+										
+								</ul>
 										<ul class="list-unstyled">
 									<li>
 										<!-- list for total price-->
@@ -1397,6 +1404,7 @@ $array=$_SESSION['menu'];
 	var items = new Array();
 	var cartitems=new Array();
 	var array=<?php echo json_encode($array); ?>;
+	var softcheck=0;
 	
 		//function to update price on cart when different size options are checked.
 		function priceUpdateBySize(v){
@@ -1415,6 +1423,7 @@ $array=$_SESSION['menu'];
 			//push if item doesnt exist
 			items.push({name:v.split(":")[0],sizeprice:v.split(":")[1],customprices:0});
 			calculatePrice(items[i]);
+			softcheck=0;
 			
 			
 			
@@ -1426,9 +1435,11 @@ $array=$_SESSION['menu'];
 			document.getElementById(i.name).innerHTML=parseInt(i.customprices)+parseInt(i.sizeprice);
 		}
 		//function to add customisation
-		function priceAddByOption(id,price,item)
+		function priceAddByOption(id,price,item,soft)
 		{	
-
+			
+			if(softcheck<soft){alert("softlimit");softcheck=softcheck+1;return;}
+			
 			if(document.getElementById(id).checked)
 			{
 				//add custom option to the item object
@@ -1455,28 +1466,87 @@ $array=$_SESSION['menu'];
 
 			
 			}
-
+		
 
 
 		}
 
-		final_order_list = []
+		final_order_list = [];
+		function checkSizeSelections(item)
+		{	
+			var keyz='sizeof'+item;
+			var size=document.getElementById(keyz).getElementsByTagName('input');
+			for(i=0;i<size.length;i++){
+				if(size[i].checked)
+				{
+					return true;
+				}
+			}
+				return false;
+					
+			
+
+		}
+
+		function checkCustomSelections(item,cust_count)
+		{
+			var keyz;var min;var n=0;var max
+			var faults=[];
+			for (i=0;i<cust_count;i++){
+				keys=item+'-custom-'+i;
+				min=document.getElementsByName(keys)[0].getAttribute("minselection");
+				max=document.getElementsByName(keys)[0].getAttribute("maxselection");
+				var el=document.getElementsByName(keys);
+				for (j=0;j<el.length;j++)
+				{
+					if(el[j].checked)
+					{
+						n=n+1;
+					}
+				}
+				if(n>=parseInt(min) && n<=parseInt(max)){
+
+				}
+				else
+				{
+					faults.push("custom"+i);
+				}
+
+				}
+				if(faults.length==0)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+
+			
+			
+		
 		function addCartItem(item, cust_count)
 		{	
+			if (!checkSizeSelections(item)){alert("Make a size selection");return;}
+			if (!checkCustomSelections(item,cust_count)){alert("nope");return;}
 			var formData=serializeJSON(item);
-			order = {}
+			order = {};
+			key=item+"-size";
 			
-			/*order['size']=parseInt(formData['key'])
-				alert(key)
+			if(formData.hasOwnProperty(key))
+			{
+				
+			order.size=formData[key];
 			}
 			else{
-				order['size']="";
+				order.size="";
 			}
-			order['size']*/
 			order.category=parseInt(<?php echo $_GET['cat'];?>);
 			order.item=item;
 			custom_obj = []
-			console.log("custom_count"+cust_count)
+			//console.log("custom_count"+cust_count)
 			for (i=0; i < cust_count; i++) {
 				key = item + '-custom-' + i
 				if (formData.hasOwnProperty(key)) {
@@ -1495,13 +1565,81 @@ $array=$_SESSION['menu'];
 			}
 			// todo, add qty, size
 			order['custom'] = custom_obj
-			final_order_list.push(order)
-			console.log(final_order_list);
-
-				alert(array['data']['menu'][<?php echo $_GET['cat'];?>]['items'][item]['name']);
-				//document.getElementById(cartlist)
+			
+			//final_order_list.push(order)
+			//console.log(final_order_list);
+			$.when($.post("session.php",{final_order_list:order},function(data) {alert(data);})).then(function( data, textStatus, jqXHR ) {
+  refreshCart(); // Alerts 200
+});
+			
+			
 				
 			}
+
+			function refreshCart()
+			{	
+				document.getElementById('cartlist').innerHTML="";
+				$.when($.post("cart_session.php",{},function(data) {final_order_list=jQuery.parseJSON(data);})).then(function(){
+				console.log(final_order_list); fnlRefresh();	
+				});
+			}
+
+			function fnlRefresh(){
+				
+				var itemmname;
+				
+				for(i=0;i<final_order_list.length;i++){
+					var custom=[];
+					itemname=array['data']['menu'][<?php echo $_GET['cat'];?>]['items'][final_order_list[i].item]['name'];
+
+
+					for(j=0;j<final_order_list[i].custom.length;j++){
+
+						custom[array['data']['menu'][<?php echo $_GET['cat'];?>]['items'][final_order_list[i].item]['custom'][j]['name']]=[];
+						for(k=0;k<final_order_list[i].custom[j].length;k++){
+							
+						
+						custom[array['data']['menu'][<?php echo $_GET['cat'];?>]['items'][final_order_list[i].item]['custom'][j]['name']].push(
+									array['data']['menu'][<?php echo $_GET['cat'];?>]['items'][final_order_list[i].item]['custom'][j]['options']
+									[final_order_list[i].custom[j][k]]['name']);
+						}
+					}
+					custom['Size']=final_order_list[i].size;
+
+
+					var itemli=document.createElement('LI');
+					itemli.innerHTML=itemname;
+					var customization=document.createElement('OL');
+					for(strkey in custom)
+					{
+						var li2=document.createElement('LI');
+						li2.innerHTML=strkey;
+						var ol2=document.createElement('OL');
+											
+						for (k=0;k<custom[strkey].length;k++)
+							{
+
+								var li3=document.createElement('LI');
+								li3.innerHTML=custom[strkey][k];
+								ol2.appendChild(li3);		
+							}
+						li2.appendChild(ol2);
+						customization.appendChild(li2);
+					}
+					
+					itemli.appendChild(customization);
+					document.getElementById('cartlist').appendChild(itemli);
+					
+
+				
+
+
+					
+				
+				
+
+
+		}}
 
 			function removeFromCart(item)
 			{
@@ -1529,7 +1667,8 @@ $array=$_SESSION['menu'];
 		
 		</script>
 
-		
+		<script>
+refreshCart();</script>
 		
 
 </body>
