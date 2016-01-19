@@ -1,3 +1,9 @@
+<?php 
+error_reporting(E_ALL);
+session_start();
+$array=$_SESSION['menu'];
+$order=$_SESSION['final_order'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +17,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/test.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/thumb-slide.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
@@ -19,7 +26,7 @@
 
 	<!--[if IE 9]>
 	<script src="js/media.match.min.js"></script>
-	<![endif]-->
+<![endif]-->
 
 </head>
 
@@ -136,9 +143,9 @@
 				<div class="container">
 					<div class="choose-option">
 						<ul class="list-unstyled list-inline">
-							<li class="active"><a href="#">1. Choose</a>
+							<li ><a href="#">1. Choose</a>
 							</li>
-							<li><a href="#">2. Confirm</a>
+							<li class="active"><a href="#">2. Confirm</a>
 							</li>
 							<li><a href="#">3. Checkout</a>
 							</li>
@@ -159,3 +166,181 @@
 			<!--end .small-menu -->
 		</header>
 		<!-- end #header -->
+
+		<div class="page-content">
+		<div class="news-events-blog page-format">
+		<div class="container">
+		<div class="row">
+		<div class="col-md-12">
+		<h4> Cart</h4>
+		<div class="woocommerce">
+		<div class="woocommerce-message">
+		<a id="test"class="button wc-forward">Continue Shopping </a>	
+		</div>
+		<form>
+		<table style="width:100%" class="shop_table cart" cellspacing="0">
+		<thead>
+			<tr>
+				<th class="product-remove">&nbsp;</th>
+				<th class="product-thumbnail">&nbsp;</th>
+				<th class="product-name">Product</th>
+				<th class="product-price">Price</th>
+				<th class="product-quantity">Qty.</th>
+				<th class="product-subtotal">total</th>
+			</tr>
+		</thead>
+		<tbody id="cart">
+			<!--<tr class="cart_item">
+				<td class="product-remove"><a class="remove" title="Remove this item">x</a><td>
+				<td class="product-thumbnail">&nbsp;</td>
+				<td class="product-name">Make your own Pizza</td>
+				<td class="product-price">Price</td>
+				<td class="product-quantity">Qty.</td>
+				<td class="product-subtotal">slk</td>
+			</tr>-->
+			
+		</tbody>
+		</table>
+		<table>
+		<tr>
+				<td colspan="6" class="actions">
+				<p>
+					<input type="submit" class="checkout-button button alt wc-forward" value="Proceed to Checkout">
+				</p>
+				</td>
+			</tr>
+		</table>
+		</form>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div><!--Main Wrapper End-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+var array=<?php echo json_encode($array); ?>;
+var order=<?php echo json_encode($order);?>;
+
+function populateCart()
+{	
+
+	document.getElementById('cart').innerHTML="";
+	if(order.length==0){alert("Your cart is empty!!");return;}
+	for(i=0;i<order.length;i++){
+		var itemname=array['data']['menu'][order[i].category]['items'][order[i].item]['name'];
+
+		var custom=[];
+		if(order[i].custom){
+			for (index in order[i].custom){
+				custom[array['data']['menu'][order[i].category]['items'][order[i].item]['custom'][parseInt(index)]['name']]=[];
+					for (j=0;j<order[i].custom[parseInt(index)].length;j++){
+							custom[array['data']['menu'][order[i].category]['items'][order[i].item]['custom'][parseInt(index)]['name']].push(
+									array['data']['menu'][order[i].category]['items'][order[i].item]['custom'][parseInt(index)]['options']
+									[order[i].custom[parseInt(index)][j]]['name']);
+						} //j loop ends here
+			} //custom indexing ends here
+		} //check for customization in order ends here
+
+		custom['Size']=[];
+		custom['Size'][0]=array['data']['menu'][order[i].category]['items'][order[i].item].size[order[i].size].name.toString();
+		custom['Quantity']=order[i].quantity;
+
+		//Populating cart table
+		var tr=document.createElement('TR');
+		tr.id=i+"-row";
+		tr.className="cart_item";
+		//Creating first data item
+		var td_remove=document.createElement('TD');
+		td_remove.className="product-remove";
+		var a=document.createElement('A');
+		a.className="remove";a.title="Remove this item";
+		a.id=order[i].item+"-remove";a.setAttribute('onclick','removeItem('+order[i].item+');');
+		a.innerHTML="x";
+		td_remove.appendChild(a);
+		tr.appendChild(td_remove);//fist data item complete and appended to row
+		//Creating second data item
+		var td_thumb=document.createElement('TD');
+		td_thumb.className="product-thumbnail";
+		td_thumb.innerHTML='\xa0';
+		tr.appendChild(td_thumb);//second data item completed and appended to row
+		//Creating 3rd data  item
+		var td_name=document.createElement('TD');
+		td_name.className="product-name";
+		td_name.innerHTML=itemname;
+		tr.appendChild(td_name); //3rd data item complete and appended to row
+		//Creating 4th data item
+		var td_price=document.createElement('TD');
+		td_price.className="product-price";
+		
+		td_price.innerHTML=order[i].price;
+		tr.appendChild(td_price);//4th data item completed and appended to row
+		//Creating 5th data item
+		var div=document.createElement('DIV');
+		div.className="quantity buttons_added";
+		div.style.textAlign="left";div.style.display="inline-block";
+		var minus=document.createElement('INPUT');
+		minus.type="button";minus.className="minus";minus.value="-";
+		minus.setAttribute('onclick','decrementQuantity('+i.toString()+','+order[i].price+');');
+		var plus=document.createElement('INPUT');
+		plus.type="button";plus.className="plus";plus.value="+";
+		plus.setAttribute('onclick','incrementQuantity('+i.toString()+','+order[i].price+');');
+		var input=document.createElement('INPUT');
+		input.type="number";input.step="1";input.className="input-text qty text";
+		input.id=i+"-quantity";input.value=parseInt(order[i].quantity);
+		div.appendChild(minus);div.appendChild(input);div.appendChild(plus);
+		var td_qty=document.createElement('TD');
+		td_qty.className="product-quantity";
+		td_qty.appendChild(div);
+		tr.appendChild(td_qty); //5th data item completed and appended to row
+		//Creating 6th data item
+		var td_total=document.createElement('TD');
+		td_total.className="product-subtotal";
+		td_total.id=i+"-price";
+		td_total.innerHTML=order[i].price;
+		tr.appendChild(td_total);//6th data item completed and appended to row
+
+		//Appending new data row to the cart table
+		document.getElementById("cart").appendChild(tr);
+
+					
+	}//i loop ends here
+}//Populated cart
+
+function incrementQuantity(id,price){
+	var key=id+"-quantity";
+	var i=document.getElementById(key);
+	i.value=parseInt(i.value)+1;
+	//updating price
+	key=id+"-price";
+	i=document.getElementById(key);
+	i.innerHTML=parseInt(i.innerHTML)+price;
+}
+
+function decrementQuantity(id,price){
+	var key=id+"-quantity";
+	var i=document.getElementById(key);
+	var val=parseInt(i.value-1);
+	if(val>=1){
+	i.value=val;
+	//updating price
+	key=id+"-price";
+	i=document.getElementById(key);
+	i.innerHTML=parseInt(i.innerHTML)-price;	
+}
+	else{return;}
+}
+
+function removeItem(item)
+{
+	
+	$.when($.post("removeitem.php",{item_remove:item},function(data){console.log(data);})).then(function(){ 
+		key=item+"-row";
+		document.getElementById("cart").deleteRow("key");});
+	
+}
+
+populateCart();
+</script>
