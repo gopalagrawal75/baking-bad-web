@@ -1,0 +1,35 @@
+#cartlist{
+	margin-left: 0px !important;
+	height:500px;
+	overflow:scroll;
+}
+
+
+#cartlist li{
+	padding: 0 !important;
+	font-size: 12px !important;
+	word-spacing: 0px;
+	line-height: 16px !important;
+	font-weight: bolder;
+	border-top: 1px solid #ccc !important;
+}
+#cartlist li ol li{
+	font-weight: bold !important;
+	color: #555 !important;
+	border-top: none !important;
+	padding: 3px 0 !important;
+}
+
+#cartlist ol{
+	padding-left: 0px;
+    list-style-type: none;
+}
+#cartlist li ol li ol li{
+	font-weight: lighter !important;
+	font-style: italic;
+	border-top: none !important;
+	padding: 0 !important;
+}
+#main-wrapper .my-check-right ul li{
+	border-top: none;
+}
