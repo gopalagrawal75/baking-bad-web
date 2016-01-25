@@ -307,12 +307,17 @@ function incrementQuantity(id,price){
 	var key=id+"-quantity";
 	var i=document.getElementById(key);
 	i.value=parseInt(i.value)+1;
+	//updating qty in order variable
+	order[id].quantity=i.value;
 	//updating price
 	key=id+"-price";
-	i=document.getElementById(key);
-	i.innerHTML=parseInt(i.innerHTML.split(" ")[1])+price;
+	j=document.getElementById(key);
+	p=(parseInt(order[id].price.split(" ")[1]));
+	j.innerHTML=p*parseInt(i.value);
 	//adding rupee sign
-	i.innerHTML='₹ '+i.innerHTML;
+	j.innerHTML='₹ '+j.innerHTML;
+	//update session variable
+	$.post("update_session.php",{final_order_list:order},function(data) {console.log(data)})
 	
 }
 
@@ -322,12 +327,15 @@ function decrementQuantity(id,price){
 	var val=parseInt(i.value-1);
 	if(val>=1){
 	i.value=val;
+	order[id].quantity=i.value;
+	console.log(order[id]);
 	//updating price
 	key=id+"-price";
 	i=document.getElementById(key);
 	i.innerHTML=parseInt(i.innerHTML.split(" ")[1])-price;	
 	//adding rupee sign
 	i.innerHTML='₹ '+i.innerHTML;
+	$.post("update_session.php",{final_order_list:order},function(data) {console.log(data)})
 
 			}
 	else 

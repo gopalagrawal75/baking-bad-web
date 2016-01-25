@@ -182,7 +182,7 @@ if($_POST)
 											</div>
 											<h4> Your Order</h4>
 											<div id="order-review" style="zoom:1;">
-												<table class="shop_table">
+												<table class="shop_table" width="100%">
 													<thead>
 													<tr>
 														<td class="product-name">Product</td>
@@ -196,6 +196,42 @@ if($_POST)
 										</div>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							
+							<div   class='cart_totals'>
+								<h4> Totals</h4>
+								<table width="30%" cellspacing="0">
+									<tbody>
+										<tr class="cart-subtotal">
+											<th> Cart-Subtotal</th>
+											<td><span class="amount">669</span></td>
+										</tr>
+										<tr class="shipping">
+											<th> Shipping </th>
+											<td>5509</td>
+										</tr>
+										<tr>
+											<th> Service Charge</th>
+											<td>445</td>
+										</tr>
+										<tr> 
+											<th> Service Tax</th>
+											<td>34</td>
+										</tr>
+										<tr> 
+											<th> VAT</th>
+											<td>22</td>
+										</tr>
+										<tr>
+											<th> Total</th>
+											<td>84</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -257,18 +293,28 @@ var order2=[];
 		
 		final_order.order.push(order2[i]);
 	}
+	
+
 	//parsing final order to integer
 	console.log(JSON.parse(JSON.stringify(final_order)));
 	for (i=0;i<final_order.order.length;i++)
 	{
+		if(parseInt(final_order.order[i].category)>=3)
+			{delete final_order.order[i].size;
+			delete final_order.order[i].custom;
+			}
+
+		if(final_order.order[i].custom){
 		for (j=0;j<final_order.order[i].custom.length;j++)
 		{
+
 			for (k=0;k<final_order.order[i].custom[j].length;k++)
 			{
 				final_order.order[i].custom[j][k]=parseInt(final_order.order[i].custom[j][k]);	
 			}
 		}
 	}
+}
 	console.log("parsed");
 	console.log(JSON.stringify(final_order));
 
@@ -320,9 +366,27 @@ function populate()
 	//creating data-items;
 	var td_product=document.createElement('TD');
 	td_product.className="product-name";
-	td_product.innerHTML=itemname;
-	console.log(itemname);
+	//add size (if applicable)
+	td_product.innerHTML=itemname + ' - ';
+	if(custom['Size']!='N/A')
+			td_product.innerHTML=td_product.innerHTML+custom['Size'];
+	//creating customization detail for item (if available)
+	td_product.innerHTML=td_product.innerHTML+' (';
+	for (str in custom)
+	{
+		//skip displaying size and quantity
+		if((str=='Size')|| (str=='Quantity' ))
+		{}
+		//do nothing
+		else
+			td_product.innerHTML=td_product.innerHTML + ' '+custom[str][0]+ ',';
+	}
+
+	//closing parenthesis
+	td_product.innerHTML=td_product.innerHTML.substring(0,td_product.innerHTML.length-1) + ' )';
 	tr.appendChild(td_product);
+	//adding quantity
+	td_product.innerHTML=td_product.innerHTML+'---------x'+custom['Quantity'];
 
 	var td_total=document.createElement('TD');
 	td_total.className="product-total";
@@ -331,8 +395,9 @@ function populate()
 
 	//appending data-items to table
 	document.getElementById("order").appendChild(tr);
+	}
 }
-}
+
 populate();
 </script>
 </html>
