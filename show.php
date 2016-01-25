@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 session_start();
 $array=$_SESSION['menu'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -374,7 +375,11 @@ $array=$_SESSION['menu'];
 												</div>
 
 												<div class="price-option fl">
-													<h4 id= "<?php echo $itemName;?>">&#8377;<?php echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price'];?> </h4>
+													<h4 id= "<?php echo $itemName;?>">&#8377;
+													<?php if($item['size'])
+															echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price']; 
+														else
+															echo " ".$item['price']?></h4>
 													<?php if(!($array['data']['menu'][$_GET['cat']]['items'][$i]['simple'])){?>
 													<button class="toggle">Option</button>
 													<?php }?>
@@ -472,7 +477,7 @@ $array=$_SESSION['menu'];
 																	?>
 																	<tr><td width="350">
 																	<span class ="checkbox-input">
-																	<input type ="checkbox" minselection="<?php echo $minOption;?>" maxselection="<?php echo $maxOption;?>"id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>,<?php echo $soft;?>)">
+																	<input type ="checkbox" minselection="<?php echo $minOption;?>" maxselection="<?php echo $maxOption;?>"id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>,<?php echo $soft;?>,<?php echo $i;?>)">
 																	<label for ="<?php echo $itemName.$customName.$optionName.$k;?>"  display: block; width: 100px;>
 																		<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
 																	</label>
@@ -1434,13 +1439,16 @@ $array=$_SESSION['menu'];
 		{
 			var finalprice=parseInt(i.sizePrice)+parseInt(i.customprices);
 			document.getElementById(i.name).innerHTML=parseInt(i.customprices)+parseInt(i.sizeprice);
+			//adding rupee sign
+			document.getElementById(i.name).innerHTML='₹ '+ document.getElementById(i.name).innerHTML;
+			
 		}
 		//function to add customisation
-		function priceAddByOption(id,price,item,soft)
+		function priceAddByOption(id,price,item,soft,itemid)
 		{	
 			
-			if(softcheck<soft){alert("softlimit");softcheck=softcheck+1;return;}
-			
+			//if(softcheck<soft){alert("softlimit");softcheck=softcheck+1;return;}
+			var hit=0;
 			if(document.getElementById(id).checked)
 			{
 				//add custom option to the item object
@@ -1450,10 +1458,24 @@ $array=$_SESSION['menu'];
 				if(items[i].name==item){
 					//add custom prices 
 					items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+					hit=parseInt(hit)+1;
 					calculatePrice(items[i]);
 					
 			}
 			}
+				if(hit==0){
+					
+					items.push({name:item,sizeprice:document.getElementById(item).innerHTML.split(" ")[1],customprices:0});
+					for (i=0;i<items.length;i++)
+					{
+						if(items[i].name==item){
+						items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+						calculatePrice(items[i]);
+					}
+			
+				}
+
+			}//hit condition ends
 			}
 			else{
 			for (i = 0; i < items.length; i++)
@@ -1475,8 +1497,12 @@ $array=$_SESSION['menu'];
 		final_order_list = [];
 		function checkSizeSelections(item)
 		{	
+			
 			var keyz='sizeof'+item;
+			if(document.getElementById(keyz)==null)
+					return true;
 			var size=document.getElementById(keyz).getElementsByTagName('input');
+
 			for(i=0;i<size.length;i++){
 				if(size[i].checked)
 				{
@@ -1580,6 +1606,8 @@ $array=$_SESSION['menu'];
 			
 			else
 				order.quantity=1;
+			order.price=document.getElementById(array['data']['menu']['<?php echo $_GET['cat'];?>']['items'][item]['name']).innerHTML;
+			
 			custom_obj = []
 			//console.log("custom_count"+cust_count)
 			for (i=0; i < cust_count; i++) {
@@ -1604,7 +1632,7 @@ $array=$_SESSION['menu'];
 			console.log("order");
 			//final_order_list.push(order)
 			//console.log(final_order_list);
-			$.when($.post("session.php",{final_order_list:order},function(data) {alert(data);})).then(function( data, textStatus, jqXHR ) {
+			$.when($.post("session.php",{final_order_list:order},function(data) {})).then(function( data, textStatus, jqXHR ) {
   refreshCart(); // Alerts 200
 });
 			
@@ -1641,7 +1669,10 @@ $array=$_SESSION['menu'];
 						}
 					}}
 					custom['Size']=[];
+					if(final_order_list[i].size)
 					custom['Size'][0]=array['data']['menu'][final_order_list[i].category]['items'][final_order_list[i].item].size[final_order_list[i].size].name.toString();
+					else
+					custom['Size'][0]="N/A";
 					custom['Quantity']=final_order_list[i].quantity;
 					var itemli=document.createElement('LI');
 					itemli.innerHTML=itemname;

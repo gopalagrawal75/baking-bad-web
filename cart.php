@@ -17,7 +17,8 @@ $order=$_SESSION['final_order'];
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/test.css">
+	<link rel="stylesheet" href="css/woocommerce.css">
+	<link rel="stylesheet" href="css/woocommerce_lay.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/thumb-slide.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
@@ -168,57 +169,49 @@ $order=$_SESSION['final_order'];
 		<!-- end #header -->
 
 		<div class="page-content">
-		<div class="news-events-blog page-format">
-		<div class="container">
-		<div class="row">
-		<div class="col-md-12">
-		<h4> Cart</h4>
-		<div class="woocommerce">
-		<div class="woocommerce-message">
-		<a id="test"class="button wc-forward">Continue Shopping </a>	
+			<div class="news-events-blog page-format">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h4> Cart</h4>
+							<div class="woocommerce">
+								<div class="woocommerce-message">
+								<a id="test"class="button wc-forward">Continue Shopping </a>	
+								</div>
+								<form action="checkout.php" method="post">
+									<table style="width:100%" class="shop_table cart" cellspacing="0">
+											<thead>
+												<tr>
+													<th class="product-remove">&nbsp;</th>
+													<th class="product-thumbnail">&nbsp;</th>
+													<th class="product-name">Product</th>
+													<th class="product-price">Price</th>
+													<th class="product-quantity">Qty.</th>
+													<th class="product-subtotal">total</th>
+												</tr>
+											</thead>
+											<tbody id="cart">
+												
+											</tbody>
+									</table>
+									<table>
+										<tr>
+											<td colspan="6" class="actions">
+												<p>
+													<input type="submit" class="checkout-button button alt wc-forward" value="Proceed to Checkout">
+												</p>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<form>
-		<table style="width:100%" class="shop_table cart" cellspacing="0">
-		<thead>
-			<tr>
-				<th class="product-remove">&nbsp;</th>
-				<th class="product-thumbnail">&nbsp;</th>
-				<th class="product-name">Product</th>
-				<th class="product-price">Price</th>
-				<th class="product-quantity">Qty.</th>
-				<th class="product-subtotal">total</th>
-			</tr>
-		</thead>
-		<tbody id="cart">
-			<!--<tr class="cart_item">
-				<td class="product-remove"><a class="remove" title="Remove this item">x</a><td>
-				<td class="product-thumbnail">&nbsp;</td>
-				<td class="product-name">Make your own Pizza</td>
-				<td class="product-price">Price</td>
-				<td class="product-quantity">Qty.</td>
-				<td class="product-subtotal">slk</td>
-			</tr>-->
-			
-		</tbody>
-		</table>
-		<table>
-		<tr>
-				<td colspan="6" class="actions">
-				<p>
-					<input type="submit" class="checkout-button button alt wc-forward" value="Proceed to Checkout">
-				</p>
-				</td>
-			</tr>
-		</table>
-		</form>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div>
-		</div><!--Main Wrapper End-->
-
+	</div><!--Main Wrapper End-->
+</body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
 var array=<?php echo json_encode($array); ?>;
@@ -226,12 +219,10 @@ var order=<?php echo json_encode($order);?>;
 
 function populateCart()
 {	
-
 	document.getElementById('cart').innerHTML="";
 	if(order.length==0){alert("Your cart is empty!!");return;}
 	for(i=0;i<order.length;i++){
 		var itemname=array['data']['menu'][order[i].category]['items'][order[i].item]['name'];
-
 		var custom=[];
 		if(order[i].custom){
 			for (index in order[i].custom){
@@ -245,7 +236,10 @@ function populateCart()
 		} //check for customization in order ends here
 
 		custom['Size']=[];
+		if(order[i].size)
 		custom['Size'][0]=array['data']['menu'][order[i].category]['items'][order[i].item].size[order[i].size].name.toString();
+		else
+		custom['Size'][0]="N/A"	
 		custom['Quantity']=order[i].quantity;
 
 		//Populating cart table
@@ -283,10 +277,10 @@ function populateCart()
 		div.style.textAlign="left";div.style.display="inline-block";
 		var minus=document.createElement('INPUT');
 		minus.type="button";minus.className="minus";minus.value="-";
-		minus.setAttribute('onclick','decrementQuantity('+i.toString()+','+order[i].price+');');
+		minus.setAttribute('onclick','decrementQuantity('+i.toString()+','+order[i].price.split(" ")[1]+');');
 		var plus=document.createElement('INPUT');
 		plus.type="button";plus.className="plus";plus.value="+";
-		plus.setAttribute('onclick','incrementQuantity('+i.toString()+','+order[i].price+');');
+		plus.setAttribute('onclick','incrementQuantity('+i.toString()+','+order[i].price.split(" ")[1]+');');
 		var input=document.createElement('INPUT');
 		input.type="number";input.step="1";input.className="input-text qty text";
 		input.id=i+"-quantity";input.value=parseInt(order[i].quantity);
@@ -316,7 +310,10 @@ function incrementQuantity(id,price){
 	//updating price
 	key=id+"-price";
 	i=document.getElementById(key);
-	i.innerHTML=parseInt(i.innerHTML)+price;
+	i.innerHTML=parseInt(i.innerHTML.split(" ")[1])+price;
+	//adding rupee sign
+	i.innerHTML='₹ '+i.innerHTML;
+	
 }
 
 function decrementQuantity(id,price){
@@ -328,9 +325,13 @@ function decrementQuantity(id,price){
 	//updating price
 	key=id+"-price";
 	i=document.getElementById(key);
-	i.innerHTML=parseInt(i.innerHTML)-price;	
-}
-	else{return;}
+	i.innerHTML=parseInt(i.innerHTML.split(" ")[1])-price;	
+	//adding rupee sign
+	i.innerHTML='₹ '+i.innerHTML;
+
+			}
+	else 
+		return;
 }
 
 function removeItem(item)
@@ -344,3 +345,4 @@ function removeItem(item)
 
 populateCart();
 </script>
+</hmtl>
