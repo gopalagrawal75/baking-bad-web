@@ -96,10 +96,12 @@ body.loaded {
 
 #main-wrapper { overflow: hidden; }
 
-#page-content { padding: 0; }
+#page-content {
+  background-image: url(../img/texture.png);
+  padding: 0; }
 
 a {
-  color: #343434;
+  color: #E18836;
   text-decoration: none;
   cursor: pointer;
   -webkit-transition: all .4s ease;
@@ -434,7 +436,9 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 /* Header */
 /* ====================================================== */
-#header { position: relative; }
+#header {
+  background: url(../img/texture.png);
+  position: relative; }
 
 #header a { text-decoration: none; }
 
@@ -524,11 +528,11 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 #header .header-nav-bar {
   position: relative;
   width: 100%;
-  background: #343434;
+  background: rgba(0,0,0,0);
 }
 #header .header-nav-bar .navbar {
   margin: 0;
-  background: #343434;
+  background: rgba(0,0,0,0);
   border: none;
 }
 
@@ -2274,6 +2278,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 #main-wrapper .all-menu-details .price-option h4 {
+  color: #E18836;
   text-align: center;
   margin: 0;
   padding: 30px 0;
