@@ -31,6 +31,14 @@ $array=$_SESSION['menu'];
 
 <body>
 	<div id="main-wrapper">
+	<input type="hidden" id="refreshed" value="no">
+<script type="text/javascript">
+onload=function(){
+var e=document.getElementById("refreshed");
+if(e.value=="no")e.value="yes";
+else{e.value="no";location.reload();}
+}
+</script>
 		<header id="header" style="z-index:0">
 			<div class="header-top-bar">
 				<div class="container">
@@ -497,7 +505,7 @@ $array=$_SESSION['menu'];
 																							?>
 																							<tr><td width="350">
 																								<span class ="checkbox-input">
-																									<input type ="checkbox" minselection="<?php echo $minOption;?>" maxselection="<?php echo $maxOption;?>"id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>,<?php echo $soft;?>,<?php echo $i;?>)">
+																									<input type ="checkbox" minselection="<?php echo $minOption;?>" maxselection="<?php echo $maxOption;?>"id="<?php echo $itemName.$customName.$optionName.$k;?>" name="<?php echo $item['id'].'-custom-'.$j;?>" value="<?php echo $k;?>" onchange="priceAddByOption('<?php echo $itemName.$customName.$optionName.$k."',".$array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['price'];?>,<?php echo "'".$itemName."'";?>,<?php echo $soft;?>,<?php echo $i;?>,<?php echo $j;?>)">
 																									<label for ="<?php echo $itemName.$customName.$optionName.$k;?>"  display: block; width: 100px;>
 																										<?php echo $array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options'][$k]['name'];?>
 																									</label>
@@ -700,6 +708,7 @@ $array=$_SESSION['menu'];
 
 								var  price;
 								var items = new Array();
+								var softchek=new Array();
 								var cartitems=new Array();
 								var array=<?php echo json_encode($array); ?>;
 								var softcheck=0;
@@ -721,7 +730,7 @@ $array=$_SESSION['menu'];
 			//push if item doesnt exist
 			items.push({name:v.split(":")[0],sizeprice:v.split(":")[1],customprices:0});
 			calculatePrice(items[i]);
-			softcheck=0;
+			//softcheck=0;
 			
 			
 			
@@ -735,33 +744,99 @@ $array=$_SESSION['menu'];
 			document.getElementById(i.name).innerHTML='₹ '+ document.getElementById(i.name).innerHTML;
 			
 		}
+		
+		//function to implement softcheck
+		function checkSoft(soft,itemid,custid,action)
+		{
+			var custhit=0;var itemhit=0;var customization=[];
+			
+			//looping through softcheck as well
+				for(i=0;i<softchek.length;i++){
+					//check if item already exists in softcheck
+					if(softchek[i].item==itemid)
+					{
+						itemhit=1;
+						for(j=0;j<softchek[i].customization.length;j++)
+						{
+							if(softchek[i].customization[j].customid==custid){
+								if(action=='checked'){
+									softchek[i].customization[j].soft+=1;console.log('adding soft');
+								}
+								else{
+									softchek[i].customization[j].soft-=1;console.log('subtracting soft')
+								}
+								custhit=1;
+							}
+						}
+						if(custhit==0){
+							customization={customid:custid,
+										   softlimit:soft,
+										   soft:1};
+							softchek[i].customization.push(customization);}
+
+					}
+					
+
+				}
+				if(itemhit==0){
+					console.log('adding item');
+					customization.push({customid:custid,softlimit:soft,soft:1});
+					softchek.push({item:itemid,customization:customization});
+				}
+		}
 		//function to add customisation
-		function priceAddByOption(id,price,item,soft,itemid)
+		function priceAddByOption(id,price,item,soft,itemid,custid)
 		{	
 			
-			//if(softcheck<soft){alert("softlimit");softcheck=softcheck+1;return;}
+			
 			var hit=0;
+			var softhit=0;
 			if(document.getElementById(id).checked)
 			{
+				checkSoft(soft,itemid,custid,'checked');
 				//add custom option to the item object
 
 				for (i = 0; i < items.length; i++)
 				{
 					if(items[i].name==item){
 					//add custom prices 
-					items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+					console.log(softchek[i].item);
+					for (m=0;m<softchek.length;m++){
+						if(softchek[m].item==itemid){
+							for(u=0;u<softchek[m].customization.length;u++){
+								if(softchek[m].customization[u].customid==custid){
+									if(softchek[m].customization[u].soft>softchek[m].customization[u].softlimit)
+										items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+					
+								}
+							}		
+						}
+					}
+					//items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
 					hit=parseInt(hit)+1;
 					calculatePrice(items[i]);
 					
+										}
 				}
-			}
+				
 			if(hit==0){
 
 				items.push({name:item,sizeprice:document.getElementById(item).innerHTML.split(" ")[1],customprices:0});
 				for (i=0;i<items.length;i++)
 				{
 					if(items[i].name==item){
-						items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+
+						for (m=0;m<softchek.length;m++){
+						if(softchek[m].item==itemid){
+							for(u=0;u<softchek[m].customization.length;u++){
+								if(softchek[m].customization[u].customid==custid){
+									if(softchek[m].customization[u].soft>softchek[m].customization[u].softlimit)
+										items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
+					
+								}
+							}		
+						}
+					}
 						calculatePrice(items[i]);
 					}
 
@@ -770,6 +845,7 @@ $array=$_SESSION['menu'];
 			}//hit condition ends
 		}
 		else{
+			checkSoft(soft,itemid,custid,'unchecked');
 			for (i = 0; i < items.length; i++)
 			{
 				if(items[i].name==item){
