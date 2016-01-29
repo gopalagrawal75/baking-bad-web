@@ -1037,7 +1037,13 @@ else{e.value="no";location.reload();}
 
 					}
 				}
-				console.log(final_order_list);
+				total=0;
+				for (i=0;i<final_order_list.length;i++)
+				{
+					total+=parseInt(final_order_list[i].quantity)*parseInt(final_order_list[i].price.split(" ")[1]);
+				}
+				//updating total price in mycheck
+				document.getElementById('price-total').innerHTML='₹ '+total;
 			}
 
 					function removeFromCart(item)
