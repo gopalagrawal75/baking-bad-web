@@ -1309,7 +1309,7 @@
 	}
 
 	.header-top-bar {
-		display: none;
+		
 	}
 
 
@@ -1373,6 +1373,7 @@
 @media screen and (max-width: 1000px) {
 	#header .header-top-bar .call-us {
 		float: none;
+		display: none;
 	}
 }
 

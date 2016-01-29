@@ -36,10 +36,10 @@ $order=$_SESSION['final_order'];
 		<header id="header">
 			<div class="header-top-bar">
 				<div class="container">
-					<div class="row">
+					<div id="default-row" class="row">
 						<div class="col-md-5 col-sm-12 col-xs-12">
 							<div class="header-login">
-								<a href="#">Order online</a>
+								<a href="#">Register</a>
 								<a href="#">Login</a>
 							</div>
 							<!-- end .header-login -->
@@ -64,7 +64,26 @@ $order=$_SESSION['final_order'];
 								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
 							</p>
 						</div>
-					</div>
+					</div><!--end row-->
+					<!--logged-in row-->
+					<div class="row" id="login-row" style="display:none;">
+						<div class="col-lg-8" style="font-size:14px;">
+							<?php if(isset($_SESSION['uname']))
+							echo "Welcome, ". $_SESSION['uname']
+							?>		
+						</div>
+						<div class="col-lg-4">
+							<ul class="options-dropdown">
+								<li>Options
+									<ul class="options-dropdown-ul">
+										<li>order history</li>
+										<li>logout</li>
+									</ul>
+								</li>
+							</ul>
+
+						</div>
+					</div><!--end of logged-in row-->
 					<!-- end .container -->
 				</div>
 			</div>
@@ -350,6 +369,21 @@ function removeItem(item)
 		document.getElementById("cart").deleteRow("key");});
 	
 }
+
+$(document).ready(function(){
+		t="<?php if(isset($_SESSION['uname']))
+							echo $_SESSION['uname'];
+						else
+							echo NA;
+						?>";
+					if(t!="NA"){
+							$('#login-row').toggle();
+							$('#default-row').toggle();
+						}
+	});
+$('.options-dropdown').on('click',function(){
+	$('.options-dropdown-ul').slideToggle();
+	});
 
 populateCart();
 </script>

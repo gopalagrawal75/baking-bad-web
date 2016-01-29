@@ -1,3 +1,10 @@
+function loginBox(){
+	$('.login-box').fadeToggle();
+};
+
+function registerBox(){
+	$('.register-box').fadeToggle();
+}
 (function($){
     "use strict";
 

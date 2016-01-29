@@ -17,6 +17,7 @@ curl_close($ch);
 $areas = json_decode($result, true);
 $array=$_SESSION['menu'];
 $order=$_SESSION['final_order'];
+$address=$_SESSION['address'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@ $order=$_SESSION['final_order'];
 	<link rel="stylesheet" type="text/css" href="css/cartstyle.css">
 	<link rel="stylesheet" type="text/css" href="css/woocommerce_lay.css">
 
-
+<script> console.log(<?php echo $address;?>);</script>
 	<!--[if IE 9]>
 	<script src="js/media.match.min.js"></script>
 	<![endif]-->
@@ -49,11 +50,23 @@ $order=$_SESSION['final_order'];
 		<header id="header">
 			<div class="header-top-bar">
 				<div class="container">
-					<div class="row">
+					<div id="default-row" class="row">
 						<div class="col-md-5 col-sm-12 col-xs-12">
 							<div class="header-login">
-								<a href="#">Order online</a>
-								<a href="#">Login</a>
+								<a href="#">Register</a>
+								<a href="#" onclick="loginBox()">Login</a>
+								<div class="login-box">
+        							<form id="bg-login-form"  method="post"  role="form">
+                 						 <p class="status"></p>
+                 						 <input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
+                 						 <input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
+                						  <p class="submit form-row">
+                  							  <input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
+                    						   
+                 						 </p>
+                                   		             
+                					</form>
+      							</div>
 							</div>
 							<!-- end .header-login -->
 							<!-- Header Social -->
@@ -78,6 +91,25 @@ $order=$_SESSION['final_order'];
 							</p>
 						</div>
 					</div>
+					<!--logged-in row-->
+					<div class="row" id="login-row" style="display:none;">
+						<div class="col-lg-8" style="font-size:14px;">
+							<?php if(isset($_SESSION['uname']))
+							echo "Welcome, ". $_SESSION['uname']
+							?>		
+						</div>
+						<div class="col-lg-4">
+							<ul class="options-dropdown">
+								<li>Options
+									<ul class="options-dropdown-ul">
+										<li>order history</li>
+										<li>logout</li>
+									</ul>
+								</li>
+							</ul>
+
+						</div>
+					</div><!--end of logged-in row-->
 					<!-- end .container -->
 				</div>
 			</div>
@@ -192,8 +224,8 @@ $order=$_SESSION['final_order'];
 											<div class="woocommerce-info">
 											</div>
 											<form action="test.php" name="checkout" method="post">
-												<div class="col2-set" id="customer-details">
-													<div class="col-1">
+												<div class="row">
+													<div class="col-lg-8">
 														<div class="woocommerce-billing-fields">
 															<h3> Billing Details </h3>
 															<p class="form-row form-row-first" id="billing-first-name">
@@ -211,36 +243,87 @@ $order=$_SESSION['final_order'];
 																<input type="text" class="input-text"  name="billing-last-name">
 															</p>
 															<div class="clear"></div>
-															<p class="form-row form-row-wide address-field" id="billing-address-1">
-																<label for="billing-address-1" class>
+															<p>
+																<label>
 																	Address
 																	<abbr class="required" title="required">*</abbr>
+																	<span onclick="showAddForm()">Edit</span>
 																</label>
-																<input type="text" name="billing-address-1" class="input-text" placeholder="Street Address">
 															</p>
-															<p class="form-row form-row-wide address-field"  id="billing-address-2">
-																<input type="text" name="billing-addresss-2"class="input-text" placeholder="Apartment, suite, unit etc. (optional)">
-															</p>
-															<p class="form-row form-row-wide address-field" id="billing-area">
-																<label for="billing-area" class>
-																	Area
-																	<abbr class="required" title="required">*</abbr>
-																</label>
-																	<select name="areas">
-																		<?php 
-																			for($i=0;$i<count($areas['data']);$i++){
-																			?>
-																			<option value="<?php echo $areas['data'][$i];?>">
-																			<?php echo $areas['data'][$i];?></option>
-																		<?php }?>
-																	</select>
-															</p>
-															<p class="form-row form-row-first address-field" id="billing-postcode">
+															<script type="text/javascript">
+															function showAddForm(){
+																$('.address-div').slideToggle();
+
+															};
+															</script>
+
+															<div class="address-div" style="display:none;">
+																<p class="form-row form-row-wide address-field" id="billing-address-1">
+																
+																	<input type="text" name="billing-address-1" class="input-text" placeholder="Street Address">
+																</p>
+																<p class="form-row form-row-wide address-field"  id="billing-address-2">
+																	<input type="text" name="billing-addresss-2"class="input-text" placeholder="Apartment, suite, unit etc. (optional)">
+																</p>
+																<p class="form-row form-row-wide address-field" id="billing-area">
+																	<label for="billing-area" class>
+																		Area
+																		<abbr class="required" title="required">*</abbr>
+																	</label>
+																		<select name="areas">
+																			<?php 
+																				for($i=0;$i<count($areas['data']);$i++){
+																				?>
+																				<option value="<?php echo $areas['data'][$i];?>">
+																				<?php echo $areas['data'][$i];?></option>
+																			<?php }?>
+																		</select>
+																</p>
+																<p class="form-row form-row-wide address-field" id="billing-postcode">
 																<label for="billing-postcode"> Postcode
-																<abbr class="required" title="required">*</abbr>
-																</label>
-																<input name="postcode" type="text" class="input-text">
-															</p>
+																	<abbr class="required" title="required">*</abbr>
+																	</label>
+																	<input name="postcode" type="text" class="input-text">
+																</p>
+															</div>
+															<div class="row">
+
+																<?php
+																//print_r($address);
+
+																	for ($i=0;$i<count($address['data']);$i++)
+																	{
+																		?>
+																		<div class="col-lg-4">
+																			<div class="address-col-4">
+																				<?php echo "Address: ".$address['data'][$i]['address'];?><br>
+																				<?php echo "Area: ".$address['data'][$i]['area'];?><br>
+																				<?php echo "Pin: ".$address['data'][$i]['pincode'];?>
+																			</div>
+																		
+																		</div>
+																		<div class="col-lg-4">
+																			<div class="address-col-4">
+																				<?php echo "Address: ".$address['data'][$i]['address'];?><br>
+																				<?php echo "Area: ".$address['data'][$i]['area'];?><br>
+																				<?php echo "Pin: ".$address['data'][$i]['pincode'];?>
+																			</div>
+																		
+																		</div>
+																		<div class="col-lg-4">
+																			<div class="address-col-4">
+																				<?php echo "Address: ".$address['data'][$i]['address'];?><br>
+																				<?php echo "Area: ".$address['data'][$i]['area'];?><br>
+																				<?php echo "Pin: ".$address['data'][$i]['pincode'];?>
+																			</div>
+																		
+																		</div>
+																		
+																	<?php }
+																?>
+																
+																
+															</div>
 															<p class="form-row form-row-last " id="billing-phone">
 																<label for="billing_phone"> Phone
 																<abbr class="required" title="required">*</abbr>
@@ -251,31 +334,16 @@ $order=$_SESSION['final_order'];
 																<label for="billing-email"> E-mail
 																<abbr class="required" title="required">*</abbr>
 																</label>
-																<input name="email" type="text" class="input-text">
+																<input id="email" name="email" type="text" class="input-text">
 															</p>
 															<p class="form-row form-row-wide" id="submit">
 																<label for="submit">
-																<input  type="submit" class="checkout-button button alt wc-forward" value="Submit">
+																<input  id="checkout-submit"type="submit" class="checkout-button button alt wc-forward" value="Submit">
 																</label>
+																<div style="display:none;" id="login-prompt"><b>Please login/register before placing your your order!!</b></div>
 															</p>
-														</div>
-													
-													</div> <!--End of Column-1-->
-													<!--<div class="col-2">
-														<h3 id="order_review_heading">Your order</h3>
-														<div id="order-review" style="position: relative; zoom: 1;">
-															<table class="shop-table" width="100%">
-																<thead>
-																	<tr>
-																		<th class="product-name">Product</th>
-																		<th class="product-total">Total</th>
-																	</tr>
-																</thead>
-																<tbody id="order-review-body">
-																</tbody>
-															</table>
-														</div>
-													</div>-->
+														</div>	
+													</div>
 												</div>
 											</form>
 										</div>
@@ -290,24 +358,80 @@ $order=$_SESSION['final_order'];
 </div><!--end of main wrapper-->
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src="js/jquery.ui.map.js"></script>
 <script>
-	/*function populateSummary()
-	{
-		var order=<?php echo json_encode($order);?>;
-		if(order==null)
-			console.log("no order");
-		else
+
+	email="<?php if (isset($_SESSION['uname'])) 
+					{echo $_SESSION['uname'];} 
+				else 
+					{echo "NA";}?>";
+	$(document).ready(function(){
+		if(email=="NA")
 		{
-			console.log(order);
-			var names=findNames(order);
-		}//end of else conditon which checks if order is null
-	}
+		$('#checkout-submit').prop('disabled',true);
+		$('#login-prompt').toggle();
+		}
+		else 
+			$('#checkout-submit').prop('disabled',false);
+			$('#login-prompt').prop('disabled',true);
+	});
 
-	function findNames(order)
-	{
+	function login() {
 
-	}
-	populateSummary();*/
+				var login={};
+				login.email=document.getElementById('login-email').value;
+				login.password=document.getElementById('login-password').value;
+				login.vendor_id=1;
+				console.log(login);
+				$.when($.ajax({
+			            url: 'http://lannister-api.elasticbeanstalk.com/tyrion/user/login',
+			            type: 'post',
+			            dataType: 'json',
+			            success: function (data) {
+			                
+			                response=data;
+			                console.log(response);
+			                if(response.data){
+			                	$.post("login.php",{email:login.email, password:login.password},function(data) {});
+			                	//making ajax call to retrieve addresses
+			                	$.ajax({
+			                		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address?email='+login.email+'&vendor_id=1',
+			                		type:'get',
+			                		dataType: 'json',
+			                		success: function(data){
+			                			//ajax to save address in session
+			                			$.post("address.php",{address:data},function(data){alert(data);});
+			                			console.log(data);
+			                		}
+
+			                		
+			                	});
+			                }
+			                else
+			                	alert("Login Credentials invalid, please sign-up");
+			            },
+			            data: JSON.stringify(login)
+			        })).then(function(){location.reload(true);});
+				
+			}
+	$(document).ready(function(){
+		t="<?php if(isset($_SESSION['uname']))
+							echo $_SESSION['uname'];
+						else
+							echo NA;
+						?>";
+					if(t!="NA"){
+							$('#login-row').toggle();
+							$('#default-row').toggle();
+							$('#email').val(t);
+						}
+	});
+		$('.options-dropdown').on('click',function(){
+	$('.options-dropdown-ul').slideToggle();
+	});
 	
 </script>
 </html>

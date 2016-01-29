@@ -21,10 +21,11 @@ $_SESSION['menu']=$array;
 <html lang="en">
 
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Home-TakeAway</title>
+	<title>Home-BakingBad</title>
 	<!-- Stylesheets -->
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -47,11 +48,24 @@ $_SESSION['menu']=$array;
 		<header id="header">
 			<div class="header-top-bar">
 				<div class="container">
-					<div class="row">
+					<div id="default-row" class="row">
 						<div class="col-md-5 col-sm-12 col-xs-12">
 							<div class="header-login">
-								<a href="#">Order online</a>
-								<a href="#">Login</a>	
+								<a href="#">Register</a>
+								<a href="#" onclick="loginBox()">Login</a>	
+								<div class="login-box">
+        							<form id="bg-login-form"  method="post"  role="form">
+                 						 <p class="status"></p>
+                 						 <input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
+                 						 <input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
+                						  <p class="submit form-row">
+                  							  <input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
+                    						   <input type="hidden" name="redirect_to" value="http://188.226.173.21/takeawaywp">
+                   								 <input type="hidden" name="testcookie" value="1">
+                 						 </p>
+                                   		>                
+                					</form>
+      							</div>
 							</div>
 							<!-- end .header-login -->
 							<!-- Header Social -->
@@ -75,7 +89,27 @@ $_SESSION['menu']=$array;
 								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
 							</p>
 						</div>
-					</div> <!-- end .row --> 
+					</div> <!-- end .row -->
+					<!--logged-in row-->
+					<div class="row" id="login-row" style="display:none;">
+						<div class="col-lg-8" style="font-size:14px;">
+							<?php if(isset($_SESSION['uname']))
+							echo "Welcome, ". $_SESSION['uname']
+							?>		
+						</div>
+						<div class="col-lg-4">
+							<ul class="options-dropdown">
+								<li>Options
+									<ul class="options-dropdown-ul">
+										<li>order history</li>
+										<li>logout</li>
+									</ul>
+								</li>
+							</ul>
+
+						</div>
+					</div><!--end of logged-in row-->
+					
 				</div> <!-- end .container -->
 			</div>
 			<!-- end .header-top-bar -->
@@ -670,6 +704,64 @@ $_SESSION['menu']=$array;
 		});
 
 	
+	function login() {
+
+				var login={};
+				login.email=document.getElementById('login-email').value;
+				login.password=document.getElementById('login-password').value;
+				login.vendor_id=1;
+				console.log(login);
+				$.when($.ajax({
+			            url: 'http://lannister-api.elasticbeanstalk.com/tyrion/user/login',
+			            type: 'post',
+			            dataType: 'json',
+			            success: function (data) {
+			                
+			                response=data;
+			                console.log(response);
+			                if(response.data){
+			                	$.post("login.php",{email:login.email, password:login.password},function(data) {});
+			                	//making ajax call to retrieve addresses
+			                	$.ajax({
+			                		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address?email='+login.email+'&vendor_id=1',
+			                		type:'get',
+			                		dataType: 'json',
+			                		success: function(data){
+			                			//ajax to save address in session
+			                			$.post("address.php",{address:data},function(data){});
+			                			console.log(data);
+
+			                		}
+
+			                		
+			                	});
+
+			                }
+			                else
+			                	alert("Login Credentials invalid, please sign-up");
+			            },
+			            data: JSON.stringify(login)
+			        })).then(function(){location.reload(true);});
+				
+			}
+	$(document).ready(function(){
+		t="<?php if(isset($_SESSION['uname']))
+							echo $_SESSION['uname'];
+						else
+							echo NA;
+						?>";
+					if(t!="NA"){
+							$('#login-row').toggle();
+							$('#default-row').toggle();
+						}
+	});
+	function toggleRow()
+	{
+		
+	}
+	$('.options-dropdown').on('click',function(){
+	$('.options-dropdown-ul').slideToggle();
+	});
 	</script>
 
 </body>

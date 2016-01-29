@@ -5061,6 +5061,54 @@ h5 a:hover { color: #666; }
   background-color: #e00000;
 }
 
+.login-box{
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    z-index: 99;
+    padding: 20px;
+    width: 350px;
+    height: auto;
+    background-color: #1a1a1a;
+ }
+.login-box form input[type="text"], .login-box form input[type="password"]{
+  margin: 10px 0;
+}
+
+.address-col-4{
+      border: 1px solid #ddd;
+    box-shadow: 1px 6px 15px -5px;
+    padding: 15px;
+}
+.options-dropdown{
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.options-dropdown-ul{
+  display: none;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  top: 27px;
+  z-index: 42;
+  padding: 15px;
+  border-radius: 3px;
+  list-style-type: none;
+}
+
+.register-box{
+  display: none;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    z-index: 99;
+    padding: 20px;
+    width: 350px;
+    height: auto;
+    background-color: #1a1a1a;
+}
 /* ====================================================== */
 /* end */
 

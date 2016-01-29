@@ -40,7 +40,22 @@ if($_POST)
 						<div class="col-md-5 col-sm-12 col-xs-12">
 							<div class="header-login">
 								<a href="#">Order online</a>
-								<a href="#">Login</a>
+								<a href="#" onclick="loginBox()">Login</a>
+								<div class="login-box">
+        							<form id="bg-login-form" method="post"  role="form">
+                 						 <p class="status"></p>
+                 						 <input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Username">
+                 						 <input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
+                						  <p class="submit form-row">
+                  							  <input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
+                    						   <input type="hidden" name="redirect_to" value="http://188.226.173.21/takeawaywp">
+                   								 <input type="hidden" name="testcookie" value="1">
+                 						 </p>
+                                   		 <a href="http://188.226.173.21/takeawaywp/wp-login.php?action=lostpassword" class="btn btn-link">Forgot Password?</a>
+                						  <input type="hidden" id="security" name="security" value="451822321c">
+                						  <input type="hidden" name="_wp_http_referer" value="/takeawaywp/cart/">                
+                					</form>
+      							</div>
 							</div>
 							<!-- end .header-login -->
 							<!-- Header Social -->
@@ -208,27 +223,27 @@ if($_POST)
 									<tbody>
 										<tr class="cart-subtotal">
 											<th> Cart-Subtotal</th>
-											<td><span class="amount">669</span></td>
+											<td><span id='amount' class="amount">669</span></td>
 										</tr>
 										<tr class="shipping">
 											<th> Shipping </th>
-											<td>5509</td>
+											<td id='shipping'>5509</td>
 										</tr>
 										<tr>
 											<th> Service Charge</th>
-											<td>445</td>
+											<td id='service'>445</td>
 										</tr>
 										<tr> 
 											<th> Service Tax</th>
-											<td>34</td>
+											<td id='tax'>34</td>
 										</tr>
 										<tr> 
 											<th> VAT</th>
-											<td>22</td>
+											<td id='vat'>22</td>
 										</tr>
 										<tr>
 											<th> Total</th>
-											<td>84</td>
+											<td id='total'>84</td>
 										</tr>
 									</tbody>
 								</table>
@@ -243,6 +258,7 @@ if($_POST)
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript">
 
+var totalamt=0;//variable to record cart subtotal
 var final_order={
 		vendor_id:1,
 		email:"<?php echo $email;?>",
@@ -264,6 +280,7 @@ var order2=[];
 		order2[i].qty=parseInt(order[i].quantity);
 		order2[i].size=parseInt(order[i].size);
 		order2[i].custom=[[]];
+		totalamt=totalamt+(parseInt(order[i].quantity)*parseInt(order[i].price.split(" ")[1]));
 		if(order[i].custom){
 		var key=Object.keys(order[i].custom);
 		//console.log(typeof order[i].custom);
@@ -293,6 +310,8 @@ var order2=[];
 		
 		final_order.order.push(order2[i]);
 	}
+	//filling up cart subtotal amount
+	document.getElementById('amount').innerHTML='₹ '+totalamt;
 	
 
 	//parsing final order to integer
@@ -330,10 +349,19 @@ var response;
                 
                 response=data;
                 console.log(response);
+                document.getElementById('shipping').innerHTML=response['data']['delivery_charges'];
+				document.getElementById('service').innerHTML=response['data']['service_charge'];
+				document.getElementById('tax').innerHTML=response['data']['service_tax'];
+				document.getElementById('vat').innerHTML=response['data']['vat'];
+				document.getElementById('total').innerHTML=response['data']['price'];
             },
             data: JSON.stringify(final_order)
         });
 }
+//filling up other required fields of cart
+$()
+
+
 
 function populate()
 {
@@ -390,13 +418,14 @@ function populate()
 
 	var td_total=document.createElement('TD');
 	td_total.className="product-total";
-	td_total.innerHTML=order[i].price;
+	td_total.innerHTML='₹ '+ parseInt(order[i].price.split(" ")[1])*parseInt(order[i].quantity);
 	tr.appendChild(td_total);
 
 	//appending data-items to table
 	document.getElementById("order").appendChild(tr);
 	}
 }
+
 
 populate();
 </script>

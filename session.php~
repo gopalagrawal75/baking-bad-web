@@ -1,0 +1,11 @@
+<?php
+$finalorder="test";
+if($_POST)
+{
+$_SESSION['final_order'] = $_POST['final_order_list']; 
+}
+$finalorder=$_SESSION['final_order'];
+
+echo $finalorder;
+
+?>
