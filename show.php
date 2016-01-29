@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(E_ALL);
 session_start();
 $array=$_SESSION['menu'];
@@ -101,7 +101,7 @@ else{e.value="no";location.reload();}
 						<div class="col-lg-8" style="font-size:14px;">
 							<?php if(isset($_SESSION['uname']))
 							echo "Welcome, ". $_SESSION['uname']
-							?>		
+							?>
 						</div>
 						<div class="col-lg-4">
 							<ul class="options-dropdown">
@@ -142,7 +142,7 @@ else{e.value="no";location.reload();}
 								<li>
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
 								</li>
-								
+
 								<li><a href="contact-us.html">Contact us</a>
 								</li>
 							</ul>
@@ -312,13 +312,13 @@ else{e.value="no";location.reload();}
 								</a>
 							</div>
 						</div>
-						
+
 					</div>
-			
+
 				</div>
-				
+
 			</div> -->
-			
+
 
 			<!-- start #main-wrapper -->
 			<div class="container">
@@ -333,25 +333,25 @@ else{e.value="no";location.reload();}
 							<div class="list-grid-view">
 								<button class="thumb-view"><i class="fa fa-list"></i></button>
 								<button class="without-thumb"><i class="fa fa-align-justify"></i></button>
-								<button class="grid-view"><i class="fa fa-th-list"></i></button> 
+								<button class="grid-view"><i class="fa fa-th-list"></i></button>
 							</div>
 							<!-- end .list-grid-view -->
 
-						
+
 							<!-- end .page-list -->
 						</div>
 						<!-- end view-style -->
-						
+
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="tab-1">
 								<div class="all-menu-details">
 									<h5>Daily Menu</h5>
-									<?php 
+									<?php
 									for($i=0;$i<count($array['data']['menu'][$_GET['cat']]['items']) ; $i++){
 										$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
 										$item=$array['data']['menu'][$_GET['cat']]['items'][$i];
 
-										?>	
+										?>
 										<div class="item-list right-checkout">
 											<div class="list-image">
 												<img src="img/content/menu-list-img.jpg" alt="">
@@ -369,7 +369,7 @@ else{e.value="no";location.reload();}
 													<div class="price-option fl">
 														<h4 id= "<?php echo $itemName;?>">&#8377;
 															<?php if($item['size'])
-															echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price']; 
+															echo " ".$array['data']['menu'][$_GET['cat']]['items'][$i]['size'][0]['price'];
 															else
 																echo " ".$item['price']?></h4>
 															<?php if(!($array['data']['menu'][$_GET['cat']]['items'][$i]['simple'])){?>
@@ -386,7 +386,7 @@ else{e.value="no";location.reload();}
 																</button>
 															</form>
 														</div> <!-- end .qty-cart -->
-													</div> <!-- end .visible-option -->	
+													</div> <!-- end .visible-option -->
 
 													<div class="dropdown-option clearfix">
 														<div class="dropdown-details">
@@ -399,7 +399,7 @@ else{e.value="no";location.reload();}
 																<table id="<?php echo 'sizeof'.$i;?>">
 																	<?php
 																	foreach ($array['data']['menu'][$_GET['cat']]['items'][$i]['size'] as &$size)
-																	{	
+																	{
 																		?>
 
 
@@ -488,7 +488,7 @@ else{e.value="no";location.reload();}
 
 
 																					<?php }
-																					?>		<!-- for loops closed for item and customisation-->								
+																					?>		<!-- for loops closed for item and customisation-->
 																				</form>
 																			</div>
 																			<!--end .dropdown-details-->
@@ -499,7 +499,7 @@ else{e.value="no";location.reload();}
 																</div>
 
 																<!-- end .item-list -->
-																<?php 
+																<?php
 															}
 															?>
 
@@ -507,20 +507,20 @@ else{e.value="no";location.reload();}
 														<!--end all-menu-details-->
 
 
-														
+
 
 													</div> <!-- end .tab-pane -->
 
 
-													
+
 												</div> <!-- end .tab-content -->
 
-												
+
 												<!-- end .pagination -->
 											</div>
 											<!--end main-grid layout-->
-										
-											
+
+
 											<div class="col-md-3">
 												<div class="my-check-right" id="">
 													<h5 class="toggle-title">My Check</h5>
@@ -532,7 +532,7 @@ else{e.value="no";location.reload();}
 															<!-- list for total price-->
 															<p>Total</p>
 															<p id="price-total" class="price-total">
-																
+
 															</p>
 														</li>
 													</ul>
@@ -685,18 +685,18 @@ else{e.value="no";location.reload();}
 				if(items[i].name==v.split(":")[0])
 				{
 					items[i].sizeprice=v.split(":")[1];
-					
-					calculatePrice(items[i]);	
-					return;		
+
+					calculatePrice(items[i]);
+					return;
 				}
 			}
 			//push if item doesnt exist
 			items.push({name:v.split(":")[0],sizeprice:v.split(":")[1],customprices:0});
 			calculatePrice(items[i]);
 			//softcheck=0;
-			
-			
-			
+
+
+
 		}
 
 		function calculatePrice(i)
@@ -705,14 +705,14 @@ else{e.value="no";location.reload();}
 			document.getElementById(i.name).innerHTML=parseInt(i.customprices)+parseInt(i.sizeprice);
 			//adding rupee sign
 			document.getElementById(i.name).innerHTML='₹ '+ document.getElementById(i.name).innerHTML;
-			
+
 		}
-		
+
 		//function to implement softcheck
 		function checkSoft(soft,itemid,custid,action)
 		{
 			var custhit=0;var itemhit=0;var customization=[];
-			
+
 			//looping through softcheck as well
 				for(i=0;i<softchek.length;i++){
 					//check if item already exists in softcheck
@@ -738,7 +738,7 @@ else{e.value="no";location.reload();}
 							softchek[i].customization.push(customization);}
 
 					}
-					
+
 
 				}
 				if(itemhit==0){
@@ -749,9 +749,9 @@ else{e.value="no";location.reload();}
 		}
 		//function to add customisation
 		function priceAddByOption(id,price,item,soft,itemid,custid)
-		{	
-			
-			
+		{
+
+
 			var hit=0;
 			var softhit=0;
 			if(document.getElementById(id).checked)
@@ -762,7 +762,7 @@ else{e.value="no";location.reload();}
 				for (i = 0; i < items.length; i++)
 				{
 					if(items[i].name==item){
-					//add custom prices 
+					//add custom prices
 					console.log(softchek[i].item);
 					for (m=0;m<softchek.length;m++){
 						if(softchek[m].item==itemid){
@@ -770,18 +770,18 @@ else{e.value="no";location.reload();}
 								if(softchek[m].customization[u].customid==custid){
 									if(softchek[m].customization[u].soft>softchek[m].customization[u].softlimit)
 										items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
-					
+
 								}
-							}		
+							}
 						}
 					}
 					//items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
 					hit=parseInt(hit)+1;
 					calculatePrice(items[i]);
-					
+
 										}
 				}
-				
+
 			if(hit==0){
 
 				items.push({name:item,sizeprice:document.getElementById(item).innerHTML.split(" ")[1],customprices:0});
@@ -795,9 +795,9 @@ else{e.value="no";location.reload();}
 								if(softchek[m].customization[u].customid==custid){
 									if(softchek[m].customization[u].soft>softchek[m].customization[u].softlimit)
 										items[i].customprices=parseInt(price)+parseInt(items[i].customprices);
-					
+
 								}
-							}		
+							}
 						}
 					}
 						calculatePrice(items[i]);
@@ -815,19 +815,19 @@ else{e.value="no";location.reload();}
 					//subtract prices of unchecked items
 					items[i].customprices=parseInt(items[i].customprices)-parseInt(price);
 					calculatePrice(items[i]);
-				}	
+				}
 			}
 
-			
+
 		}
-		
+
 
 
 	}
 
 	final_order_list = [];
 	function checkSizeSelections(item)
-	{	
+	{
 
 		var keyz='sizeof'+item;
 		if(document.getElementById(keyz)==null)
@@ -872,13 +872,13 @@ else{e.value="no";location.reload();}
 				}
 				else if(max==0 || min==0){
 					if(max==0)
-					{	
+					{
 						console.log("Min limit set for customization number "+i);
 						if(n<parseInt(min)){
 							console.log("Fault pushed for customization number "+i+" (selection less than min asked)");
 							faults.push("custom"+i);
 						}
-						
+
 					}
 					else if(min==0){
 						console.log("Max limit set for customization number "+i);
@@ -886,7 +886,7 @@ else{e.value="no";location.reload();}
 							console.log("Fault pushed for customization number "+i+" (selection more than max allowed)");
 							faults.push("custom"+i);
 						}
-						
+
 					}
 
 				}
@@ -897,7 +897,7 @@ else{e.value="no";location.reload();}
 						faults.push("custom"+i);
 					}
 				}
-				
+
 			}
 
 			if(faults.length==0)
@@ -913,18 +913,18 @@ else{e.value="no";location.reload();}
 
 
 
-		
+
 		function addCartItem(item, cust_count)
-		{	
+		{
 			if (!checkSizeSelections(item)){alert("Make a size selection");return;}
 			if (!checkCustomSelections(item,cust_count)){alert("Faulty Selections in customization Options");return;}
 			var formData=serializeJSON(item);
 			order = {};
 			key=item+"-size";
-			
+
 			if(formData.hasOwnProperty(key))
 			{
-				
+
 				order.size=formData[key];
 			}
 			else{
@@ -934,11 +934,11 @@ else{e.value="no";location.reload();}
 			order.item=item;
 			if(document.getElementById(item+"-quantity").value!="")
 				order.quantity=document.getElementById(item+"-quantity").value;
-			
+
 			else
 				order.quantity=1;
 			order.price=document.getElementById(array['data']['menu']['<?php echo $_GET['cat'];?>']['items'][item]['name']).innerHTML;
-			
+
 			custom_obj = []
 			//console.log("custom_count"+cust_count)
 			for (i=0; i < cust_count; i++) {
@@ -966,16 +966,16 @@ else{e.value="no";location.reload();}
 			$.when($.post("session.php",{final_order_list:order},function(data) {})).then(function( data, textStatus, jqXHR ) {
   refreshCart(); // Alerts 200
 });
-			
-			
+
+
 
 		}
 
 		function refreshCart()
-		{	
+		{
 			document.getElementById('cartlist').innerHTML="";
 			$.when($.post("cart_session.php",{},function(data) {final_order_list=jQuery.parseJSON(data);})).then(function(){
-				console.log(final_order_list); fnlRefresh();	
+				console.log(final_order_list); fnlRefresh();
 			});
 		}
 
@@ -987,8 +987,8 @@ else{e.value="no";location.reload();}
 					var custom=[];
 					itemname=array['data']['menu'][final_order_list[i].category]['items'][final_order_list[i].item]['name'];
 
-					if(final_order_list[i].custom){ 
-						for(index in final_order_list[i].custom){ 
+					if(final_order_list[i].custom){
+						for(index in final_order_list[i].custom){
 
 							custom[array['data']['menu'][final_order_list[i].category]['items'][final_order_list[i].item]['custom'][parseInt(index)]['name']]=[];
 							for(k=0;k<final_order_list[i].custom[parseInt(index)].length;k++){
@@ -1021,11 +1021,11 @@ else{e.value="no";location.reload();}
 
 								var li3=document.createElement('LI');
 								if(document.getElementById(i+'-custom-'+strkey+'-price-'+custom[strkey][parseInt(k)])!=null)
-									temp=document.getElementById(i+'-custom-'+strkey+'-price-'+custom[strkey][parseInt(k)]).innerHTML	
+									temp=document.getElementById(i+'-custom-'+strkey+'-price-'+custom[strkey][parseInt(k)]).innerHTML
 								else
 									temp=0;
 								li3.innerHTML=custom[strkey][parseInt(k)] + " - ₹ " +temp;
-								ol2.appendChild(li3);		
+								ol2.appendChild(li3);
 							}
 							li2.appendChild(ol2);
 							customization.appendChild(li2);
@@ -1088,7 +1088,7 @@ else{e.value="no";location.reload();}
 			                			console.log(data);
 			                		}
 
-			                		
+
 			                	});
 			                }
 			                else
@@ -1125,7 +1125,7 @@ $(document).ready(function(){
 	t="<?php if(isset($_SESSION['uname']))
 	echo $_SESSION['uname'];
 	else
-		echo NA;
+		echo "NA";
 	?>";
 	if(t!="NA"){
 		$('#login-row').toggle();
