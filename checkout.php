@@ -371,13 +371,22 @@ $address=$_SESSION['address'];
 	$(document).ready(function(){
 		if(email=="NA")
 		{
-		$('#checkout-submit').prop('disabled',true);
-		$('#login-prompt').toggle();
+			$('#checkout-submit').prop('disabled',true);
+			$('#login-prompt').toggle();
 		}
-		else 
+		else
+		{ 
 			$('#checkout-submit').prop('disabled',false);
 			$('#login-prompt').prop('disabled',true);
-	});
+		}
+			showAddress();
+		});
+		
+	function showAddress()
+	{
+		var address=<?php echo json_encode($address);?>;
+		console.log(address['success']);
+	}
 
 	function login() {
 
