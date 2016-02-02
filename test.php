@@ -3,6 +3,8 @@ error_reporting(E_ALL);
 session_start();
 $array=$_SESSION['menu'];
 $order=$_SESSION['final_order'];
+$ress=$_SESSION['address'];
+
 if($_POST)
 		{
 				$name=$_POST['billing-first-name'].' '.$_POST['billing-last-name'];
@@ -97,7 +99,7 @@ if($_POST)
 								<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand" href="#">
-								<img src="img/header-logo.png" alt="">
+								<img src="img/logo.png" alt="">
 							</a>
 						</div>
 
@@ -256,7 +258,7 @@ if($_POST)
 </div> <!--Main wrapper end-->
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript">
+<script>
 
 var totalamt=0;//variable to record cart subtotal
 var final_order={
@@ -337,6 +339,7 @@ var order2=[];
 	console.log("parsed");
 	console.log(JSON.stringify(final_order));
 
+
 var response;
 	function submit(){
 		console.log("final");
@@ -358,8 +361,7 @@ var response;
             data: JSON.stringify(final_order)
         });
 }
-//filling up other required fields of cart
-$()
+
 
 
 
@@ -425,8 +427,86 @@ function populate()
 	document.getElementById("order").appendChild(tr);
 	}
 }
+res=<?php echo json_encode($ress);?>;
+function pushAddress()
+{
+	
+	var hit=0;
+	if(res!=null && res.success=="true"){
+	for (i=0;i<res.data.length;i++){
+		if(res.data[i][0].area=='<?php echo $_POST['areas'];?>' && res.data[i][0].address=='<?php echo $_POST['billing-address-1'];?>'){
+			hit+=1;
+		}
+	}
+	if(hit>=1)
+		return;
+	else{
+		var push={
+			email : "<?php echo $_SESSION['uname'];?>",
+			vendor_id : 1,
+			address : 
+			[
+				{	
+					pincode : "<?php echo $_POST['postcode'];?>",
+					address : "<?php echo $_POST['billing-address-1'];?>",
+					area : "<?php echo $_POST['areas'];?>"
+				}
+			]
+		}
+		//ajax call to push new address in db
+		$.when($.ajax({
+		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address',
+		type:'post',
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+			if(!data.success)
+				alert(data.reason);
+			if(data.data)
+				alert("Your details have been registered");
+		},
+		data: JSON.stringify(push)
+	})).then(function(){});
+	}
+	
+}
+else
+{	
+	var push={
+			email : "<?php echo $_SESSION['uname'];?>",
+			vendor_id : 1,
+			address : 
+			[
+				{	
+					pincode : "<?php echo $_POST['postcode'];?>",
+					address : "<?php echo $_POST['billing-address-1'];?>",
+					area : "<?php echo $_POST['areas'];?>"
+				}
+			]
+		}
+		//ajax call to push new address in db
+		$.when($.ajax({
+		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address',
+		type:'post',
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+			if(!data.success)
+				alert(data.reason);
+			if(data.data)
+				alert("Your details have been registered");
+		},
+		data: JSON.stringify(push)
+	})).then(function(){});
 
+}
+}
 
-populate();
+$(document).ready(function(){
+	populate();
+	pushAddress();
+	
+
+});
 </script>
 </html>

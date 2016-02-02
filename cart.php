@@ -32,6 +32,18 @@ $order=$_SESSION['final_order'];
 </head>
 
 <body>
+<div class="overlay" id="overlay" style="display:none;"></div>
+
+<div class="box" id="box">
+ <a class="boxclose" id="boxclose"></a>
+ <h1>Your orders</h1><br>
+  <p>
+  <input type="button" id="order-retrieve" value="Retrieve!">
+  </p>
+  <div id="orders">
+  </div>
+ </p>
+</div>
 	<div id="main-wrapper">
 		<header id="header">
 			<div class="header-top-bar">
@@ -39,8 +51,31 @@ $order=$_SESSION['final_order'];
 					<div id="default-row" class="row">
 						<div class="col-md-5 col-sm-12 col-xs-12">
 							<div class="header-login">
-								<a href="#">Register</a>
-								<a href="#">Login</a>
+								<a href="#" onclick="registerBox()">Register</a>
+								<a href="#" onclick="loginBox()">Login</a>
+								<div class="login-box">
+									<form id="bg-login-form" method="post"  role="form">
+										<p class="status"></p>
+										<input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
+										<input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
+										<p class="submit form-row">
+											<input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
+										</p>
+
+
+									</form>
+								</div>
+								<div class="register-box">
+
+									<form id="bg-register-form">
+										<p class="status">Register</p>
+										<input type="text" required id="register-email" name="login_username" value="" class="form-control" placeholder="Email">
+										<input type="password" id="register-password" name="login_password" value="" class="form-control" placeholder="Password">
+										<p class="submit form-row">
+											<input type="button" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register" onclick="register()">
+										</p>
+									</form>
+								</div>
 							</div>
 							<!-- end .header-login -->
 							<!-- Header Social -->
@@ -76,8 +111,8 @@ $order=$_SESSION['final_order'];
 							<ul class="options-dropdown">
 								<li>Options
 									<ul class="options-dropdown-ul">
-										<li>order history</li>
-										<li>logout</li>
+										<li><a id ='activator'>order history</a></li>
+										<li><a id='logout'>logout</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -101,7 +136,7 @@ $order=$_SESSION['final_order'];
 								<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand" href="#">
-								<img src="img/header-logo.png" alt="">
+								<img src="img/logo.png" alt="">
 							</a>
 						</div>
 
@@ -109,45 +144,10 @@ $order=$_SESSION['final_order'];
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="index.html">Home-1</a></li>
-										<li><a href="index-landingpage.html">Home landing</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Menu Card <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="menu(view-1).html">Menu( view-1 )</a></li>
-										<li><a href="menu(view-2).html">Menu( view-2 )</a></li>
-										<li><a href="menu-without-side-panel.html">Menu( grid-view )</a></li>
-										<li><a href="single-menu.html">Single Menu</a></li>
-										<li><a href="menu(2grid-list).html">Menu( 2grid-list-view )</a></li>
-										<li><a href="menu-with-right-checkout.html">Menu( with-checkout )</a></li>
-										<li><a href="dish.html">Dish</a></li>
-										<li><a href="dish-with-no-sidebar.html">Dish ( No Sidebar )</a></li>
-										<li><a href="shortcodes.html">Shortcodes</a></li>
-									</ul>
-								</li>
-								<li><a href="chef.html">Chef</a>
-								</li>
-								<li><a href="our-team.html">Team</a>
+									<a href="index.php">Home </span></a>
+									
 								</li>
 								
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="blog-list.html">Blog List</a></li>
-										<li><a href="blog-post.html">Blog Post</a></li> 
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">News & Events <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="news-events.html">News & Events list</a></li>
-										<li><a href="event-page.html">News & Events post</a></li> 
-									</ul>
-								</li>
 								<li><a href="contact-us.html">Contact us</a>
 								</li>
 							</ul>
@@ -232,10 +232,91 @@ $order=$_SESSION['final_order'];
 	</div><!--Main Wrapper End-->
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="js/jquery.ui.map.js"></script>
+	<script src="js/scripts.js"></script>
 <script>
 var array=<?php echo json_encode($array); ?>;
 var order=<?php echo json_encode($order);?>;
 
+
+//for order history
+
+$(function() {
+    $('#activator').click(function(){
+    	 $('#overlay').fadeIn('fast',function(){
+            $('#box').animate({'top':'80px'},500);
+        });
+    	 
+    });
+    $('#order-retrieve').click(function(){
+    	//making ajax request to retrieve orders
+    	 var email="<?php if (isset($_SESSION['uname'])) echo $_SESSION['uname'];
+    	 			else echo "NA";?>";
+    	 if(email!='NA')
+    	 {
+    	 	
+    	 		url='http://lannister-api.elasticbeanstalk.com/tyrion/history?email='+email+'&vendor_id=1&status=placed,accepted,cancelled,ready,delayed,delivered';
+    	 		$.when($.ajax({
+    	 			url:url,
+    	 			type:'get',
+    	 			success:function(data){
+    	 				console.log("order");
+    	 				orderhistory=data;
+    	 				console.log(orderhistory);
+    	 			}
+    	 		})).then(function(){ 
+    	 				
+    	 				if(orderhistory.success=="false"){
+    	 					$('#orders').html("<div> Some error occured, please try some other time</div");
+    	 				}
+    	 				else {
+    	 					if(orderhistory.data.length==0)
+    	 					$('#orders').html("<div> No orders that match given criteria</div");
+    						else{
+    						for (q=0;q<orderhistory.data.length;q++)
+    						{	
+    							
+    							    							
+    							$('#orders').append("<div id='order-" + q + "''><b> Order Number : </b>" + orderhistory.data[q].order_number + 
+    												"<br><b> Total Price : </b>" + orderhistory.data[q].total + 
+    												"<br> <h6>Status : </h6>" + orderhistory.data[q].status + "</div>");
+    							
+    							//collecting items
+    							for (m=0;m<orderhistory.data[q].order.length;m++){
+    							$('#order-'+q).append("<br>Item : " + orderhistory.data[q].order[m]['name'] + 
+    							"<br> Quantity : " + orderhistory.data[q].order[m]['quantity'] + 
+    							"<br> Price : " + orderhistory.data[q].order[m]['sub_total'] +
+    							"<br> Customization : "+ orderhistory.data[q].order[m]['custom'] + 
+    							"<br>");
+    							}
+    							$('#order-'+q).append("<br>-------------");
+
+    							
+    							
+    												
+    						}
+    	 					}
+    						}
+    	 				
+    	 				
+    	 	
+    	 });
+    	
+    }
+});
+    $('#boxclose').click(function(){
+        $('#box').animate({'top':'-520px'},500,function(){
+            $('#overlay').fadeOut('fast');
+        });
+    });
+
+});
 function populateCart()
 {	
 	document.getElementById('cart').innerHTML="";

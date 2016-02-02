@@ -1,3 +1,78 @@
+
+//for login
+function login() {
+
+						var login={};
+						login.email=document.getElementById('login-email').value;
+						login.password=document.getElementById('login-password').value;
+						login.vendor_id=1;
+						console.log(login);
+						$.when($.ajax({
+							url: 'http://lannister-api.elasticbeanstalk.com/tyrion/user/login',
+							type: 'post',
+							dataType: 'json',
+							success: function (data) {
+
+								response=data;
+								console.log(response);
+								if(response.data)
+									$.post("login.php",{email:login.email, password:login.password},function(data) {});
+			                	
+			                      else
+			                	alert("Login Credentials invalid, please sign-up");
+			            },
+			            data: JSON.stringify(login)
+			        })).then(function(){//making ajax call to retrieve addresses
+			                	$.ajax({
+			                		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address?email='+login.email+'&vendor_id=1',
+			                		type:'get',
+			                		dataType: 'json',
+			                		success: function(data){
+			                			//ajax to save address in session
+			                			$.post("address.php",{address:data},function(data){alert(data);});
+			                			console.log(data);
+			                			location.reload(true)
+			                		}
+
+
+			                	});
+
+			                	
+			                });
+
+}
+
+
+//for registering
+function register(){
+	var register={};
+	register.email=document.getElementById('register-email').value;
+	register.password=document.getElementById('register-password').value;
+	register.vendor_id=1;
+	console.log(register);
+	console.log('making ajax');
+	$.when($.ajax({
+		url:'http://lannister-api.elasticbeanstalk.com/tyrion/user/signup',
+		type:'post',
+		dataType:'json',
+		success: function(data){
+			console.log(data);
+			if(!data.success)
+				alert(data.reason);
+			if(data.data)
+				alert("Your details have been registered");
+		},
+		data: JSON.stringify(register)
+	})).then(function(){location.reload(true);});
+
+}
+//for logout
+$(function() {
+	$('#logout').click(function(){
+		//send ajax to logout.php
+		$.when($.post("logout.php",{},function(data) {alert(data);})).then(function(){location.reload(true);});
+	});
+});
 function loginBox(){
 	$('.login-box').fadeToggle();
 };

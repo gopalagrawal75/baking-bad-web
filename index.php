@@ -51,7 +51,7 @@ $_SESSION['menu']=$array;
 					<div id="default-row" class="row">
 						<div class="col-md-5 col-sm-12 col-xs-12">
 							<div class="header-login">
-								<a href="#">Register</a>
+								<a href="#" onclick="registerBox()">Register</a>
 								<a href="#" onclick="loginBox()">Login</a>	
 								<div class="login-box">
         							<form id="bg-login-form"  method="post"  role="form">
@@ -66,6 +66,18 @@ $_SESSION['menu']=$array;
                                    		>                
                 					</form>
       							</div>
+      							<div class="register-box">
+
+									<form id="bg-register-form">
+										<p class="status">Register</p>
+										<input type="text" required id="register-email" name="login_username" value="" class="form-control" placeholder="Email">
+										<input type="password" id="register-password" name="login_password" value="" class="form-control" placeholder="Password">
+										<p class="submit form-row">
+											<input type="button" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register" onclick="register()">
+										</p>
+									</form>
+								</div>
+
 							</div>
 							<!-- end .header-login -->
 							<!-- Header Social -->
@@ -102,7 +114,7 @@ $_SESSION['menu']=$array;
 								<li>Options
 									<ul class="options-dropdown-ul">
 										<li>order history</li>
-										<li>logout</li>
+										<li><a id='logout'>logout</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -126,7 +138,7 @@ $_SESSION['menu']=$array;
 								<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand" href="#">
-								<img src="img/header-logo.png" alt="TakeAway">
+								<img src="img/logo.png" alt="TakeAway">
 							</a>
 						</div>
 
@@ -134,13 +146,10 @@ $_SESSION['menu']=$array;
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Home <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="index.html">Home-1</a></li>
-										<li><a href="index-landingpage.html">Home landing</a></li>
-									</ul>
+									<a href="index.php" class="dropdown-toggle act" data-toggle="dropdown">Home </a>
+									
 								</li>
-								<li class="dropdown">
+								<!--<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu Card <span class="caret"></span></a>
 									<ul class="dropdown-menu" role="menu">
 										<li><a href="menu(view-1).html">Menu( view-1 )</a></li>
@@ -172,7 +181,7 @@ $_SESSION['menu']=$array;
 										<li><a href="news-events.html">News & Events list</a></li>
 										<li><a href="event-page.html">News & Events post</a></li> 
 									</ul>
-								</li>
+								</li>-->
 								<li><a href="contact-us.html">Contact us</a>
 								</li>
 							</ul>
@@ -590,7 +599,7 @@ $_SESSION['menu']=$array;
 				<div class="main-footer">
 					<div class="row">
 						<div class="col-sm-6 col-md-3">
-							<img src="img/header-logo.png" alt="">
+							<img src="img/logo.png" alt="">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed.
 							</p>
 						</div>
@@ -744,7 +753,7 @@ $_SESSION['menu']=$array;
 			        })).then(function(){location.reload(true);});
 				
 			}
-	$(document).ready(function(){
+		$(document).ready(function(){
 		t="<?php if(isset($_SESSION['uname']))
 							echo $_SESSION['uname'];
 						else

@@ -18,6 +18,19 @@ $areas = json_decode($result, true);
 $array=$_SESSION['menu'];
 $order=$_SESSION['final_order'];
 $address=$_SESSION['address'];
+//retrieving delivery charges API
+$url="http://lannister-api.elasticbeanstalk.com/tyrion/s_charges?vendor_id=1";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_URL,$url);
+$result=curl_exec($ch);
+curl_close($ch);
+$charges=json_decode($result,true);
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,7 +140,7 @@ $address=$_SESSION['address'];
 								<span class="icon-bar"></span>
 							</button>
 							<a class="navbar-brand" href="#">
-								<img src="img/header-logo.png" alt="">
+								<img src="img/logo.png" alt="">
 							</a>
 						</div>
 
@@ -247,7 +260,7 @@ $address=$_SESSION['address'];
 																<label>
 																	Address
 																	<abbr class="required" title="required">*</abbr>
-																	<span onclick="showAddForm()">Edit</span>
+																	<span onclick="showAddForm()" id="editaddress">Edit</span>
 																</label>
 															</p>
 															<script type="text/javascript">
@@ -260,7 +273,7 @@ $address=$_SESSION['address'];
 															<div class="address-div" style="display:none;">
 																<p class="form-row form-row-wide address-field" id="billing-address-1">
 																
-																	<input type="text" name="billing-address-1" class="input-text" placeholder="Street Address">
+																	<input type="text" id="billing-address-1" name="billing-address-1" class="input-text" placeholder="Street Address">
 																</p>
 																<p class="form-row form-row-wide address-field"  id="billing-address-2">
 																	<input type="text" name="billing-addresss-2"class="input-text" placeholder="Apartment, suite, unit etc. (optional)">
@@ -278,15 +291,16 @@ $address=$_SESSION['address'];
 																				<?php echo $areas['data'][$i];?></option>
 																			<?php }?>
 																		</select>
+																		<p id="del-charge"> </p>
 																</p>
-																<p class="form-row form-row-wide address-field" id="billing-postcode">
+																<p class="form-row form-row-wide address-field"  id="billing-postcode">
 																<label for="billing-postcode"> Postcode
 																	<abbr class="required" title="required">*</abbr>
 																	</label>
 																	<input name="postcode" type="text" class="input-text">
 																</p>
 															</div>
-															<div class="row">
+															<div id="db-addresses" class="row">
 
 																<?php
 																//print_r($address);
@@ -296,28 +310,14 @@ $address=$_SESSION['address'];
 																		?>
 																		<div class="col-lg-4">
 																			<div class="address-col-4">
-																				<?php echo "Address: ".$address['data'][$i]['address'];?><br>
-																				<?php echo "Area: ".$address['data'][$i]['area'];?><br>
-																				<?php echo "Pin: ".$address['data'][$i]['pincode'];?>
+																				<?php echo "Address: ".$address['data'][$i][0]['address'];?><br>
+																				<?php echo "Area: ".$address['data'][$i][0]['area'];?><br>
+																				<?php echo "Pin: ".$address['data'][$i][0]['pincode'];?><br><br>
+																				<input type ="checkbox" onchange="populate_address(<?php echo $i;?>)" > Use
 																			</div>
-																		
+																			
 																		</div>
-																		<div class="col-lg-4">
-																			<div class="address-col-4">
-																				<?php echo "Address: ".$address['data'][$i]['address'];?><br>
-																				<?php echo "Area: ".$address['data'][$i]['area'];?><br>
-																				<?php echo "Pin: ".$address['data'][$i]['pincode'];?>
-																			</div>
 																		
-																		</div>
-																		<div class="col-lg-4">
-																			<div class="address-col-4">
-																				<?php echo "Address: ".$address['data'][$i]['address'];?><br>
-																				<?php echo "Area: ".$address['data'][$i]['area'];?><br>
-																				<?php echo "Pin: ".$address['data'][$i]['pincode'];?>
-																			</div>
-																		
-																		</div>
 																		
 																	<?php }
 																?>
@@ -368,6 +368,9 @@ $address=$_SESSION['address'];
 					{echo $_SESSION['uname'];} 
 				else 
 					{echo "NA";}?>";
+	charges=<?php echo json_encode($charges);?>;
+	
+	var address=<?php echo json_encode($address);?>;
 	$(document).ready(function(){
 		if(email=="NA")
 		{
@@ -378,14 +381,40 @@ $address=$_SESSION['address'];
 		{ 
 			$('#checkout-submit').prop('disabled',false);
 			$('#login-prompt').prop('disabled',true);
+			$('#login-row').toggle();
+			$('#default-row').toggle();
+			$('#email').val(email);
 		}
 			showAddress();
 		});
-		
+	
+	$(function(){
+		$('select[name=areas').on('change', function() {
+  		for (i=0;i<charges['data'].length;i++){
+  			console.log(charges['data'][i].area);
+  		}
+  	}); 
+});
+	
 	function showAddress()
 	{
-		var address=<?php echo json_encode($address);?>;
-		console.log(address['success']);
+		
+		console.log(address);
+		if(address==null || address['success']!='true'){
+
+			$('#editaddress').hide();
+			$('.address-div').slideToggle();
+		}
+	}
+
+	function populate_address(i)
+	{
+		$('.address-div').slideToggle();
+		$('input[name=billing-address-1]').val(address['data'][i][0].address);
+		$('input[name=postcode').val(address['data'][i][0].pincode);
+		$('select[name=areas').val(address['data'][i][0].area);
+		$('#db-addresses').slideToggle();
+		
 	}
 
 	function login() {
@@ -426,19 +455,8 @@ $address=$_SESSION['address'];
 			        })).then(function(){location.reload(true);});
 				
 			}
-	$(document).ready(function(){
-		t="<?php if(isset($_SESSION['uname']))
-							echo $_SESSION['uname'];
-						else
-							echo NA;
-						?>";
-					if(t!="NA"){
-							$('#login-row').toggle();
-							$('#default-row').toggle();
-							$('#email').val(t);
-						}
-	});
-		$('.options-dropdown').on('click',function(){
+	
+	$('.options-dropdown').on('click',function(){
 	$('.options-dropdown-ul').slideToggle();
 	});
 	

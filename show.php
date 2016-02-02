@@ -30,6 +30,18 @@ $array=$_SESSION['menu'];
 </head>
 
 <body>
+<div class="overlay" id="overlay" style="display:none;"></div>
+
+<div class="box" id="box">
+ <a class="boxclose" id="boxclose"></a>
+ <h1>Your orders</h1><br>
+  <p>
+  <input type="button" id="order-retrieve" value="Retrieve!">
+  </p>
+  <div id="orders">
+  </div>
+ </p>
+</div>
 	<div id="main-wrapper">
 	<input type="hidden" id="refreshed" value="no">
 <script type="text/javascript">
@@ -39,7 +51,7 @@ if(e.value=="no")e.value="yes";
 else{e.value="no";location.reload();}
 }
 </script>
-		<header id="header" style="z-index:0">
+		<header id="header">
 			<div class="header-top-bar">
 				<div class="container">
 					<div id="default-row"class="row">
@@ -107,8 +119,8 @@ else{e.value="no";location.reload();}
 							<ul class="options-dropdown">
 								<li>Options
 									<ul class="options-dropdown-ul">
-										<li>order history</li>
-										<li>logout</li>
+										<li><a id ='activator'>order history</a></li>
+										<li><a id='logout'>logout</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -154,7 +166,7 @@ else{e.value="no";location.reload();}
 			</div>
 			<!-- end .header-nav-bar -->
 
-			<div class="small-menu" style="z-index:-2">
+			<div class="small-menu">
 				<div class="container">
 					<div class="choose-option">
 						<ul class="list-unstyled list-inline">
@@ -182,142 +194,7 @@ else{e.value="no";location.reload();}
 		</header>
 		<!-- end #header -->
 		<div id="page-content">
-			<!-- <div id="thumbnail-slide" style="z-index:-1;">
-				<div class="container">
-					<div id="thumb-slide">
-						<div id="thumb-slide-section" class="owl-carousel">
-							<div class="item">
-								<a href="#">
-									<img src="img/content/meat-fish.png" alt="meet-fish">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/milk.png" alt="milk">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/neggies.png" alt="viegene">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fruits.png" alt="fruits">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fastfood.png" alt="fast-foood">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/meat-fish.png" alt="meet-fish">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/milk.png" alt="milk">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/neggies.png" alt="viegene">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fruits.png" alt="fruits">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fastfood.png" alt="fast-foood">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/meat-fish.png" alt="meet-fish">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/milk.png" alt="milk">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/neggies.png" alt="viegene">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fruits.png" alt="fruits">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fastfood.png" alt="fast-foood">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/meat-fish.png" alt="meet-fish">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/milk.png" alt="milk">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/neggies.png" alt="viegene">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fruits.png" alt="fruits">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fastfood.png" alt="fast-foood">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/meat-fish.png" alt="meet-fish">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/milk.png" alt="milk">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/neggies.png" alt="viegene">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fruits.png" alt="fruits">
-								</a>
-							</div>
-							<div class="item">
-								<a href="#">
-									<img src="img/content/fastfood.png" alt="fast-foood">
-								</a>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-
-			</div> -->
+			
 
 
 			<!-- start #main-wrapper -->
@@ -554,7 +431,7 @@ else{e.value="no";location.reload();}
 											<div class="main-footer">
 												<div class="row">
 													<div class="col-sm-6 col-md-3">
-														<img src="img/header-logo.png" alt="">
+														<img src="img/logo.png" alt="">
 														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed.
 														</p>
 													</div>
@@ -1081,9 +958,14 @@ else{e.value="no";location.reload();}
 
 								response=data;
 								console.log(response);
-								if(response.data){
+								if(response.data)
 									$.post("login.php",{email:login.email, password:login.password},function(data) {});
-			                	//making ajax call to retrieve addresses
+			                	
+			                      else
+			                	alert("Login Credentials invalid, please sign-up");
+			            },
+			            data: JSON.stringify(login)
+			        })).then(function(){//making ajax call to retrieve addresses
 			                	$.ajax({
 			                		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address?email='+login.email+'&vendor_id=1',
 			                		type:'get',
@@ -1092,16 +974,14 @@ else{e.value="no";location.reload();}
 			                			//ajax to save address in session
 			                			$.post("address.php",{address:data},function(data){alert(data);});
 			                			console.log(data);
+			                			location.reload(true)
 			                		}
 
 
 			                	});
-			                }
-			                else
-			                	alert("Login Credentials invalid, please sign-up");
-			            },
-			            data: JSON.stringify(login)
-			        })).then(function(){location.reload(true);});
+
+			                	
+			                });
 
 }
 
@@ -1127,6 +1007,80 @@ function register(){
 	})).then(function(){location.reload(true);});
 
 }
+
+
+//for order history
+
+$(function() {
+    $('#activator').click(function(){
+    	 $('#overlay').fadeIn('fast',function(){
+            $('#box').animate({'top':'80px'},500);
+        });
+    	 
+    });
+    $('#order-retrieve').click(function(){
+    	//making ajax request to retrieve orders
+    	 var email="<?php if (isset($_SESSION['uname'])) echo $_SESSION['uname'];
+    	 			else echo "NA";?>";
+    	 if(email!='NA')
+    	 {
+    	 	
+    	 		url='http://lannister-api.elasticbeanstalk.com/tyrion/history?email='+email+'&vendor_id=1&status=placed,accepted,cancelled,ready,delayed,delivered';
+    	 		$.when($.ajax({
+    	 			url:url,
+    	 			type:'get',
+    	 			success:function(data){
+    	 				console.log("order");
+    	 				orderhistory=data;
+    	 				console.log(orderhistory);
+    	 			}
+    	 		})).then(function(){ 
+    	 				
+    	 				if(orderhistory.success=="false"){
+    	 					$('#orders').html("<div> Some error occured, please try some other time</div");
+    	 				}
+    	 				else {
+    	 					if(orderhistory.data.length==0)
+    	 					$('#orders').html("<div> No orders that match given criteria</div");
+    						else{
+    						for (q=0;q<orderhistory.data.length;q++)
+    						{	
+    							
+    							    							
+    							$('#orders').append("<div id='order-" + q + "''><b> Order Number : </b>" + orderhistory.data[q].order_number + 
+    												"<br><b> Total Price : </b>" + orderhistory.data[q].total + 
+    												"<br> <h6>Status : </h6>" + orderhistory.data[q].status + "</div>");
+    							
+    							//collecting items
+    							for (m=0;m<orderhistory.data[q].order.length;m++){
+    							$('#order-'+q).append("<br>Item : " + orderhistory.data[q].order[m]['name'] + 
+    							"<br> Quantity : " + orderhistory.data[q].order[m]['quantity'] + 
+    							"<br> Price : " + orderhistory.data[q].order[m]['sub_total'] +
+    							"<br> Customization : "+ orderhistory.data[q].order[m]['custom'] + 
+    							"<br>");
+    							}
+    							$('#order-'+q).append("<br>-------------");
+
+    							
+    							
+    												
+    						}
+    	 					}
+    						}
+    	 				
+    	 				
+    	 	
+    	 });
+    	
+    }
+});
+    $('#boxclose').click(function(){
+        $('#box').animate({'top':'-520px'},500,function(){
+            $('#overlay').fadeOut('fast');
+        });
+    });
+
+});
 $(document).ready(function(){
 	t="<?php if(isset($_SESSION['uname']))
 	echo $_SESSION['uname'];
