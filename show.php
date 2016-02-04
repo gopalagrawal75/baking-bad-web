@@ -774,10 +774,12 @@ else{e.value="no";location.reload();}
 					}
 				}
 				total=0;
+				if(final_order_list!=null){
 				for (i=0;i<final_order_list.length;i++)
 				{
 					total+=parseInt(final_order_list[i].quantity)*parseInt(final_order_list[i].price.split(" ")[1]);
 				}
+			}
 				//updating total price in mycheck
 				document.getElementById('price-total').innerHTML='₹ '+total;
 			}
@@ -889,11 +891,10 @@ $(document).ready(function(){
 		$('#default-row').toggle();
 	}
 	$('#choose').addClass("active");
+	$('#toast').html("Menu Card");
 });
 
-$('.options-dropdown').on('click',function(){
-	$('.options-dropdown-ul').slideToggle();
-});
+
 
 </script>
 

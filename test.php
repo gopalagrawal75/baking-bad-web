@@ -124,9 +124,7 @@ $(document).ready(function(){
 	}
 $('#checkout').addClass("active");
 });
-$('.options-dropdown').on('click',function(){
-	$('.options-dropdown-ul').slideToggle();
-	});
+
 
 //for order history
 

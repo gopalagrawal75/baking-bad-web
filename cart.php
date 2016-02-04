@@ -328,6 +328,8 @@ $(document).ready(function(){
 							$('#login-row').toggle();
 							$('#default-row').toggle();
 						}
+	$('#toast').html("Cart");
+	$('#confirm').addClass("active");
 	});
 $('.options-dropdown').on('click',function(){
 	$('.options-dropdown-ul').slideToggle();

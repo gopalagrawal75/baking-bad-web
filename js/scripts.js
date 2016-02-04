@@ -1,6 +1,8 @@
 
-
-
+//options dropdown
+$('.options-dropdown').on('click',function(){
+	$('.options-dropdown-ul').slideToggle();
+});
 //for login
 function login() {
 

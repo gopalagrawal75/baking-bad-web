@@ -127,7 +127,7 @@
 						<ul class="list-unstyled list-inline">
 							<li id="choose"><a href="#">1. Choose</a>
 							</li>
-							<li id="choose"><a href="#">2. Confirm</a>
+							<li id="confirm"><a href="#">2. Confirm</a>
 							</li>
 							<li id="checkout"><a href="#">3. Checkout</a>
 							</li>
@@ -139,7 +139,7 @@
 						</li>
 						<li><i class="fa fa-chevron-right"></i>
 						</li>
-						<li><a href="menu-1.html">Menu Card</a>
+						<li id="toast">Menu Card
 						</li>
 					</ul>
 				</div>

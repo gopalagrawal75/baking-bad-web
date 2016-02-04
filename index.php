@@ -313,14 +313,7 @@ $_SESSION['menu']=$array;
 						}
 			$('.small-menu').hide();
 	});
-	function toggleRow()
-	{
-		
-	}
-	$('.options-dropdown').on('click',function(){
-	$('.options-dropdown-ul').slideToggle();
-	});
-
+	
 	//for order history
 
 $(function() {
