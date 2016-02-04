@@ -32,159 +32,9 @@ $order=$_SESSION['final_order'];
 </head>
 
 <body>
-<div class="overlay" id="overlay" style="display:none;"></div>
-
-<div class="box" id="box">
- <a class="boxclose" id="boxclose"></a>
- <h1>Your orders</h1><br>
-  <p>
-  <input type="button" id="order-retrieve" value="Retrieve!">
-  </p>
-  <div id="orders">
-  </div>
- </p>
-</div>
+<?php include('overlay.php');?>
 	<div id="main-wrapper">
-		<header id="header">
-			<div class="header-top-bar">
-				<div class="container">
-					<div id="default-row" class="row">
-						<div class="col-md-5 col-sm-12 col-xs-12">
-							<div class="header-login">
-								<a href="#" onclick="registerBox()">Register</a>
-								<a href="#" onclick="loginBox()">Login</a>
-								<div class="login-box">
-									<form id="bg-login-form" method="post"  role="form">
-										<p class="status"></p>
-										<input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
-										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
-										</p>
-
-
-									</form>
-								</div>
-								<div class="register-box">
-
-									<form id="bg-register-form">
-										<p class="status">Register</p>
-										<input type="text" required id="register-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="register-password" name="login_password" value="" class="form-control" placeholder="Password">
-										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register" onclick="register()">
-										</p>
-									</form>
-								</div>
-							</div>
-							<!-- end .header-login -->
-							<!-- Header Social -->
-							<ul class="header-social">
-								<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-linkedin-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-7 col-sm-12 col-xs-12">
-							<p class="call-us">
-								Call Us: <a class="font" href="#">+1123 4567</a>
-								<span class="open-now"><i class="fa fa-check-square"></i>We are open now(9am-10pm)</span>
-								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
-							</p>
-						</div>
-					</div><!--end row-->
-					<!--logged-in row-->
-					<div class="row" id="login-row" style="display:none;">
-						<div class="col-lg-8" style="font-size:14px;">
-							<?php if(isset($_SESSION['uname']))
-							echo "Welcome, ". $_SESSION['uname']
-							?>		
-						</div>
-						<div class="col-lg-4">
-							<ul class="options-dropdown">
-								<li>Options
-									<ul class="options-dropdown-ul">
-										<li><a id ='activator'>order history</a></li>
-										<li><a id='logout'>logout</a></li>
-									</ul>
-								</li>
-							</ul>
-
-						</div>
-					</div><!--end of logged-in row-->
-					<!-- end .container -->
-				</div>
-			</div>
-			<!-- end .header-top-bar -->
-
-			<div class="header-nav-bar">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="container">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">
-								<img src="img/logo.png" alt="">
-							</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown">
-									<a href="index.php">Home </span></a>
-									
-								</li>
-								
-								<li><a href="contact-us.html">Contact us</a>
-								</li>
-							</ul>
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-			<!-- end .header-nav-bar -->
-
-			<div class="small-menu">
-				<div class="container">
-					<div class="choose-option">
-						<ul class="list-unstyled list-inline">
-							<li ><a href="#">1. Choose</a>
-							</li>
-							<li class="active"><a href="#">2. Confirm</a>
-							</li>
-							<li><a href="#">3. Checkout</a>
-							</li>
-						</ul>
-					</div>
-					<!-- end .choose-option-->
-					<ul class="list-unstyled list-inline">
-						<li><a href="index.php">Home</a>
-						</li>
-						<li><i class="fa fa-chevron-right"></i>
-						</li>
-						<li><a href="menu-1.html">Menu Card</a>
-						</li>
-					</ul>
-				</div>
-				<!-- end .container-->
-			</div>
-			<!--end .small-menu -->
-		</header>
+		<?php include('header.php');?>
 		<!-- end #header -->
 
 		<div class="page-content">
@@ -195,7 +45,7 @@ $order=$_SESSION['final_order'];
 							<h4> Cart</h4>
 							<div class="woocommerce">
 								<div class="woocommerce-message">
-								<a id="test"class="button wc-forward">Continue Shopping </a>	
+								<p id="message">  </p>	
 								</div>
 								<form action="checkout.php" method="post">
 									<table style="width:100%" class="shop_table cart" cellspacing="0">
@@ -212,7 +62,17 @@ $order=$_SESSION['final_order'];
 											<tbody id="cart">
 												
 											</tbody>
+											<tfoot>
+											<tr>
+												<th></th><th></th><th></th><th></th>
+												<th>Service Tax</th><th id='tax'></th>
+											</tr>
+											<tr>
+												<th></th><th></th><th></th><th></th>
+												<th> Total Amount</th><th id='total'></th>
+											</tfoot>
 									</table>
+
 									<table>
 										<tr>
 											<td colspan="6" class="actions">
@@ -231,15 +91,7 @@ $order=$_SESSION['final_order'];
 		</div>
 	</div><!--Main Wrapper End-->
 </body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-	<script type="text/javascript" src="js/jquery.ui.map.js"></script>
-	<script src="js/scripts.js"></script>
+<?php include('footer.php');?>
 <script>
 var array=<?php echo json_encode($array); ?>;
 var order=<?php echo json_encode($order);?>;
@@ -320,7 +172,7 @@ $(function() {
 function populateCart()
 {	
 	document.getElementById('cart').innerHTML="";
-	if(order.length==0){alert("Your cart is empty!!");return;}
+	if(order.length==0 || order==null){$('#message').html("Please add items to your cart!");return;}
 	for(i=0;i<order.length;i++){
 		var itemname=array['data']['menu'][order[i].category]['items'][order[i].item]['name'];
 		var custom=[];
@@ -393,7 +245,7 @@ function populateCart()
 		var td_total=document.createElement('TD');
 		td_total.className="product-subtotal";
 		td_total.id=i+"-price";
-		td_total.innerHTML=order[i].price;
+		td_total.innerHTML='₹ ' + parseInt(order[i].price.split(" ")[1])*parseInt(order[i].quantity);
 		tr.appendChild(td_total);//6th data item completed and appended to row
 
 		//Appending new data row to the cart table
@@ -401,7 +253,21 @@ function populateCart()
 
 					
 	}//i loop ends here
+	service_tax();
 }//Populated cart
+
+//to calculate total amount and appy service tax
+function service_tax()
+{	
+	var total=0;
+	for (i=0;i<order.length;i++){
+		total=total+((parseInt(order[i].quantity)*parseInt(order[i].price.split(" ")[1])));
+	}
+	var tax=parseInt(total)*0.056;
+	total=total+tax;
+	$('#tax').html('₹ ' + tax);
+	$('#total').html('₹ ' + total);
+}
 
 function incrementQuantity(id,price){
 	var key=id+"-quantity";
@@ -417,7 +283,7 @@ function incrementQuantity(id,price){
 	//adding rupee sign
 	j.innerHTML='₹ '+j.innerHTML;
 	//update session variable
-	$.post("update_session.php",{final_order_list:order},function(data) {console.log(data)})
+	$.when($.post("update_session.php",{final_order_list:order},function(data) {console.log(data)})).then(function(){service_tax();});
 	
 }
 
@@ -435,7 +301,7 @@ function decrementQuantity(id,price){
 	i.innerHTML=parseInt(i.innerHTML.split(" ")[1])-price;	
 	//adding rupee sign
 	i.innerHTML='₹ '+i.innerHTML;
-	$.post("update_session.php",{final_order_list:order},function(data) {console.log(data)})
+	$.when($.post("update_session.php",{final_order_list:order},function(data) {console.log(data)})).then(function(){service_tax();});
 
 			}
 	else 
@@ -447,7 +313,8 @@ function removeItem(item)
 	
 	$.when($.post("removeitem.php",{item_remove:item},function(data){console.log(data);})).then(function(){ 
 		key=item+"-row";
-		document.getElementById("cart").deleteRow("key");});
+		//document.getElementById("cart").deleteRow("key");
+		location.reload();});
 	
 }
 

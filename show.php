@@ -30,18 +30,7 @@ $array=$_SESSION['menu'];
 </head>
 
 <body>
-<div class="overlay" id="overlay" style="display:none;"></div>
-
-<div class="box" id="box">
- <a class="boxclose" id="boxclose"></a>
- <h1>Your orders</h1><br>
-  <p>
-  <input type="button" id="order-retrieve" value="Retrieve!">
-  </p>
-  <div id="orders">
-  </div>
- </p>
-</div>
+<?php include('overlay.php');?>
 	<div id="main-wrapper">
 	<input type="hidden" id="refreshed" value="no">
 <script type="text/javascript">
@@ -51,147 +40,7 @@ if(e.value=="no")e.value="yes";
 else{e.value="no";location.reload();}
 }
 </script>
-		<header id="header">
-			<div class="header-top-bar">
-				<div class="container">
-					<div id="default-row"class="row">
-						<div class="col-md-5 col-sm-12 col-xs-12">
-							<div class="header-login">
-								<a href="#" onclick="registerBox()">Register</a>
-								<a href="#" onclick="loginBox()">Login</a>
-								<div class="login-box">
-									<form id="bg-login-form" method="post"  role="form">
-										<p class="status"></p>
-										<input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
-										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
-										</p>
-
-
-									</form>
-								</div>
-								<div class="register-box">
-
-									<form id="bg-register-form">
-										<p class="status">Register</p>
-										<input type="text" required id="register-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="register-password" name="login_password" value="" class="form-control" placeholder="Password">
-										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register" onclick="register()">
-										</p>
-									</form>
-								</div>
-
-
-							</div>
-							<!-- end .header-login -->
-							<!-- Header Social -->
-							<ul class="header-social">
-								<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-linkedin-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-7 col-sm-12 col-xs-12">
-							<p class="call-us">
-								Call Us: <a class="font" href="#">+1123 4567</a>
-								<span class="open-now"><i class="fa fa-check-square"></i>We are open now(9am-10pm)</span>
-								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
-							</p>
-						</div>
-					</div><!--end row-->
-					<!--logged-in row-->
-					<div class="row" id="login-row" style="display:none;">
-						<div class="col-lg-8" style="font-size:14px;">
-							<?php if(isset($_SESSION['uname']))
-							echo "Welcome, ". $_SESSION['uname']
-							?>
-						</div>
-						<div class="col-lg-4">
-							<ul class="options-dropdown">
-								<li>Options
-									<ul class="options-dropdown-ul">
-										<li><a id ='activator'>order history</a></li>
-										<li><a id='logout'>logout</a></li>
-									</ul>
-								</li>
-							</ul>
-
-						</div>
-					</div><!--end of logged-in row-->
-					<!-- end .container -->
-				</div>
-			</div>
-			<!-- end .header-top-bar -->
-
-			<div class="header-nav-bar">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="container">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">
-								<img src="img/logo.png" alt="">
-							</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-								</li>
-
-								<li><a href="contact-us.html">Contact us</a>
-								</li>
-							</ul>
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-			<!-- end .header-nav-bar -->
-
-			<div class="small-menu">
-				<div class="container">
-					<div class="choose-option">
-						<ul class="list-unstyled list-inline">
-							<li class="active"><a href="#">1. Choose</a>
-							</li>
-							<li><a href="#">2. Confirm</a>
-							</li>
-							<li><a href="#">3. Checkout</a>
-							</li>
-						</ul>
-					</div>
-					<!-- end .choose-option-->
-					<ul class="list-unstyled list-inline">
-						<li><a href="index.php">Home</a>
-						</li>
-						<li><i class="fa fa-chevron-right"></i>
-						</li>
-						<li><a href="menu-1.html">Menu Card</a>
-						</li>
-					</ul>
-				</div>
-				<!-- end .container-->
-			</div>
-			<!--end .small-menu -->
-		</header>
+		<?php include('header.php');?>
 		<!-- end #header -->
 		<div id="page-content">
 			
@@ -222,7 +71,7 @@ else{e.value="no";location.reload();}
 						<div class="tab-content">
 							<div class="tab-pane fade in active" id="tab-1">
 								<div class="all-menu-details">
-									<h5>Daily Menu</h5>
+									<h5><?php echo $array['data']['menu'][$_GET['cat']]['category'];?> </h5>
 									<?php
 									for($i=0;$i<count($array['data']['menu'][$_GET['cat']]['items']) ; $i++){
 										$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
@@ -257,7 +106,7 @@ else{e.value="no";location.reload();}
 														<div class="qty-cart text-center clearfix">
 															<h6>Qty</h6>
 															<form class="">
-																<input type="text" placeholder="1"id="<?php echo $i.'-quantity';?>">
+																<input type="text" placeholder="1"id="<?php echo $i.'-quantity';?>"  >
 																<br>
 																<button id="<?php echo $itemName.' :cart';?>" onclick="addCartItem('<?php echo  $item['id'];?>', <?php echo count($item['custom']); ?> )"><i class="fa fa-cart-plus"></i>
 																</button>
@@ -310,6 +159,19 @@ else{e.value="no";location.reload();}
 																					else{
 																						$soft=0;
 																					}
+																				if($maxOption!=0)
+																					$max=$maxOption;
+																				else
+																					$max="Unlimited";
+																				if($minOption!=0)
+																					$min=$minOption;
+																				else
+																					$min="None";
+																				if($soft==0)
+																					$s="None";
+																				else
+																					$s=$soft;
+																				
 																					$itemName=$array['data']['menu'][$_GET['cat']]['items'][$i]['name'];
 																					if ($maxOption==1){?>
 																					<table id="">
@@ -339,6 +201,9 @@ else{e.value="no";location.reload();}
 																				<?php }
 																				else{
 																					?>
+																					<p style="font-weight: lighter;font-style: italic;border-top: none;padding: 0; font-size: 13px;">*Max selections allowed : <b><?php echo $max;?></b>
+																				   ; Min selections required : <b> <?php echo $min;?></b>
+																				   ; Free selections : <b><?php echo $s;?></b></p>
 																					<table>
 																						<?php
 																						for($k=0;$k<count($array['data']['menu'][$_GET['cat']]['items'][$i]['custom'][$j]['options']) ; $k++){
@@ -513,20 +378,7 @@ else{e.value="no";location.reload();}
 							</div>
 							<!-- end #main-wrapper -->
 
-							<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-							<!-- Local jQuery -->
-							<script>
-								window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')
-							</script>
-							<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-							<script src="js/jquery.magnific-popup.min.js"></script>
-							<script src="js/owl.carousel.js"></script>
-							<script src="js/bootstrap.js"></script>
-							<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-							<script type="text/javascript" src="js/jquery.ui.map.js"></script>
-							<script src="js/scripts.js"></script>
-							<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
+							<?php include('footer.php');?>
 							<script>
 								function serializeJSON(id) {
 									var jsonData = {};
@@ -795,6 +647,7 @@ else{e.value="no";location.reload();}
 		{
 			if (!checkSizeSelections(item)){alert("Make a size selection");return;}
 			if (!checkCustomSelections(item,cust_count)){alert("Faulty Selections in customization Options");return;}
+
 			var formData=serializeJSON(item);
 			order = {};
 			key=item+"-size";
@@ -836,13 +689,19 @@ else{e.value="no";location.reload();}
 			}
 			// todo, add qty, size
 			order['custom'] = custom_obj
-			console.log(order);
+
 			console.log("order");
-			//final_order_list.push(order)
-			//console.log(final_order_list);
-			$.when($.post("session.php",{final_order_list:order},function(data) {})).then(function( data, textStatus, jqXHR ) {
-  refreshCart(); // Alerts 200
-});
+			console.log(order);
+			//ajax post to check if order already exists in final order list
+			var resp;
+			$.when($.post("checkorder.php",{order:order},function(data){console.log("Resp"); resp=data;console.log(data);})).then(function(){
+				if(resp!='Found'){
+					$.when($.post("session.php",{final_order_list:order},function(data) {})).then(function( data, textStatus, jqXHR ) {
+					refreshCart(); // Alerts 200
+					});}
+				else
+					refreshCart();
+				});
 
 
 
@@ -852,7 +711,7 @@ else{e.value="no";location.reload();}
 		{
 			document.getElementById('cartlist').innerHTML="";
 			$.when($.post("cart_session.php",{},function(data) {final_order_list=jQuery.parseJSON(data);})).then(function(){
-				console.log(final_order_list); fnlRefresh();
+		    fnlRefresh();
 			});
 		}
 
@@ -883,7 +742,7 @@ else{e.value="no";location.reload();}
 							custom['Size'][0]="N/A";
 						custom['Quantity']=final_order_list[i].quantity;
 						var itemli=document.createElement('LI');
-						itemli.innerHTML=itemname;
+						itemli.innerHTML=itemname + ' ' + '('+final_order_list[i].price + ' x ' + final_order_list[i].quantity + ')';
 						var customization=document.createElement('OL');
 
 						console.log(custom);
@@ -901,7 +760,7 @@ else{e.value="no";location.reload();}
 									temp=document.getElementById(i+'-custom-'+strkey+'-price-'+custom[strkey][parseInt(k)]).innerHTML
 								else
 									temp=0;
-								li3.innerHTML=custom[strkey][parseInt(k)] + " - ₹ " +temp;
+								li3.innerHTML=custom[strkey][parseInt(k)];
 								ol2.appendChild(li3);
 							}
 							li2.appendChild(ol2);
@@ -943,70 +802,8 @@ else{e.value="no";location.reload();}
 
 						}
 					}
-					function login() {
+					
 
-						var login={};
-						login.email=document.getElementById('login-email').value;
-						login.password=document.getElementById('login-password').value;
-						login.vendor_id=1;
-						console.log(login);
-						$.when($.ajax({
-							url: 'http://lannister-api.elasticbeanstalk.com/tyrion/user/login',
-							type: 'post',
-							dataType: 'json',
-							success: function (data) {
-
-								response=data;
-								console.log(response);
-								if(response.data)
-									$.post("login.php",{email:login.email, password:login.password},function(data) {});
-			                	
-			                      else
-			                	alert("Login Credentials invalid, please sign-up");
-			            },
-			            data: JSON.stringify(login)
-			        })).then(function(){//making ajax call to retrieve addresses
-			                	$.ajax({
-			                		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address?email='+login.email+'&vendor_id=1',
-			                		type:'get',
-			                		dataType: 'json',
-			                		success: function(data){
-			                			//ajax to save address in session
-			                			$.post("address.php",{address:data},function(data){alert(data);});
-			                			console.log(data);
-			                			location.reload(true)
-			                		}
-
-
-			                	});
-
-			                	
-			                });
-
-}
-
-function register(){
-	var register={};
-	register.email=document.getElementById('register-email').value;
-	register.password=document.getElementById('register-password').value;
-	register.vendor_id=1;
-	console.log(register);
-	console.log('making ajax');
-	$.when($.ajax({
-		url:'http://lannister-api.elasticbeanstalk.com/tyrion/user/signup',
-		type:'post',
-		dataType:'json',
-		success: function(data){
-			console.log(data);
-			if(!data.success)
-				alert(data.reason);
-			if(data.data)
-				alert("Your details have been registered");
-		},
-		data: JSON.stringify(register)
-	})).then(function(){location.reload(true);});
-
-}
 
 
 //for order history
@@ -1091,6 +888,7 @@ $(document).ready(function(){
 		$('#login-row').toggle();
 		$('#default-row').toggle();
 	}
+	$('#choose').addClass("active");
 });
 
 $('.options-dropdown').on('click',function(){

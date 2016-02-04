@@ -2384,7 +2384,6 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 #main-wrapper .all-menu-details .qty-cart button.active:before {
   font-family: 'FontAwesome';
-  content: "\f068";
   position: absolute;
   top: 3px;
   left: 10px;

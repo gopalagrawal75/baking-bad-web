@@ -1,4 +1,4 @@
-<?php
+ <?php
 error_reporting(E_ALL);
 session_start();
 $array=$_SESSION['menu'];
@@ -34,156 +34,9 @@ if($_POST)
 	<link rel="stylesheet" href="css/owl.carousel.css">
 </head>
 <body>
+<?php include('overlay.php');?>
 <div id="main-wrapper">
-<header id="header">
-			<div class="header-top-bar">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-5 col-sm-12 col-xs-12">
-							<div class="header-login">
-								<a href="#">Order online</a>
-								<a href="#" onclick="loginBox()">Login</a>
-								<div class="login-box">
-        							<form id="bg-login-form" method="post"  role="form">
-                 						 <p class="status"></p>
-                 						 <input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Username">
-                 						 <input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
-                						  <p class="submit form-row">
-                  							  <input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
-                    						   <input type="hidden" name="redirect_to" value="http://188.226.173.21/takeawaywp">
-                   								 <input type="hidden" name="testcookie" value="1">
-                 						 </p>
-                                   		 <a href="http://188.226.173.21/takeawaywp/wp-login.php?action=lostpassword" class="btn btn-link">Forgot Password?</a>
-                						  <input type="hidden" id="security" name="security" value="451822321c">
-                						  <input type="hidden" name="_wp_http_referer" value="/takeawaywp/cart/">                
-                					</form>
-      							</div>
-							</div>
-							<!-- end .header-login -->
-							<!-- Header Social -->
-							<ul class="header-social">
-								<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-linkedin-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-7 col-sm-12 col-xs-12">
-							<p class="call-us">
-								Call Us: <a class="font" href="#">+1123 4567</a>
-								<span class="open-now"><i class="fa fa-check-square"></i>We are open now(9am-10pm)</span>
-								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
-							</p>
-						</div>
-					</div>
-					<!-- end .container -->
-				</div>
-			</div>
-			<!-- end .header-top-bar -->
-
-			<div class="header-nav-bar">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="container">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">
-								<img src="img/logo.png" alt="">
-							</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="index.html">Home-1</a></li>
-										<li><a href="index-landingpage.html">Home landing</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle act" data-toggle="dropdown">Menu Card <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="menu(view-1).html">Menu( view-1 )</a></li>
-										<li><a href="menu(view-2).html">Menu( view-2 )</a></li>
-										<li><a href="menu-without-side-panel.html">Menu( grid-view )</a></li>
-										<li><a href="single-menu.html">Single Menu</a></li>
-										<li><a href="menu(2grid-list).html">Menu( 2grid-list-view )</a></li>
-										<li><a href="menu-with-right-checkout.html">Menu( with-checkout )</a></li>
-										<li><a href="dish.html">Dish</a></li>
-										<li><a href="dish-with-no-sidebar.html">Dish ( No Sidebar )</a></li>
-										<li><a href="shortcodes.html">Shortcodes</a></li>
-									</ul>
-								</li>
-								<li><a href="chef.html">Chef</a>
-								</li>
-								<li><a href="our-team.html">Team</a>
-								</li>
-								
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="blog-list.html">Blog List</a></li>
-										<li><a href="blog-post.html">Blog Post</a></li> 
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">News & Events <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="news-events.html">News & Events list</a></li>
-										<li><a href="event-page.html">News & Events post</a></li> 
-									</ul>
-								</li>
-								<li><a href="contact-us.html">Contact us</a>
-								</li>
-							</ul>
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-			<!-- end .header-nav-bar -->
-
-			<div class="small-menu">
-				<div class="container">
-					<div class="choose-option">
-						<ul class="list-unstyled list-inline">
-							<li ><a href="#">1. Choose</a>
-							</li>
-							<li ><a href="#">2. Confirm</a>
-							</li>
-							<li class="active"><a href="#">3. Checkout</a>
-							</li>
-						</ul>
-					</div>
-					<!-- end .choose-option-->
-					<ul class="list-unstyled list-inline">
-						<li><a href="index.php">Home</a>
-						</li>
-						<li><i class="fa fa-chevron-right"></i>
-						</li>
-						<li><a href="menu-1.html">Menu Card</a>
-						</li>
-					</ul>
-				</div>
-				<!-- end .container-->
-			</div>
-			<!--end .small-menu -->
-		</header>
-		<!-- end #header -->
+<?php include('header.php');?>		<!-- end #header -->
 
 		<div class="page-content">
 			<div class="new-events-blog page-format">
@@ -225,27 +78,27 @@ if($_POST)
 									<tbody>
 										<tr class="cart-subtotal">
 											<th> Cart-Subtotal</th>
-											<td><span id='amount' class="amount">669</span></td>
+											<td><span id='amount' class="amount"></span></td>
 										</tr>
 										<tr class="shipping">
 											<th> Shipping </th>
-											<td id='shipping'>5509</td>
+											<td id='shipping'></td>
 										</tr>
 										<tr>
 											<th> Service Charge</th>
-											<td id='service'>445</td>
+											<td id='service'></td>
 										</tr>
 										<tr> 
 											<th> Service Tax</th>
-											<td id='tax'>34</td>
+											<td id='tax'></td>
 										</tr>
 										<tr> 
 											<th> VAT</th>
-											<td id='vat'>22</td>
+											<td id='vat'></td>
 										</tr>
 										<tr>
 											<th> Total</th>
-											<td id='total'>84</td>
+											<td id='total'></td>
 										</tr>
 									</tbody>
 								</table>
@@ -257,9 +110,96 @@ if($_POST)
 		</div>
 </div> <!--Main wrapper end-->
 </body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<?php include('footer.php');?>
 <script>
+$(document).ready(function(){
+	t="<?php if(isset($_SESSION['uname']))
+	echo $_SESSION['uname'];
+	else
+		echo "NA";
+	?>";
+	if(t!="NA"){
+		$('#login-row').toggle();
+		$('#default-row').toggle();
+	}
+$('#checkout').addClass("active");
+});
+$('.options-dropdown').on('click',function(){
+	$('.options-dropdown-ul').slideToggle();
+	});
 
+//for order history
+
+$(function() {
+    $('#activator').click(function(){
+    	 $('#overlay').fadeIn('fast',function(){
+            $('#box').animate({'top':'80px'},500);
+        });
+    	 
+    });
+    $('#order-retrieve').click(function(){
+    	//making ajax request to retrieve orders
+    	 var email="<?php if (isset($_SESSION['uname'])) echo $_SESSION['uname'];
+    	 			else echo "NA";?>";
+    	 if(email!='NA')
+    	 {
+    	 	
+    	 		url='http://lannister-api.elasticbeanstalk.com/tyrion/history?email='+email+'&vendor_id=1&status=placed,accepted,cancelled,ready,delayed,delivered';
+    	 		$.when($.ajax({
+    	 			url:url,
+    	 			type:'get',
+    	 			success:function(data){
+    	 				console.log("order");
+    	 				orderhistory=data;
+    	 				console.log(orderhistory);
+    	 			}
+    	 		})).then(function(){ 
+    	 				
+    	 				if(orderhistory.success=="false"){
+    	 					$('#orders').html("<div> Some error occured, please try some other time</div");
+    	 				}
+    	 				else {
+    	 					if(orderhistory.data.length==0)
+    	 					$('#orders').html("<div> No orders that match given criteria</div");
+    						else{
+    						for (q=0;q<orderhistory.data.length;q++)
+    						{	
+    							
+    							    							
+    							$('#orders').append("<div id='order-" + q + "''><b> Order Number : </b>" + orderhistory.data[q].order_number + 
+    												"<br><b> Total Price : </b>" + orderhistory.data[q].total + 
+    												"<br> <h6>Status : </h6>" + orderhistory.data[q].status + "</div>");
+    							
+    							//collecting items
+    							for (m=0;m<orderhistory.data[q].order.length;m++){
+    							$('#order-'+q).append("<br>Item : " + orderhistory.data[q].order[m]['name'] + 
+    							"<br> Quantity : " + orderhistory.data[q].order[m]['quantity'] + 
+    							"<br> Price : " + orderhistory.data[q].order[m]['sub_total'] +
+    							"<br> Customization : "+ orderhistory.data[q].order[m]['custom'] + 
+    							"<br>");
+    							}
+    							$('#order-'+q).append("<br>-------------");
+
+    							
+    							
+    												
+    						}
+    	 					}
+    						}
+    	 				
+    	 				
+    	 	
+    	 });
+    	
+    }
+});
+    $('#boxclose').click(function(){
+        $('#box').animate({'top':'-520px'},500,function(){
+            $('#overlay').fadeOut('fast');
+        });
+    });
+
+});
 var totalamt=0;//variable to record cart subtotal
 var final_order={
 		vendor_id:1,
@@ -352,11 +292,11 @@ var response;
                 
                 response=data;
                 console.log(response);
-                document.getElementById('shipping').innerHTML=response['data']['delivery_charges'];
-				document.getElementById('service').innerHTML=response['data']['service_charge'];
-				document.getElementById('tax').innerHTML=response['data']['service_tax'];
-				document.getElementById('vat').innerHTML=response['data']['vat'];
-				document.getElementById('total').innerHTML=response['data']['price'];
+                document.getElementById('shipping').innerHTML='₹ ' + Math.round(response['data']['delivery_charges']);
+				document.getElementById('service').innerHTML='₹ ' + Math.round(response['data']['service_charge']);
+				document.getElementById('tax').innerHTML='₹ ' + Math.round(response['data']['service_tax']);
+				document.getElementById('vat').innerHTML='₹ ' + Math.round(response['data']['vat']);
+				document.getElementById('total').innerHTML='₹ ' + Math.round(response['data']['price']);
             },
             data: JSON.stringify(final_order)
         });

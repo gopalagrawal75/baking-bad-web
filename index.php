@@ -44,171 +44,9 @@ $_SESSION['menu']=$array;
 </head>
 
 <body>
-	<div id="main-wrapper">
-		<header id="header">
-			<div class="header-top-bar">
-				<div class="container">
-					<div id="default-row" class="row">
-						<div class="col-md-5 col-sm-12 col-xs-12">
-							<div class="header-login">
-								<a href="#" onclick="registerBox()">Register</a>
-								<a href="#" onclick="loginBox()">Login</a>	
-								<div class="login-box">
-        							<form id="bg-login-form"  method="post"  role="form">
-                 						 <p class="status"></p>
-                 						 <input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
-                 						 <input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
-                						  <p class="submit form-row">
-                  							  <input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
-                    						   <input type="hidden" name="redirect_to" value="http://188.226.173.21/takeawaywp">
-                   								 <input type="hidden" name="testcookie" value="1">
-                 						 </p>
-                                   		>                
-                					</form>
-      							</div>
-      							<div class="register-box">
-
-									<form id="bg-register-form">
-										<p class="status">Register</p>
-										<input type="text" required id="register-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="register-password" name="login_password" value="" class="form-control" placeholder="Password">
-										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register" onclick="register()">
-										</p>
-									</form>
-								</div>
-
-							</div>
-							<!-- end .header-login -->
-							<!-- Header Social -->
-							<ul class="header-social">
-								<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-linkedin-square"></i></a>
-								</li>
-								<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-7 col-sm-12 col-xs-12">
-							<p class="call-us">
-								Call Us: <a class="font" href="#">+1123 4567</a>
-								<span class="open-now"><i class="fa fa-check-square"></i>We are open now(9am-10pm)</span>
-								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
-							</p>
-						</div>
-					</div> <!-- end .row -->
-					<!--logged-in row-->
-					<div class="row" id="login-row" style="display:none;">
-						<div class="col-lg-8" style="font-size:14px;">
-							<?php if(isset($_SESSION['uname']))
-							echo "Welcome, ". $_SESSION['uname']
-							?>		
-						</div>
-						<div class="col-lg-4">
-							<ul class="options-dropdown">
-								<li>Options
-									<ul class="options-dropdown-ul">
-										<li>order history</li>
-										<li><a id='logout'>logout</a></li>
-									</ul>
-								</li>
-							</ul>
-
-						</div>
-					</div><!--end of logged-in row-->
-					
-				</div> <!-- end .container -->
-			</div>
-			<!-- end .header-top-bar -->
-
-			<div class="header-nav-bar">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="container">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">
-								<img src="img/logo.png" alt="TakeAway">
-							</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="dropdown">
-									<a href="index.php" class="dropdown-toggle act" data-toggle="dropdown">Home </a>
-									
-								</li>
-								<!--<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu Card <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="menu(view-1).html">Menu( view-1 )</a></li>
-										<li><a href="menu(view-2).html">Menu( view-2 )</a></li>
-										<li><a href="menu-without-side-panel.html">Menu( grid-view )</a></li>
-										<li><a href="single-menu.html">Single Menu</a></li>
-										<li><a href="menu(2grid-list).html">Menu( 2grid-list-view )</a></li>
-										<li><a href="menu-with-right-checkout.html">Menu( with-checkout )</a></li>
-										<li><a href="dish.html">Dish</a></li>
-										<li><a href="dish-with-no-sidebar.html">Dish ( No Sidebar )</a></li>
-										<li><a href="shortcodes.html">Shortcodes</a></li>
-									</ul>
-								</li>
-								<li><a href="chef.html">Chef</a>
-								</li>
-								<li><a href="our-team.html">Team</a>
-								</li>
-								
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="blog-list.html">Blog List</a></li>
-										<li><a href="blog-post.html">Blog Post</a></li> 
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">News & Events <span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="news-events.html">News & Events list</a></li>
-										<li><a href="event-page.html">News & Events post</a></li> 
-									</ul>
-								</li>-->
-								<li><a href="contact-us.html">Contact us</a>
-								</li>
-							</ul>
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-			<!-- end .header-nav-bar -->
-			<!-- small menu section -->
-			<div class="small-menu">
-				<div class="container">
-					<ul class="list-unstyled list-inline">
-						<li><a href="index.php">Home</a>
-						</li>
-						<li><i class="fa fa-chevron-right"></i>
-						</li>
-						<li><a href="our-team.html">Team</a>
-						</li>
-					</ul>
-				</div>
-				<!-- end .container-->
-			</div>
-			<!--end .small-menu -->
-		</header>
-		<!-- end #header -->
+<?php include('overlay.php');?>
+<div id="main-wrapper">
+<?php include('header.php');?>		<!-- end #header -->
 
 		<!-- all page-content star -->
 		<div id="page-content">
@@ -267,28 +105,7 @@ $_SESSION['menu']=$array;
 
 			<!-- purchase TakeAway section start -->
 			<div class="container">
-				<div class="call-to-action-section">
-					<div class="css-table-cell">
-						<div class="icon">
-							<img src="img/content/call-to-action-icon1.png" alt="">
-						</div>
-					</div>
-					<div class="text css-table">
-						<div class="css-table-cell">
-							<h4>Purchase TakeAway</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi..</p>
-						</div>
-
-						<div class="css-table-cell">
-							<a href="#" class="btn btn-default-red  pad-bottom"><i class="fa fa-file-text-o"></i> Read  More</a>
-						</div>
-
-						<div class="css-table-cell">
-							<a href="#" class="btn btn-default-red-inverse pad-top"><i class="fa fa-shopping-cart"></i> Purchase Now!</a>
-						</div>
-					</div>
-				</div>
-				<!-- end .call-to-action-section -->
+				
 			</div>
 			<!-- end .container -->
 			<!-- end purchase TakeAway section  -->
@@ -303,7 +120,7 @@ $_SESSION['menu']=$array;
 							<div class="col-md-3 col-sm-6 col-xs-12 text-center">
 							<div class="category-boxes-item">
 								<figure>
-									<img src="img/content/starter.jpg">
+									<img src="img/content/<?php echo $array['data']['menu'][$i]['category'];?>.jpg">
 									<?php
 										echo "<h4>".strtoupper($array['data']['menu'][$i]['category'])."</h4>";
 									?>	
@@ -334,262 +151,10 @@ $_SESSION['menu']=$array;
 			</div>
 			<!--end .chef-welcome-->
 
-			<!--start small-slide section -->
-			<div id="sm-slide-section">
-				<div class="container">
-					<div class="slide-heading text-center">
-						<h4>Our Clients Say</h4>
-					</div>
-					<!--end .clients heading-->
-					<div id="slide-content" class="owl-carousel">
-						<div class="item">
-							<img src="img/content/sm-slide-img1.jpg" alt="img-1">
-							<div class="details">
-								<h5><a href="#">jane doe</a>
-								</h5>
-								<ul class="list-inline">
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-								</ul>
-								<p>Absolutely delicious! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-							</div>
-						</div>
-						<!-- end item class div-->
-
-						<div class="item">
-							<img src="img/content/sm-slide-img-2.jpg" alt="img-2">
-							<div class="details">
-								<h5><a href="#">chrich woods</a>
-								</h5>
-								<ul class="list-inline">
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-								</ul>
-								<p>Absolutely delicious! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-							</div>
-						</div>
-						<!-- end item class div-->
-
-						<div class="item">
-							<img src="img/content/sm-slide-img1.jpg" alt="img-1">
-							<div class="details">
-								<h5><a href="#">jane doe</a>
-								</h5>
-								<ul class="list-unstyled list-inline">
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-								</ul>
-								<p>Absolutely delicious! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-							</div>
-						</div>
-						<!-- end item class div-->
-
-						<div class="item">
-							<img src="img/content/sm-slide-img-2.jpg" alt="img-2">
-							<div class="details">
-								<h5><a href="#">chrich woods</a>
-								</h5>
-								<ul class="list-inline">
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-								</ul>
-								<p>Absolutely delicious! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-							</div>
-						</div>
-						<!-- end item class div-->
-
-						<div class="item">
-							<img src="img/content/sm-slide-img1.jpg" alt="img-1">
-							<div class="details">
-								<h5><a href="#">jane doe</a>
-								</h5>
-								<ul class="list-inline">
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-								</ul>
-								<p>Absolutely delicious! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-							</div>
-						</div>
-						<!-- end item class div-->
-
-						<div class="item">
-							<img src="img/content/sm-slide-img-2.jpg" alt="img-2">
-							<div class="details">
-								<h5><a href="#">chrich woods</a>
-								</h5>
-								<ul class="list-inline">
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-									<li><a href="#"><i class="fa fa-star"></i></a>
-									</li>
-								</ul>
-								<p>Absolutely delicious! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-							</div>
-						</div>
-						<!-- end item class div-->
-					</div>
-					<!-- end i.slide-content -->
-				</div>
-				<!-- end .container-->
-			</div>
-			<!-- end .sm-slide-section-->
+			
 
 			<!--Start blog feed section-->
-			<div class="latest-from-blog text-center">
-				<div class="container">
-					<h4>Latest From the Blog</h4>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="blog-latest">
-								<div class="row">
-									<div class="col-md-6 col-sm-12">
-										<img class="" src="img/content/blog-post-1.jpg" alt="blog-image">
-									</div>
-									<div class="col-md-6 col-sm-12">
-										<h5><a href="#">Post Title Goes Here</a>
-										</h5>
-										<p><i class="fa fa-clock-o"></i>
-											<span class="date">27.6.2014</span>at
-											<span class="time">17.33</span>
-										</p>
-										<p class="bl-sort">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-										<a href="#" class="btn btn-default-red"><i class="fa fa-file-text-o"></i> Read  More</a>
-									</div>
-									<!--end .blog-details-->
-								</div>
-								<!--end .row-->
-							</div>
-							<!--end .blog-latest -->
-						</div>
-						<!--end grid layout-->
-
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="blog-latest">
-								<div class="row">
-									<div class="col-md-6 col-sm-12">
-										<img class="" src="img/content/blog-post-2.jpg" alt="blog-image">
-									</div>
-									<div class="col-md-6 col-sm-12">
-										<h5><a href="#">Post Title Goes Here</a>
-										</h5>
-										<p><i class="fa fa-clock-o"></i>
-											<span class="date">27.6.2014</span>at
-											<span class="time">17.33</span>
-										</p>
-										<p class="bl-sort">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-										<a href="#" class="btn btn-default-red"><i class="fa fa-file-text-o"></i> Read  More</a>
-									</div>
-									<!--end .blog-details-->
-								</div>
-								<!--end .row-->
-							</div>
-							<!--end .blog-latest -->
-						</div>
-						<!--end grid layout-->
-
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="blog-latest">
-								<div class="row">
-									<div class="col-md-6 col-sm-12">
-										<img class="" src="img/content/blog-post-3.jpg" alt="blog-image">
-									</div>
-									<div class="col-md-6 col-sm-12">
-										<h5><a href="#">Post Title Goes Here</a>
-										</h5>
-										<p><i class="fa fa-clock-o"></i>
-											<span class="date">27.6.2014</span>at
-											<span class="time">17.33</span>
-										</p>
-										<p class="bl-sort">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-										<a href="#" class="btn btn-default-red"><i class="fa fa-file-text-o"></i> Read  More</a>
-									</div>
-									<!--end .blog-details-->
-								</div>
-								<!--end .row-->
-							</div>
-							<!--end .blog-latest -->
-						</div>
-						<!--end grid layout-->
-
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="blog-latest">
-								<div class="row">
-									<div class="col-md-6 col-sm-12">
-										<img class="" src="img/content/blog-post-4.jpg" alt="blog-image">
-									</div>
-									<div class="col-md-6 col-sm-12">
-										<h5><a href="#">Post Title Goes Here</a>
-										</h5>
-										<p><i class="fa fa-clock-o"></i>
-											<span class="date">27.6.2014</span>at
-											<span class="time">17.33</span>
-										</p>
-										<p class="bl-sort">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-										<a href="#" class="btn btn-default-red"><i class="fa fa-file-text-o"></i> Read  More</a>
-									</div>
-									<!--end .blog-details-->
-								</div>
-								<!--end .row-->
-							</div>
-							<!--end .blog-latest -->
-						</div>
-						<!--end grid layout-->
-					</div>
-					<!--end .row main-->
-					<!-- read older button -->
-					<div class="read-older">
-						<a href="#" class="btn btn-default-red"><i class="fa fa-file-text-o"></i> Read Older Entries</a>
-					</div>
-				</div>
-				<!--end container-->
-			</div>
-			<!--end .latest-from-blog-->
+			
 
 		</div>
 		<!-- end #page-content -->
@@ -657,24 +222,7 @@ $_SESSION['menu']=$array;
 				</div>
 			</div>
 
-			<div class="footer-copyright">
-				<div class="container">
-					<p>Copyright 2014 © TakeAway. All rights reserved. Powered by <a href="#">UOUapps</a>.</p>
-					<ul class="footer-social">
-						<li><a href="#"><i class="fa fa-facebook-square"></i></a>
-						</li>
-						<li><a href="#"><i class="fa fa-twitter-square"></i></a>
-						</li>
-						<li><a href="#"><i class="fa fa-google-plus-square"></i></a>
-						</li>
-						<li><a href="#"><i class="fa fa-linkedin-square"></i></a>
-						</li>
-						<li><a href="#"><i class="fa fa-pinterest-square"></i></a>
-						</li>
-					</ul>
-					<!-- end .footer-social -->
-				</div>
-			</div>
+			
 		</footer>
 		<!-- end #footer -->
 		
@@ -763,6 +311,7 @@ $_SESSION['menu']=$array;
 							$('#login-row').toggle();
 							$('#default-row').toggle();
 						}
+			$('.small-menu').hide();
 	});
 	function toggleRow()
 	{
@@ -771,6 +320,79 @@ $_SESSION['menu']=$array;
 	$('.options-dropdown').on('click',function(){
 	$('.options-dropdown-ul').slideToggle();
 	});
+
+	//for order history
+
+$(function() {
+    $('#activator').click(function(){
+    	 $('#overlay').fadeIn('fast',function(){
+            $('#box').animate({'top':'80px'},500);
+        });
+    	 
+    });
+    $('#order-retrieve').click(function(){
+    	//making ajax request to retrieve orders
+    	 var email="<?php if (isset($_SESSION['uname'])) echo $_SESSION['uname'];
+    	 			else echo "NA";?>";
+    	 if(email!='NA')
+    	 {
+    	 	
+    	 		url='http://lannister-api.elasticbeanstalk.com/tyrion/history?email='+email+'&vendor_id=1&status=placed,accepted,cancelled,ready,delayed,delivered';
+    	 		$.when($.ajax({
+    	 			url:url,
+    	 			type:'get',
+    	 			success:function(data){
+    	 				console.log("order");
+    	 				orderhistory=data;
+    	 				console.log(orderhistory);
+    	 			}
+    	 		})).then(function(){ 
+    	 				
+    	 				if(orderhistory.success=="false"){
+    	 					$('#orders').html("<div> Some error occured, please try some other time</div");
+    	 				}
+    	 				else {
+    	 					if(orderhistory.data.length==0)
+    	 					$('#orders').html("<div> No orders that match given criteria</div");
+    						else{
+    						for (q=0;q<orderhistory.data.length;q++)
+    						{	
+    							
+    							    							
+    							$('#orders').append("<div id='order-" + q + "''><b> Order Number : </b>" + orderhistory.data[q].order_number + 
+    												"<br><b> Total Price : </b>" + orderhistory.data[q].total + 
+    												"<br> <h6>Status : </h6>" + orderhistory.data[q].status + "</div>");
+    							
+    							//collecting items
+    							for (m=0;m<orderhistory.data[q].order.length;m++){
+    							$('#order-'+q).append("<br>Item : " + orderhistory.data[q].order[m]['name'] + 
+    							"<br> Quantity : " + orderhistory.data[q].order[m]['quantity'] + 
+    							"<br> Price : " + orderhistory.data[q].order[m]['sub_total'] +
+    							"<br> Customization : "+ orderhistory.data[q].order[m]['custom'] + 
+    							"<br>");
+    							}
+    							$('#order-'+q).append("<br>-------------");
+
+    							
+    							
+    												
+    						}
+    	 					}
+    						}
+    	 				
+    	 				
+    	 	
+    	 });
+    	
+    }
+});
+    $('#boxclose').click(function(){
+        $('#box').animate({'top':'-520px'},500,function(){
+            $('#overlay').fadeOut('fast');
+        });
+    });
+
+});
 	</script>
 
 </body>
