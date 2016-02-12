@@ -1,4 +1,75 @@
 
+//for decrementing items on cart
+function decrement(item)
+{
+	q=parseInt(final_order_list[item].quantity)
+	q-=1
+	if(q<=0)
+		return;
+	final_order_list[item].quantity=q.toString()
+	$.when($.post('update_session.php',{final_order_list:final_order_list},function(data){})).then(function(){refreshCart()});
+}
+//for incrementing items on cart
+function increment(item)
+{
+	q=parseInt(final_order_list[item].quantity)
+	q+=1
+	final_order_list[item].quantity=q.toString()
+	$.when($.post('update_session.php',{final_order_list:final_order_list},function(data){})).then(function(){refreshCart()});
+}
+
+//for checkout-register
+function checkout_register()
+{
+	var register={};
+	register.email=$('input[name=checkout-email]').val();
+	register.vendor_id=1;
+
+	if($("input[name='checkout-password']").val()!=$("input[name='checkout-confirm']").val())
+		alert("Passwords do not match!");
+	else
+	{
+		register.password=$("input[name='checkout-password']").val();
+		console.log(register);
+		$.ajax(
+		{
+			url:'http://lannister-api.elasticbeanstalk.com/tyrion/user/signup',
+			type:'post',
+			dataType:'json',
+			success: function(data){
+				console.log(data);
+				if(!data.success)
+					alert(data.reason);
+				if(data.data)
+					alert("Your details have been registered!");
+									},
+			data: JSON.stringify(register)
+
+		});
+	}
+}
+
+	
+
+//for checkout-yes
+$('#checkout-yes').on('click',function(){
+	$('#checkout-register').slideToggle();
+});
+$('#checkout-no').on('click',function(){
+	$('div[id=checkout').slideToggle();
+});
+
+//for cart-anchor
+$('#cart-anchor').on('click',function(){
+	$.when($.post("cart_session.php",{},function(data) {final_order_list=jQuery.parseJSON(data);})).then(function(){
+		    if(final_order_list==null)
+		    {
+		    	alert("Your Cart is empty");
+		    }
+		    else
+		    	window.location.replace('cart.php');
+			});
+})
 //options dropdown
 $('.options-dropdown').on('click',function(){
 	$('.options-dropdown-ul').slideToggle();
@@ -33,7 +104,7 @@ function login() {
 			                		dataType: 'json',
 			                		success: function(data){
 			                			//ajax to save address in session
-			                			$.post("address.php",{address:data},function(data){alert(data);});
+			                			$.post("address.php",{address:data},function(data){});
 			                			console.log(data);
 			                			location.reload(true)
 			                		}
@@ -50,8 +121,16 @@ function login() {
 //for registering
 function register(){
 	var register={};
+	var inc="true";
 	register.email=document.getElementById('register-email').value;
-	register.password=document.getElementById('register-password').value;
+	if($('#register-password').val()==$('#register-confirm').val())
+		register.password=document.getElementById('register-password').value;
+	else
+		{
+			
+			$('#register-status').html("<font color='red'>Passwords entered do not match!!</font>");
+			return; 
+		}	
 	register.vendor_id=1;
 	console.log(register);
 	console.log('making ajax');
@@ -61,27 +140,37 @@ function register(){
 		dataType:'json',
 		success: function(data){
 			console.log(data);
-			if(!data.success)
-				alert(data.reason);
+			if(!data.success){
+				$('#register-status').html(data.reason);
+				inc="false";
+			}
+												
 			if(data.data)
-				alert("Your details have been registered");
+				alert("Your details have been registered!");
 		},
 		data: JSON.stringify(register)
-	})).then(function(){location.reload(true);});
-
+	})).then(function(){
+				if(inc!="false")
+				location.reload();
+				
+			}
+		);
+	
 }
 //for logout
 $(function() {
 	$('#logout').click(function(){
 		//send ajax to logout.php
-		$.when($.post("logout.php",{},function(data) {alert(data);})).then(function(){location.reload(true);});
+		$.when($.post("logout.php",{},function(data) {})).then(function(){location.reload(true);});
 	});
 });
 function loginBox(){
+	$('.register-box').hide();
 	$('.login-box').fadeToggle();
 };
 
 function registerBox(){
+	$('.login-box').hide();
 	$('.register-box').fadeToggle();
 }
 (function($){

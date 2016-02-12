@@ -11,3 +11,5 @@
 							<script type="text/javascript" src="js/jquery.ui.map.js"></script>
 							<script src="js/scripts.js"></script>
 							<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+							<script src="js/jquery-ui.min.js"></script>
+							

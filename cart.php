@@ -264,7 +264,8 @@ function service_tax()
 		total=total+((parseInt(order[i].quantity)*parseInt(order[i].price.split(" ")[1])));
 	}
 	var tax=parseInt(total)*0.056;
-	total=total+tax;
+	tax=tax.toFixed(2);
+	total=total+parseInt(tax);
 	$('#tax').html('₹ ' + tax);
 	$('#total').html('₹ ' + total);
 }

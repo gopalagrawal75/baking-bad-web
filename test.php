@@ -32,6 +32,8 @@ if($_POST)
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/thumb-slide.css">
 	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	
 </head>
 <body>
 <?php include('overlay.php');?>
@@ -63,6 +65,10 @@ if($_POST)
 													</tbody>
 												</table>
 											</div><!--order-review ends-->
+											<div id="confirmation">
+												<input id="confirm" type="button" class="checkout-button button alt wc-forward" value="Confirm and place order">
+												<p> <b> *Please note  additional charges (delivery charge, VAT, service tax and service charge) might apply to this order.</b></p>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -72,9 +78,11 @@ if($_POST)
 					<div class="row">
 						<div class="col-md-12">
 							
-							<div   class='cart_totals'>
-								<h4> Totals</h4>
-								<table width="30%" cellspacing="0">
+							<div id="totals" class='cart_totals' hidden>
+								<p style="font-size: 22px;color: #0B2F4E;">Thanks for your order!</p>
+								<p style="font-size: 14px;color: #0F670F;"><i class="fa fa-check "></i> We have received your order and will process it shortly. Please find the additional details below</p>
+								<h4 align="center"> Totals</h4>
+								<table align="center" style="font-size: 14px"id="checkout-totals" width="30%" cellspacing="0">
 									<tbody>
 										<tr class="cart-subtotal">
 											<th> Cart-Subtotal</th>
@@ -102,6 +110,19 @@ if($_POST)
 										</tr>
 									</tbody>
 								</table>
+								<div id="checkout-div" hidden>
+								<p> Would you like to take a moment an register your details?</p>
+								<form onsubmit="checkout_register();return false;" >
+									<input id="checkout-yes" type="button" value="Yes">
+									<input id="checkout-no" type="button" value="No">
+									<div id="checkout-register" hidden>
+									<input name="checkout-email" type="text" placeholder="email">
+									<input name="checkout-password" type="password" placeholder="password">
+									<input name="checkout-confirm" type="password" placeholder="confirm password">
+									<input type="submit" value="register!">
+									</div>
+								</form>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -112,6 +133,8 @@ if($_POST)
 </body>
 <?php include('footer.php');?>
 <script>
+
+
 $(document).ready(function(){
 	t="<?php if(isset($_SESSION['uname']))
 	echo $_SESSION['uname'];
@@ -121,6 +144,12 @@ $(document).ready(function(){
 	if(t!="NA"){
 		$('#login-row').toggle();
 		$('#default-row').toggle();
+		$("div[id='checkout-div']").hide();
+	}
+
+	else
+	{
+		$("div[id='checkout-div']").show();
 	}
 $('#checkout').addClass("active");
 });
@@ -279,10 +308,10 @@ var order2=[];
 
 
 var response;
-	function submit(){
+	$('input[id=confirm]').on('click',function(){
 		console.log("final");
 		console.log(JSON.stringify(final_order));
-	$.ajax({
+		$.when($.ajax({
             url: 'http://lannister-api.elasticbeanstalk.com/tyrion/order',
             type: 'post',
             dataType: 'json',
@@ -297,15 +326,20 @@ var response;
 				document.getElementById('total').innerHTML='₹ ' + Math.round(response['data']['price']);
             },
             data: JSON.stringify(final_order)
+        })).then(function(){
+        	//alert("coming here");
+			$('div[id=totals]').dialog({ minHeight: 600,minWidth: 900,title : "Order Placed!",modal: true,draggable: false,close: function(event, ui){
+				$.when($.post("logout.php",{},function(data) {})).then(function(){window.location.href="index.php";})}});
+			
         });
-}
+});
 
 
 
 
 function populate()
 {
-	submit();
+	//submit();
 	document.getElementById('order').innerHTML="";
 	if(order.length==0){alert("Your cart is empty!!");return;}
 	for(i=0;i<order.length;i++){

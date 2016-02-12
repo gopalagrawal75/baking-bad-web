@@ -40,8 +40,8 @@
 								if($hit!="true"){
 									echo "Found";
 
-									$temp=(int)$_SESSION['final_order'][$i]['quantity']+(int)$_POST['order']['quantity'];
-									if($temp==0)
+									$temp=(int)$_SESSION['final_order'][$i]['quantity']-(int)$_POST['order']['quantity'];
+									if($temp<=0)
 									{
 										unset($_SESSION['final_order'][$i]);
 										$_SESSION['final_order']=array_values($_SESSION['final_order']);

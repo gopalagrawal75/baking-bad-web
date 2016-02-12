@@ -124,8 +124,8 @@ $_SESSION['menu']=$array;
 									<?php
 										echo "<h4>".strtoupper($array['data']['menu'][$i]['category'])."</h4>";
 									?>	
-										<figcaption> <a href="show.php?cat=<?php echo $array['data']['menu'][$i]['id']; ?>" class="btn btn-default-white"><i class="fa fa-file-text-o"></i> Read  More</a> 
-										</figcaption>
+										<a href="show.php?cat=<?php echo $array['data']['menu'][$i]['id']; ?>"><figcaption> 
+										</figcaption></a> 
 									</figure>
 								</div>
 							</div>
@@ -261,46 +261,7 @@ $_SESSION['menu']=$array;
 		});
 
 	
-	function login() {
-
-				var login={};
-				login.email=document.getElementById('login-email').value;
-				login.password=document.getElementById('login-password').value;
-				login.vendor_id=1;
-				console.log(login);
-				$.when($.ajax({
-			            url: 'http://lannister-api.elasticbeanstalk.com/tyrion/user/login',
-			            type: 'post',
-			            dataType: 'json',
-			            success: function (data) {
-			                
-			                response=data;
-			                console.log(response);
-			                if(response.data){
-			                	$.post("login.php",{email:login.email, password:login.password},function(data) {});
-			                	//making ajax call to retrieve addresses
-			                	$.ajax({
-			                		url:'http://lannister-api.elasticbeanstalk.com/tyrion/address?email='+login.email+'&vendor_id=1',
-			                		type:'get',
-			                		dataType: 'json',
-			                		success: function(data){
-			                			//ajax to save address in session
-			                			$.post("address.php",{address:data},function(data){});
-			                			console.log(data);
-
-			                		}
-
-			                		
-			                	});
-
-			                }
-			                else
-			                	alert("Login Credentials invalid, please sign-up");
-			            },
-			            data: JSON.stringify(login)
-			        })).then(function(){location.reload(true);});
-				
-			}
+	
 		$(document).ready(function(){
 		t="<?php if(isset($_SESSION['uname']))
 							echo $_SESSION['uname'];
@@ -335,9 +296,9 @@ $(function() {
     	 			url:url,
     	 			type:'get',
     	 			success:function(data){
-    	 				console.log("order");
+    	 				
     	 				orderhistory=data;
-    	 				console.log(orderhistory);
+    	 				
     	 			}
     	 		})).then(function(){ 
     	 				

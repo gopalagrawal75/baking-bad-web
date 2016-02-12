@@ -7,12 +7,12 @@
 								<a href="#" onclick="registerBox()">Register</a>
 								<a href="#" onclick="loginBox()">Login</a>
 								<div class="login-box">
-									<form id="bg-login-form" method="post"  role="form">
-										<p class="status"></p>
-										<input type="text" id="login-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password">
+									<form onsubmit="login();return false;" id="bg-login-form">
+										<p class="status">Login</p>
+										<input type="email" id="login-email" name="login_username" value="" class="form-control" placeholder="Email" required>
+										<input type="password" id="login-password" name="login_password" value="" class="form-control" placeholder="Password" required>
 										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" onclick="login()">
+											<input type="submit" name="wp-submit" id="bg-login" class="btn btn-default-red-inverse" value="Login" >
 										</p>
 
 
@@ -20,12 +20,15 @@
 								</div>
 								<div class="register-box">
 
-									<form id="bg-register-form">
-										<p class="status">Register</p>
-										<input type="text" required id="register-email" name="login_username" value="" class="form-control" placeholder="Email">
-										<input type="password" id="register-password" name="login_password" value="" class="form-control" placeholder="Password">
+									<form onsubmit="register();return false;" id="bg-register-form">
+										<p class="status" id="register-status">Register</p>
+										<input type="email" id="register-email" name="login_username" value="" class="form-control"  placeholder="Email"required>
+										<p></p>
+										<input type="password"  pattern=".{5,}" id="register-password" name="login_password" value="" class="form-control" placeholder="Password" required title="5 to 10 characters">
+										<input style="margin-top: 5px;"type="password"  pattern=".{5,}" id="register-confirm" name="login_confirm" value="" class="form-control" placeholder="Confirm Password" required title="5 to 10 characters">
+
 										<p class="submit form-row">
-											<input type="button" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register" onclick="register()">
+											<input type="submit" name="wp-submit" id="bg-register" class="btn btn-default-red-inverse" value="Register">
 										</p>
 									</form>
 								</div>
@@ -110,7 +113,8 @@
 										<?php }?>
 									</ul>
 								</li>
-								<li><a href="contact-us.html">Contact us</a>
+								<li> <a id="cart-anchor">Cart</a></li>
+								<li><a href="contact-us.php">Contact us</a>
 								</li>
 							</ul>
 						</div>

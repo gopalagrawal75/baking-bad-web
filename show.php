@@ -104,12 +104,13 @@ else{e.value="no";location.reload();}
 														</div>
 														<!-- end .price-option-->
 														<div class="qty-cart text-center clearfix">
-															<h6>Qty</h6>
+															<h6 hidden>Qty</h6>
 															<form class="">
-																<input type="text" placeholder="1"id="<?php echo $i.'-quantity';?>"  >
+																<input type="text" placeholder="1"id="<?php echo $i.'-quantity';?>"  hidden>
 																<br>
-																<button id="<?php echo $itemName.' :cart';?>" onclick="addCartItem('<?php echo  $item['id'];?>', <?php echo count($item['custom']); ?> )"><i class="fa fa-cart-plus"></i>
+																<button id="<?php echo $itemName.' :cart';?>" onclick="addCartItem('<?php echo  $item['id'];?>', <?php echo count($item['custom']); ?> )"><i class="fa fa-plus"></i>
 																</button>
+																<button onclick="removeItem('<?php echo $item['id'];?>','<?php echo count($item['custom']);?>')"><i class="fa fa-minus"></i></button>
 															</form>
 														</div> <!-- end .qty-cart -->
 													</div> <!-- end .visible-option -->
@@ -642,6 +643,57 @@ else{e.value="no";location.reload();}
 
 
 
+		function removeItem(item,cust_count)
+		{
+			var formData=serializeJSON(item);
+			key=item+"-size";
+			var order={};
+			if(formData.hasOwnProperty(key))
+			{
+
+				order.size=formData[key];
+			}
+			else{
+				order.size="";
+			}
+			order.category=parseInt(<?php echo $_GET['cat'];?>);
+			order.item=item;
+			if(document.getElementById(item+"-quantity").value!="")
+				order.quantity=document.getElementById(item+"-quantity").value;
+
+			else
+				order.quantity=1;
+			order.price=document.getElementById(array['data']['menu']['<?php echo $_GET['cat'];?>']['items'][item]['name']).innerHTML;
+
+			custom_obj = []
+			//console.log("custom_count"+cust_count)
+			for (i=0; i < cust_count; i++) {
+				key = item + '-custom-' + i
+				if (formData.hasOwnProperty(key)) {
+					if (typeof formData[key] === "string") {
+						custom_obj.push([parseInt(formData[key])])
+					} else {
+						sub_array = []
+						formData[key].forEach(function(item){
+							sub_array.push(parseInt(item))
+						})
+						custom_obj.push(sub_array)
+					}
+				} else {
+					custom_obj.push([])
+				}
+			}
+			// todo, add qty, size
+			order['custom'] = custom_obj
+
+			console.log("order");
+			console.log(order);
+			//making ajax 
+			$.when($.post('removeorder.php',{order:order},function(data){console.log(data);})).then(function(){refreshCart();});
+
+			
+
+		}
 
 		function addCartItem(item, cust_count)
 		{
@@ -716,7 +768,6 @@ else{e.value="no";location.reload();}
 		}
 
 		function fnlRefresh(){
-
 			var itemmname;
 			if(final_order_list!=null){
 				for(i=0;i<final_order_list.length;i++){
@@ -740,16 +791,18 @@ else{e.value="no";location.reload();}
 							custom['Size'][0]=array['data']['menu'][final_order_list[i].category]['items'][final_order_list[i].item].size[final_order_list[i].size].name.toString();
 						else
 							custom['Size'][0]="N/A";
-						custom['Quantity']=final_order_list[i].quantity;
+						custom['Quantity']=[];
+						custom['Quantity'][0]=final_order_list[i].quantity;
 						var itemli=document.createElement('LI');
 						itemli.innerHTML=itemname + ' ' + '('+final_order_list[i].price + ' x ' + final_order_list[i].quantity + ')';
+						itemli.innerHTML+='<a onclick=removeCartItem('+i+')><i class="fa fa-times"></i></a>'
+						itemli.className=i + "-cart-item"
 						var customization=document.createElement('OL');
-
-						console.log(custom);
 						for(strkey in custom)
 						{
 							var li2=document.createElement('LI');
-							li2.innerHTML=strkey;
+							li2.id=i+"-cart-"+strkey
+							li2.innerHTML=strkey
 							var ol2=document.createElement('OL');
 
 							for (k in custom[strkey])
@@ -761,6 +814,7 @@ else{e.value="no";location.reload();}
 								else
 									temp=0;
 								li3.innerHTML=custom[strkey][parseInt(k)];
+								li3.className=i + "-cart-" + strkey
 								ol2.appendChild(li3);
 							}
 							li2.appendChild(ol2);
@@ -770,46 +824,49 @@ else{e.value="no";location.reload();}
 
 						itemli.appendChild(customization);
 						document.getElementById('cartlist').appendChild(itemli);
-
 					}
 				}
 				total=0;
 				if(final_order_list!=null){
-				for (i=0;i<final_order_list.length;i++)
-				{
-					total+=parseInt(final_order_list[i].quantity)*parseInt(final_order_list[i].price.split(" ")[1]);
+					for (i=0;i<final_order_list.length;i++)
+					{
+						total+=parseInt(final_order_list[i].quantity)*parseInt(final_order_list[i].price.split(" ")[1]);
+					}
+					addStuff();
 				}
-			}
 				//updating total price in mycheck
 				document.getElementById('price-total').innerHTML='₹ '+total;
 			}
 
-					function removeFromCart(item)
-					{
-						alert(item);
-					}
+			function removeFromCart(item)
+			{
+				alert(item);
+			}
 
-					function createItemList()
+			function createItemList()
+			{
+				var options;
+				for (i=0;i<cartitems.length;i++)
+				{
+					options=document.getElementById(cartitems[i].name+":"+"options").getElementsByTag('input');
+					for(j=0;j<options.length;j++)
 					{
-						var options;
-						for (i=0;i<cartitems.length;i++)
-						{
-							options=document.getElementById(cartitems[i].name+":"+"options").getElementsByTag('input');
-							for(j=0;j<options.length;j++)
-							{
-								if(options[j].checked){
-									alert(options[j].id);
-								}
-							}
-
+						if(options[j].checked){
+							alert(options[j].id);
 						}
 					}
-					
+
+				}
+			}
 
 
-
+//for removing item from cart
+function removeCartItem(item){
+		
+	final_order_list.splice(item,1)
+	$.when($.post('update_session.php',{final_order_list:final_order_list},function(data){console.log(data);})).then(function(){refreshCart();});
+}
 //for order history
-
 $(function() {
     $('#activator').click(function(){
     	 $('#overlay').fadeIn('fast',function(){
@@ -880,6 +937,17 @@ $(function() {
     });
 
 });
+
+function addStuff()
+{
+	for (item in final_order_list)
+	{
+		$('.' + parseInt(item) + '-cart-Quantity').append('<br><input type="button" onclick="increment('+item+')" value="+">');
+		$('.' + parseInt(item) + '-cart-Quantity').append('<input type="button" onclick="decrement('+item+')" value="-">');
+		//console.log($('.' + parseInt(item) + '-cart-item').append('aa'))
+	}
+}
+
 $(document).ready(function(){
 	t="<?php if(isset($_SESSION['uname']))
 	echo $_SESSION['uname'];
@@ -893,6 +961,8 @@ $(document).ready(function(){
 	$('#choose').addClass("active");
 	$('#toast').html("Menu Card");
 });
+
+
 
 
 

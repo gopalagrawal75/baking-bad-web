@@ -207,19 +207,23 @@ $charges=json_decode($result,true);
 	
 	var address=<?php echo json_encode($address);?>;
 	$(document).ready(function(){
-		if(email=="NA")
-		{
-			$('#checkout-submit').prop('disabled',true);
-			$('#login-prompt').toggle();
-		}
-		else
-		{ 
+		
 			$('#checkout-submit').prop('disabled',false);
 			$('#login-prompt').prop('disabled',true);
-			$('#login-row').toggle();
-			$('#default-row').toggle();
-			$('#email').val(email);
-		}
+			if(email!="NA")
+			{
+			$('#login-row').show();
+			$('#default-row').hide();
+			}
+			else
+			{
+			$('#login-row').hide();
+			$('#default-row').show();
+			}
+			
+			if(email!="NA")
+				$('#email').val(email);
+		
 			$('#checkout').addClass('active');
 			$('#toast').html("Checkout");
 			showAddress();
