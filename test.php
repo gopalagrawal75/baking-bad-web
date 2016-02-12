@@ -10,8 +10,6 @@ if($_POST)
 				$name=$_POST['billing-first-name'].' '.$_POST['billing-last-name'];
 				$email=$_POST['email'];
 				$phone=$_POST['phone'];
-				if(!isset($_POST['billing-address-2']))
-					$_POST['billing-address-2']=" ";
 				$address=$_POST['billing-address-1'].' '.$_POST['billing-address-2'].'Delhi - '.$_POST['postcode'];
 				$area=$_POST['areas'];
 				$vendor_id=1;
