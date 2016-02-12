@@ -795,7 +795,7 @@ else{e.value="no";location.reload();}
 						custom['Quantity'][0]=final_order_list[i].quantity;
 						var itemli=document.createElement('LI');
 						itemli.innerHTML=itemname + ' ' + '('+final_order_list[i].price + ' x ' + final_order_list[i].quantity + ')';
-						itemli.innerHTML+='<a onclick=removeCartItem('+i+')><i class="fa fa-times"></i></a>'
+						itemli.innerHTML+='<a onclick=removeCartItem('+i+')><i class="fa fa-times" style="float: right;margin-top: 3px;"></i></a>'
 						itemli.className=i + "-cart-item"
 						var customization=document.createElement('OL');
 						for(strkey in custom)
@@ -942,8 +942,8 @@ function addStuff()
 {
 	for (item in final_order_list)
 	{
-		$('.' + parseInt(item) + '-cart-Quantity').append('<br><input type="button" onclick="increment('+item+')" value="+">');
-		$('.' + parseInt(item) + '-cart-Quantity').append('<input type="button" onclick="decrement('+item+')" value="-">');
+		$('.' + parseInt(item) + '-cart-Quantity').append('<br><a href="#" onclick="increment('+item+')" style="background: #ccc;padding: 2px 5px;border-radius: 50%;"><i class="fa fa-plus" style="color: #666;"></i></a>');
+		$('.' + parseInt(item) + '-cart-Quantity').append('<a href="#" onclick="decrement('+item+')" style="background: #ccc;padding: 2px 5px;border-radius: 50%;"><i class="fa fa-minus" style="color: #666;"></i></a>');
 		//console.log($('.' + parseInt(item) + '-cart-item').append('aa'))
 	}
 }

@@ -266,7 +266,7 @@ $_SESSION['menu']=$array;
 		t="<?php if(isset($_SESSION['uname']))
 							echo $_SESSION['uname'];
 						else
-							echo NA;
+							echo "NA";
 						?>";
 					if(t!="NA"){
 							$('#login-row').toggle();

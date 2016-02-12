@@ -204,7 +204,7 @@ function populateCart()
 		var a=document.createElement('A');
 		a.className="remove";a.title="Remove this item";
 		a.id=order[i].item+"-remove";a.setAttribute('onclick','removeItem('+order[i].item+');');
-		a.innerHTML="x";
+		a.innerHTML="<i class='fa fa-times'></i>";
 		td_remove.appendChild(a);
 		tr.appendChild(td_remove);//fist data item complete and appended to row
 		//Creating second data item
@@ -323,7 +323,7 @@ $(document).ready(function(){
 		t="<?php if(isset($_SESSION['uname']))
 							echo $_SESSION['uname'];
 						else
-							echo NA;
+							echo "NA";
 						?>";
 					if(t!="NA"){
 							$('#login-row').toggle();
