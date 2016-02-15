@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/owl.theme.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <!--[if IE 9]>
 	<script src="js/media.match.min.js"></script>
   <![endif]-->
@@ -40,39 +40,30 @@
               <div class="contact-details">
                 <h4>Contact Details</h4>
                 <div class="row">
-                  <div class="col-md-6 col-sm-6">
-                    <h5>Rome HQ</h5>
+                  <div class="col-md-12 col-sm-12">
+                    <h5>Reach Us Here:</h5>
                     <div class="address clearfix">
                       <p><i class="fa fa-map-marker"></i>
                       </p>
-                      <p>Viale della Moschea,85<br>00197 Roma<br>Italy</p>
+                      <p>Greater Kailash (GK) 1,<br>New Delhi</p>
                     </div>
                     <div class="time-to-open clearfix">
                       <p><i class="fa fa-clock-o"></i>
                       </p>
                       <p>
-                        <strong>Monday - Friday:</strong>9am - 11pm<br>
-                        <strong>Saturday:</strong>10am - till last customer<br>
-                        <strong>Sunday:</strong>10am - till last customer</p>
-                    </div>
-                  </div>
-                  <!-- end .grid-layout -->
-                  <div class="col-md-6 col-sm-6">
-                    <h5>Zurich HQ</h5>
-                    <div class="address clearfix">
-                      <p><i class="fa fa-map-marker"></i>
+                        <strong>Monday - Sunday:</strong>7 PM to 4 AM<br>
                       </p>
-                      <p>Viale della Moschea, 85<br>00197 Roma<br>Italy</p>
                     </div>
                     <div class="time-to-open clearfix">
-                      <p><i class="fa fa-clock-o"></i>
+                      <p><i class="fa fa-subway"></i>
                       </p>
                       <p>
-                        <strong>Monday - Friday:</strong>9am - 11pm<br>
-                        <strong>Saturday:</strong>10am - till last customer<br>
-                        <strong>Sunday:</strong>10am - till last customer</p>
+                        <strong>Nearest Metro:</strong>1.6 km(Kailash Colony), 1.9 km(Nehru Place)
+                      </p>
                     </div>
                   </div>
+
+
                   <!-- end .grid-layout -->
                 </div>
                 <!-- end nasted .row -->
@@ -115,70 +106,11 @@
 
     <!--footer start-->
     <footer id="footer">
-      <div class="container">
-        <div class="main-footer">
-          <div class="row">
-            <div class="col-sm-6 col-md-3">
-              <img src="img/header-logo.png" alt="">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed.
-              </p>
-            </div>
 
-            <div class="col-sm-6 col-md-3">
-              <h5>Quick Links</h5>
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="footer-links padd">
-                    <li><a href="#">Home</a>
-                    </li>
-                    <li><a href="#">Menu Card</a>
-                    </li>
-                    <li><a href="#">reservation</a>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div class="col-md-6">
-                  <ul class="footer-links">
-                    <li><a href="#">about us</a>
-                    </li>
-                    <li><a href="#">news & events</a>
-                    </li>
-                    <li><a href="#">contact us</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-6 col-md-3">
-              <h5>Latest Tweets
-                <span><i class="fa fa-chevron-left"></i>  <i class="fa fa-chevron-right"></i>
-                </span>
-              </h5>
-
-              <p><a href="#">takeaway:</a> Take a (Photo) Tour of #Envato's #Melbourne Headquarters (...)<br>
-                <span>7 hours ago</span>
-              </p>
-            </div>
-
-            <div class="col-sm-6 col-md-3">
-              <h5>Newsletter</h5>
-              <p>Sign up for our newsletter!</p>
-              <div class="footer-subscribe">
-                <form>
-                  <input type="Email" placeholder="Email address...">
-                  <button type="submit" value=""><i class="fa fa-plus-circle-o"></i></button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="footer-copyright">
         <div class="container">
-          <p>Copyright 2014 © TakeAway. All rights reserved. Powered by <a href="#">UOUapps</a>.</p>
+          <p>Copyright 2016 © Baking Bad. All rights reserved.</p>
           <ul class="footer-social">
             <li><a href="#"><i class="fa fa-facebook-square"></i></a>
             </li>

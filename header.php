@@ -52,9 +52,9 @@
 						</div>
 						<div class="col-md-7 col-sm-12 col-xs-12">
 							<p class="call-us">
-								Call Us: <a class="font" href="#">+1123 4567</a>
-								<span class="open-now"><i class="fa fa-check-square"></i>We are open now(9am-10pm)</span>
-								<span class="close-now"><i class="fa fa-square"></i>We are close now(10pm-9am)</span>
+								Call Us: <a class="font" href="#">+011 49052050/49052060</a>
+								<span class="open-now"><i class="fa fa-check-square"></i>We are open now(7pm-4am)</span>
+								<span class="close-now"><i class="fa fa-square"></i>We are close now(4am-7pm)</span>
 							</p>
 						</div>
 					</div><!--end row-->

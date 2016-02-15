@@ -1186,7 +1186,7 @@ $(document).ready(function(){
 
 
 	$('#map_canvas').gmap({'scrollwheel':false }).bind('init', function(ev, map) {
-		$('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
+		$('#map_canvas').gmap('addMarker', {'position': '28.5486538088,77.2422726452', 'bounds': true}).click(function() {
 			$('#map_canvas').gmap('openInfoWindow', {'content': 'TakeAway'}, this);
 		});
 		$('#map_canvas').gmap('option', 'zoom', 14);
