@@ -52,31 +52,27 @@ $_SESSION['menu']=$array;
 		<div id="page-content">
 			<!-- masterslider -->
 			<div class="master-slider ms-skin-black-2 round-skin" id="masterslider">
-				<div class="ms-container">
-					<div class="ms-view ms-flow-view ms-grabbing-cursor">
-						<!-- new slide -->
-					<div class="ms-slide">
-						<!-- slide background -->
-						<div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
-						<img src="img/content/slider_1.jpg"alt="">
-						</div>
-						<!-- slide text layer -->
-						<div class="ms-slide-layers">
-							<div class="ms-layer ms-caption">
-								<h1 class="text-right">
-									<span>Hungry?!</span>
-									<br>Good, we are here
-									<br>to
-									<span class="bold">serve</span>you
-								</h1>
-							</div>
-						</div>
-					</div>
-					<!-- end of slide -->
 				<!-- new slide -->
 				<div class="ms-slide">
 					<!-- slide background -->
-					<img src="js/masterslider/blank.gif" data-src="img/content/home-slide-1.jpg" alt="">
+					<img src="js/masterslider/blank.gif" data-src="img/content/slider_1.jpg" alt="">
+					<!-- slide text layer -->
+					<div class="ms-layer ms-caption" style="">
+						<h1 class="text-right">
+							<span>Hungry?!</span>
+							<br>Good, we are here
+							<br>to
+							<span class="bold">serve</span>you
+						</h1>
+						<a href="#" class="btn btn-default"><i class="fa fa-file-text-o"></i>Read  More</a>
+					</div>
+
+				</div>
+				<!-- end of slide -->
+				<!-- new slide -->
+				<div class="ms-slide">
+					<!-- slide background -->
+					<img src="js/masterslider/blank.gif" data-src="img/content/slider_1.jpg" alt="">
 					<!-- slide text layer -->
 					<div class="ms-layer ms-caption" style="">
 						<h1 class="text-right">
@@ -92,7 +88,7 @@ $_SESSION['menu']=$array;
 				<!-- new slide -->
 				<div class="ms-slide">
 					<!-- slide background -->
-					<img src="js/masterslider/blank.gif" data-src="img/content/home-slide-1.jpg" alt="">
+					<img src="js/masterslider/blank.gif" data-src="img/content/slider_1.jpg" alt="">
 					<!-- slide text layer -->
 					<div class="ms-layer ms-caption" style="">
 						<h1>
@@ -105,7 +101,6 @@ $_SESSION['menu']=$array;
 				</div>
 				<!-- end of slide -->
 			</div>
-			</div></div>
 			<!-- end of masterslider -->
 
 			<!-- purchase TakeAway section start -->
