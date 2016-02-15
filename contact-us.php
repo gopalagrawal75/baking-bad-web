@@ -1,3 +1,10 @@
+
+<?php
+error_reporting(E_ALL);
+session_start();
+$array=$_SESSION['menu'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
